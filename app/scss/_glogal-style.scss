@@ -1,27 +1,24 @@
-$YELLOW: #FF9900;
-$BLACK :#333333;
-$GRAY: #ECECEC;
-$DARK-GRAY: #D2D2D2;
-$WHITE: white;
-$FOOTER: #222222;
-$WHITE-GRAY: #CACACA;
-$SVG-COLOR: #7C7C7C;
-$DARK-GRAY2: #414141;
-$DARK-GRAY3: #595959;;
+$BLACK :#000000;
+$BLACK-COLOR: #333333;
+$GRAY: #666666;
+$WHITE: #FFFFFF;
+$LIGHT-WHITE: #ECECEC;
+$PURPLE: #9D5CD0;
 
-$paddingXContainer1920: 75px;
+
+$paddingXContainer1920: 160px;
 $paddingXContainer768: 50px;
 $paddingXContainer320: 15px;
 
 .container{
     margin: 0 auto;
 
-    @media (min-width: 1920px) {
+    @media (min-width: 1400px) {
         max-width: 1920px;
         padding: 0 $paddingXContainer1920;
     }
 
-    @media (min-width: 768px) and (max-width: 1919px) {
+    @media (min-width: 768px) and (max-width: 1399px) {
         padding: 0 $paddingXContainer768;
     }
 
@@ -32,21 +29,49 @@ $paddingXContainer320: 15px;
 
 @mixin title {
     font-weight: 400;
-    color: $BLACK;
     
-    @include px1024{
+    @include px768{
         font-size: 48px;
-        letter-spacing: 2.2px;
-    }
-
-    @include px768-1023{
-        font-size: 47px;
-        letter-spacing: 2.3px;
+        line-height: 65px;
     }
 
     @include px767 {
+        font-size: 28px;
+        line-height: 38px;
+    }
+}
+
+@mixin mini-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+}
+
+@mixin mini-title2 {
+    font-weight: 600;
+
+    @include px768{
         font-size: 24px;
-        line-height: 29px;
+        line-height: 32px;
+    }
+
+    @include px767 {
+        font-size: 18px;
+        line-height: 32px;
+    }
+}
+
+@mixin text {
+    font-weight: 400;
+    
+    @include px768{
+        font-size: 16px;
+        line-height: 32px;
+    }
+
+    @include px767 {
+        font-size: 16px;
+        line-height: 32px;
     }
 }
 
