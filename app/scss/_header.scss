@@ -1,0 +1,270 @@
+.header {
+    background-color: $BLACK;
+    position: relative;
+    z-index: 11;
+}
+
+.header-nav-block {
+    &__container {
+        display: flex;
+        height: 100px;
+        align-items: center;
+    }
+
+    &__logo {
+        display: block;
+        position: relative;
+        width: 13%;
+        margin-right: 12%;
+
+        height: 50px;
+
+        &::before{
+            content: '';
+            width: 175px;
+            height: 50%;
+            display: block;
+
+            position: absolute;
+            top: 10%;
+
+            background-image: url('../img/svg/logo/blanchard.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: top left;
+        }
+
+        &::after{
+            content: '';
+            width: 175px;
+            height: 50%;
+            display: block;
+            
+            position: absolute;
+            bottom: 10%;
+
+            background-image: url('../img/svg/logo/gallery.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: bottom left;
+        }
+    }
+
+    &__open-nav {
+        @include px1400{
+            display: none;
+        }
+
+        @include px1399{
+            background-color: transparent;
+            outline: none;
+            border:none;
+
+            width: 30px;
+            height: 30px;
+
+            cursor: pointer;
+
+            &_is-open{
+                background-image: url('../img/svg/burger.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+
+            &_is-close{
+                position: relative;
+
+                &::after,
+                &::before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 70%;
+                    height: 2px;
+                    background-color: black;
+                }
+
+                &::after{
+                    transform: translate(-50%) rotate(45deg);
+                }
+
+                &::before{
+                    transform: translate(-50%) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    &__nav-block {
+        @include px1400{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        @include px1399{
+            display: none;
+        }
+    }
+
+    &__nav {
+        @include px1400{
+            margin-right: 280px;
+        }
+
+        @include px1399{
+            
+        }
+    }
+
+    &__nav-list {
+        display: flex;
+    }
+
+    &__nav-item {
+        @include px1400{
+            &:not(:last-child){
+                margin-right: 12%;
+            }
+        }
+
+        @include px1399{
+            
+        }
+    }
+
+    &__nav-link {
+        font-weight: 600;
+        line-height: 25px;
+        letter-spacing: 1.1px;
+
+        color: $WHITE;
+        white-space: nowrap;
+    }
+
+    &__btn-login {
+        position: relative;
+
+        width: 85px;
+
+        outline: none;
+        border: none;
+
+        background-color: transparent;
+        cursor: pointer;
+
+        &::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            transform: translateY(-50%);
+
+            height: 80%;
+            width: 40px;
+
+            background-image: url('../img/svg/go-in.svg');
+            background-position: center;
+            background-repeat:no-repeat;
+            background-size:contain;
+        }
+
+        &::after{
+            content: 'Войти';
+
+            @include text;
+            color: $WHITE;
+            line-height: 24.51px;
+
+            position: absolute;
+            top: 50%;
+            right: 0;
+
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.header-search-block {
+    position: absolute;
+    z-index: 100;
+
+    @include px1400{
+        background: rgba(0, 0, 0, 0.4);
+        right: 0;
+        left: 0;
+        padding: 7.5px 0;
+    }
+
+    @include px1399{
+        top: 0;
+        right: 0;
+    }
+
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__drop-list{
+        @include px1400{
+            display: flex;
+            margin-left: -13px;
+        }
+    
+        @include px1399{
+            display: none;
+        }
+    }
+
+    &__drop-item{
+        &:not(:last-child){
+            margin-right: 10.5%;
+        }
+    }
+
+    &__search-block {
+        width: 15.6%;
+        position: relative;
+        display: flex;
+    }
+
+    &__search-btn {
+        border: none;
+        outline: none;
+
+        width: 24px;
+        height: 24px;
+
+        background-color: transparent;
+        background-image: url('../img/svg/search.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:contain;
+    }
+
+    &__search-inpyt {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        padding-bottom: 2px;
+        padding-left: 5px;
+        border-bottom: 1px solid $WHITE;
+
+        &::placeholder{
+            color: $WHITE;
+            letter-spacing: 1.3px;
+        }
+    }
+}
+
+.open-list-header{
+    display: block !important;
+}

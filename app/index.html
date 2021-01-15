@@ -9,6 +9,278 @@
     <title>Blanchard — художественная галерея</title>
 </head>
 <body>
+    <header class="header">
+        <div class="header-nav-block">
+            <div class="container header-nav-block__container">
+                <button 
+                    id="js-btn-nav" 
+                    class="header-nav-block__open-nav header-nav-block__open-nav_is-open" 
+                    aria-label="открыть меню" 
+                    aria-controls="js-nav" 
+                    aria-expanded="false">
+                </button>
+                
+                <a href="#test" class="header-nav-block__logo"></a>
+
+                <div id="js-nav" aria-labelledby="js-btn-nav" class="header-nav-block__nav-block">
+                    <nav class="header-nav-block__nav">
+                        <ul class="header-nav-block__nav-list">
+                            <li class="header-nav-block__nav-item">
+                                <a href="#" class="header-nav-block__nav-link">
+                                    О нас
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#" class="header-nav-block__nav-link">
+                                    Галерея
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#" class="header-nav-block__nav-link">
+                                    Каталог
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#" class="header-nav-block__nav-link">
+                                    События
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#" class="header-nav-block__nav-link">
+                                    Издания
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#" class="header-nav-block__nav-link">
+                                    Проекты
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#" class="header-nav-block__nav-link">
+                                    Контакты
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <button  class="header-nav-block__btn-login"></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="test" class="header-search-block">
+            <div class="container header-search-block__container">
+                <ul id="header-select" class="header-search-block__drop-list">
+                    <li class="header-search-block__drop-item">
+                        <select id="js-select-1" class="cs-select cs-skin-rotate">
+                            <option value="1">Реализм</option>
+                            <option value="2">Велоцираптор</option>
+                            <option value="3">Спинозавр</option>
+                            <option value="4">Археоптерикс</option>
+                            <option value="5">Апатозавр</option>
+                        </select>
+                    </li>
+
+                    <li class="header-search-block__drop-item">
+                        <select id="js-select-2" class="cs-select cs-skin-rotate">
+                            <option value="1">Импрессионизм</option>
+                            <option value="2">Велоцираптор</option>
+                            <option value="3">Спинозавр</option>
+                            <option value="4">Археоптерикс</option>
+                            <option value="5">Апатозавр</option>
+                        </select>
+                    </li>
+
+                    <li class="header-search-block__drop-item">
+                        <select id="js-select-3" class="cs-select cs-skin-rotate">
+                            <option value="1">Постимпрессионизм</option>
+                            <option value="2">Велоцираптор</option>
+                            <option value="3">Спинозавр</option>
+                            <option value="4">Археоптерикс</option>
+                            <option value="5">Апатозавр</option>
+                        </select>
+                    </li>
+
+                    <li class="header-search-block__drop-item">
+                        <select id="js-select-4" class="cs-select cs-skin-rotate">
+                            <option value="1">Авангард</option>
+                            <option value="2">Велоцираптор</option>
+                            <option value="3">Спинозавр</option>
+                            <option value="4">Археоптерикс</option>
+                            <option value="5">Апатозавр</option>
+                        </select>
+                    </li>
+
+                    <li class="header-search-block__drop-item">
+                        <select id="js-select-5" class="cs-select cs-skin-rotate">
+                            <option value="1">Футуризм</option>
+                            <option value="2">Велоцираптор</option>
+                            <option value="3">Спинозавр</option>
+                            <option value="4">Археоптерикс</option>
+                            <option value="5">Апатозавр</option>
+                        </select>
+                    </li>
+                </ul>
+
+                <form action="#" class="header-search-block__search-block">
+                    <button type="submit" aria-label="search" class="header-search-block__search-btn"></button>
+    
+                    <input type="text" class="header-search-block__search-inpyt" placeholder="Поиск по сайту">
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero-block">
+            <div id="js-swiper-hero" class="swiper-container">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <picture>
+                            <source type="image/webp" srcset="img/img/hero-block/hero-block-1.webp">
+                            <img src="img/img/hero-block/hero-block-1.jpg" alt="картинка 1" class="hero-block__img-slider">
+                        </picture>
+                    </li>
+                    <li class="swiper-slide">
+                        <picture>
+                            <source type="image/webp" srcset="img/img/hero-block/hero-block-2.webp">
+                            <img src="img/img/hero-block/hero-block-2.jpg" alt="картинка 2" class="hero-block__img-slider">
+                        </picture>
+                    </li>
+                    <li class="swiper-slide">
+                        <picture>
+                            <source type="image/webp" srcset="img/img/hero-block/hero-block-3.webp">
+                            <img src="img/img/hero-block/hero-block-3.jpg" alt="картинка 3" class="hero-block__img-slider">
+                        </picture>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="container hero-block__container">
+                <h1 class="hero-block__title">
+                    Прикоснитесь к&nbsp;прекрасному
+                </h1>
+
+                <p class="hero-block__subtitle">
+                    Мы&nbsp;вынуждены отталкиваться от&nbsp;того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.
+                </p>
+
+                <a href="#" class="hero-block__link">
+                    Подписаться на рассылку
+                </a>
+            </div>
+        </section>
+
+        <section class="about-us">
+            <div class="container">
+                <h2 class="about-us__title">
+                    О нас
+                </h2>
+
+                <p class="about-us__subtitle">
+                    Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов. Не следует, однако, забывать, что высококачественный прототип будущего проекта влечет за собой процесс внедрения и модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса распределения внутренних резервов и ресурсов. В рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть разоблачены.
+                </p>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="container gallery__container">
+                <div class="gallery__title-block">
+                    <h2 class="gallery__title">
+                        Галерея
+                    </h2>
+
+                    <div class="gallery__sort-block">
+                        <h3 class="gallery__sort-title">
+                            Фильтровать по:
+                        </h3>
+
+                        <select id="js-gallery-select-1" class="cs-select cs-skin-elastic gallery__select">
+                            <option value="" disabled selected>Автор</option>
+                            <option value="Van Gogh" data-class="Van Gogh">Ван Гог</option>
+                            <option value="not Van Gogh 1" data-class="not Van Gogh 1">не Ван Гог 1</option>
+                            <option value="not Van Gogh 2" data-class="not Van Gogh 2">не Ван Гог 2</option>
+                            <option value="not Van Gogh 3" data-class="not Van Gogh 3">не Ван Гог 3</option>
+                        </select>
+
+                        <select id="js-gallery-select-2" class="cs-select cs-skin-elastic">
+                            <option value="" disabled selected>Направление</option>
+                            <option value="impressionism" data-class="impressionism">импрессионизм</option>
+                            <option value="not impressionism 1" data-class="not impressionism 1">не импрессионизм 1</option>
+                            <option value="not impressionism 2" data-class="not impressionism 2">не импрессионизм 2</option>
+                            <option value="not impressionism 3" data-class="not impressionism 3">не импрессионизм 3</option>
+                        </select>
+
+                        <select id="js-gallery-select-3" class="cs-select cs-skin-elastic">
+                            <option value="" disabled selected>Техника</option>
+                            <option value="ipasto" data-class="ipasto">ипасто</option>
+                            <option value="not ipasto 1" data-class="not ipasto 1">не ипасто 1</option>
+                            <option value="not ipasto 2" data-class="not ipasto 2">не ипасто 2</option>
+                            <option value="not ipasto 3" data-class="not ipasto 3">не ипасто 3</option>
+                        </select>
+                    </div>
+
+                    <p class="gallery__info-text">
+                        Вам предоставляется 10&nbsp;бесплатных скачиваний. Для увеличения количества скачиваний 
+                        <a href="#" class="gallery__info-text_link">
+                            авторизуйтесь,
+                        </a>
+                        либо воспользуйтесь лицензией.
+                    </p>
+                </div>
+
+                <div class="gallery__slider">
+                    <div id="js-gallery-slider" class="swiper-container gallery__slider-container">
+                        <div class="gallery__swiper-contrlo-panel">
+                            <div class="gallery__swiper-button-prev"></div>
+                            <div class="gallery__swiper-fraction"></div>
+                            <div class="gallery__swiper-button-next"></div>
+                        </div>
+
+                        <ul id="js-gallery-track" class="swiper-wrapper"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog">
+            <div class="container">
+                <div class="catalog__main-block">
+                    <h2 class="catalog__title">
+                        Каталог
+                    </h2>
+    
+                    <ul class="catalog__flags-list">
+                        <li class="catalog__flags-item">
+                            <a href="#france" class="catalog__flags-link catalog__flags-link_is-active" aria-label="Просмотреть каталог франции"></a>
+                        </li>
+                        <li class="catalog__flags-item">
+                            <a href="#germany" class="catalog__flags-link" aria-label="Просмотреть каталог германии"></a>
+                        </li>
+                        <li class="catalog__flags-item">
+                            <a href="#italy" class="catalog__flags-link" aria-label="Просмотреть каталог италии"></a>
+                        </li>
+                        <li class="catalog__flags-item">
+                            <a href="#russia" class="catalog__flags-link" aria-label="Просмотреть каталог россии"></a>
+                        </li>
+                        <li class="catalog__flags-item">
+                            <a href="#belgium" class="catalog__flags-link" aria-label="Просмотреть каталог бельгии"></a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <p class="catalog__subtitle">
+                    Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы. 
+                </p>
+                
+                <div id="js-catalog-full-info" class="catalog__person-block">
+                    <div id="js-catalog-individual-block" class="catalog__individual-block"></div>
+    
+                    <ul id="js-catalog-data-list" class="catalog__data-list"></ul>
+                </div>
+            </div>
+        </section>
+    </main>
     
     <script src="js/all.js"></script>
 </body>

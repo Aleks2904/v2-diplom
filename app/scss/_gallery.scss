@@ -1,0 +1,127 @@
+.gallery {
+    
+    &__container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title-block {
+        width: 20%;
+    }
+
+    &__title {
+        @include title;
+        color: $WHITE;
+    }
+
+    &__sort-block{
+        margin-bottom: 100%;
+    }
+
+    &__sort-title{
+        @include text;
+        color: $WHITE;
+    }
+
+    &__info-text {
+        @include text;
+        color: $WHITE;
+
+
+        &_link {
+            color: $PURPLE;
+        }
+    }
+
+    &__slider {
+        width: 80%;
+        max-width: 1150px;
+        height: 750px;
+    }
+
+    &__slider-container{
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__slider-slids{
+        text-align: center;
+        height: calc((100% - 50px) / 2);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__img{
+
+    }
+
+    &__swiper-contrlo-panel{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 15%;
+
+    }
+
+    &__swiper-button-prev,
+    &__swiper-button-next{
+        width: 30px;
+        height: 30px;
+
+        border-radius: 100%;
+        background-color: $GRAY;
+
+        position: relative;
+        display: inline-block;
+
+        cursor: pointer;
+        outline: none;
+
+        &::before{
+            content: '';
+            display: block;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            width: 45%;
+            height: 45%;
+
+            background-image: url('../img/svg/swiper-row.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    }
+
+    &__swiper-button-prev{
+        &::before{
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__swiper-button-next{
+        &::before{
+            transform: translate(-50%, -50%) rotate(180deg);
+        }
+    }
+
+    &__swiper-fraction{
+        @include text;
+        color: $WHITE;
+        display: inline-block;
+        width: 33%;
+    }
+}
+
+.bg-gallery-webp{
+    background: url('../img/img/gallery/bg/gallery-bg.webp');
+}
+
+.bg-gallery-img{
+    background: url('../img/img/gallery/bg/gallery-bg.jpg');
+}

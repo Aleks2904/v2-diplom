@@ -20,12 +20,36 @@ var gulp         = require('gulp'), // Подключаем Gulp
     browserSync   = require('browser-sync').create();
 
 const jsFiles = [ 
-    'app/js/webp.js'
+    'node_modules/jquery/dist/jquery.min.js',
+    'app/js/webp.js',
+    //libs
+    'node_modules/swiper/swiper-bundle.min.js',
+    'node_modules/choices.js/public/assets/scripts/choices.min.js',
+    //header
+    'app/js/header-select.js',
+    'app/js/select-header.js',
+    'app/js/btn-menu.js',
+    //hero-block
+
+    //gallery
+    'app/js/gallerey-img.js',
+    'app/js/gallerey-select.js',
+
+    //catalog
+    'app/js/catalog.js',
+    'app/js/catalog-list.js',
+
+    //swiper
+    'app/js/swiper.js',
+
+
 ]
 
 const cssFiles = [
     'app/css/libs/normalize.css',
     'app/css/fonts.css',
+    'node_modules/choices.js/public/assets/styles/choices.min.css',
+    'node_modules/swiper/swiper-bundle.min.css',
     'app/scss/main.scss'
 ]
 
@@ -78,7 +102,7 @@ function svgSp() {
             pretty: true
         }
     }))
-/*
+
     .pipe(cheerio({
         run: function($) {
            $('[fill]').removeAttr('fill'); 
@@ -89,7 +113,7 @@ function svgSp() {
     }))
 
     .pipe(replace('&gt;', '>'))
-*/    
+   
     .pipe(svgSprite({
         mode:{
             symbol: {
@@ -152,5 +176,5 @@ gulp.task('styles', styles);
 gulp.task('img', img);
 gulp.task('watch', watch);
 
-gulp.task('default', gulp.series(clean, gulp.parallel(styles, scripts, svgSp, 'svg'), 'watch'));
+gulp.task('default', gulp.series(clean, gulp.parallel(styles, scripts, 'svg'), 'watch'));
 gulp.task('build', gulp.series(clean, img, styles, scripts, svgSp, 'svg', 'prebuild'));

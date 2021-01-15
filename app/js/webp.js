@@ -7,32 +7,14 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     const result = supportWebp();
 
-    //block about-us
-    const aboutUs = document.querySelector('.about-us__info-baner');
+    //block gallery
+    const gallery = document.querySelector('.gallery');
 
     if(result == true){
-        aboutUs.classList.add('about-us__info-baner-img-webp');
+        gallery.classList.add('bg-gallery-webp');
     }else{
-        aboutUs.classList.add('about-us__info-baner-img');
+        gallery.classList.add('bg-gallery-img');
     };
 
     //block working
-
-    const slideList = document.querySelector('#js-working-slide-list').children;
-
-    for(let i = 0; i < slideList.length; i++){
-        const id = slideList[i].id;
-
-        const item = document.querySelector(`#${id}`),
-              imgContainer = item.querySelector('.working__info-img');
-        let img;
-
-        if(result == true){
-            img = `img/block-working/${id}.webp`
-        }else{
-            img = `img/block-working/${id}.jpeg`
-        }
-
-        imgContainer.style.backgroundImage = `url(${img})`;
-    }
 });
