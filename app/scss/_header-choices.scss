@@ -1,27 +1,75 @@
 #header-select .choices{
     padding-right: 0px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+   
+    transition: background-color .3s;
+
+    &:focus{
+        @include focus;
+    }
+
+    &:focus:not(.focus-visible ) {
+        border-color: transparent;
+    }
+
+    &:active{
+        background-color: black;
+        transition: background-color .3s;
+    }
+
+    &:active .choices__inner .choices__list--single .choices__item{
+        @include active;
+    }
+
+    &:active::after{
+        background-image:inline-svg("arrow", $ACTIV-COLOR );
+        transition: background-image 0.3s;
+    }
 
     &::after{
-        content: '';
-        width: 13px;
-        height: 13px;
-        position: absolute;
-        top: 55%;
-        right: 8px;
-        transform: translateY(-50%);
-        background-image: url('../img/svg/row.svg');
-        background-size:contain;
-        background-position:center;
-        background-repeat:no-repeat;
-        background-color: transparent;
-        border: none;
-
-        pointer-events: none;
+        content: none;
     }
 
     &__inner{
         background-color: transparent;
         border: none;
+
+        transition: background-color .3s;
+
+        &::after{
+            content: '';
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 50%;
+            right:10px;
+            transform: translateY(-25%) rotate(90deg);
+            background-image:inline-svg("arrow", $WHITE );
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            background-color: transparent;
+            border: none;
+    
+            pointer-events: none;
+    
+            transition: background-image 0.3s;
+        }
+
+        &:hover{
+            background-color: black;
+            transition: border-color .3s, background-color .3s;
+        }
+
+        &:hover .choices__item{
+            @include hover;
+        }
+    
+        &:hover::after{
+            background-image:inline-svg("arrow", $HOVER-COLOR );
+            transition: background-image 0.3s;
+        }
     }
 
     &__input{
@@ -43,13 +91,13 @@
     }
 
     &__list--single{
-
+        padding: 2px 18px 2px 4px;
     }
 
     &__list--dropdown{
-        width: 105%;
+        width: 100%;
         background: rgba(0,0,0,.4);
-        margin-top: 7px;
+        margin-top: 9px;
     }
 
     &__item{
@@ -57,6 +105,8 @@
         white-space: nowrap;
         @include text;
         letter-spacing: 1.2px;
+
+        transition: color 0.3s;
 
         &::after{
             content: none;
@@ -72,7 +122,9 @@
     }
 
     &__item--choice{
-
+        display: inline-table;
+        padding-right: 10px;
+        width: 100%;
     }
 
     &__group{
@@ -93,9 +145,9 @@
     width: 100%;
 }
 
-#header-select .is-open::after{
+#header-select .is-open > .choices__inner::after{
     margin-top: 0;
-    transform: translateY(-40%) rotate(180deg);
+    transform: translateY(-35%) rotate(-90deg);
 }
 
 #header-select .is-open > .choices__list--dropdown{

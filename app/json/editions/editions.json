@@ -1,0 +1,58 @@
+[
+    {
+        "jpg": "img/img/editions/editions/img-1.jpg",
+        "webp": "img/img/editions/editions/img-1.webp",
+        "alt": "какая-то картинка",
+        "disc": "Искусство цвета",
+        "author": "Иттен, Иоханнес ",
+        "price": "620 руб"
+    },
+    {
+        "jpg": "img/img/editions/editions/img-2.jpg",
+        "webp": "img/img/editions/editions/img-2.webp",
+        "alt": "какая-то картинка",
+        "disc": "Типографика",
+        "author": "Рудер, Эмиль",
+        "price": "2 450 руб"
+    },
+    {
+        "jpg": "img/img/editions/editions/img-3.jpg",
+        "webp": "img/img/editions/editions/img-3.webp",
+        "alt": "какая-то картинка",
+        "disc": "Книга про буквы",
+        "author": "Гордон, Юрий",
+        "price": "2 200 руб"
+    },
+    {
+        "jpg": "img/img/editions/editions/img-4.jpg",
+        "webp": "img/img/editions/editions/img-4.webp",
+        "alt": "какая-то картинка",
+        "disc": "Николай Ильин",
+        "author": "Кричевский, Владимир",
+        "price": "1 100 руб"
+    },
+    {
+        "jpg": "img/img/editions/editions/img-5.jpg",
+        "webp": "img/img/editions/editions/img-5.webp",
+        "alt": "какая-то картинка",
+        "disc": "Модульные сетки в граф...",
+        "author": "Мюллер-Брокманн, Йозеф ",
+        "price": "1 450 руб"
+    },
+    {
+        "jpg": "img/img/editions/editions/img-6.jpg",
+        "webp": "img/img/editions/editions/img-6.webp",
+        "alt": "какая-то картинка",
+        "disc": "Эволюция графических ст...",
+        "author": "Хеллер, Чваст",
+        "price": "3 200 руб"
+    },
+    {
+        "jpg": "img/img/editions/editions/img-7.jpg",
+        "webp": "img/img/editions/editions/img-7.webp",
+        "alt": "какая-то картинка",
+        "disc": "Искусство и визуальное в...",
+        "author": "Арнхейм, Рудольф",
+        "price": "2 200 руб"
+    }
+]

@@ -1,76 +1,221 @@
 .gallery {
-    
-    &__container{
-        display: flex;
-        justify-content: space-between;
+    @include px1400{
+        padding: 80px 0 79px;
     }
 
-    &__title-block {
-        width: 20%;
+    @include px1024-1399{
+        padding:  80px 0;
+    }
+
+    @include px768-1023{
+        padding: 81px 0 78px;
+    }
+
+    @include px767{
+        padding: 50px 0 41px;
+    }
+    
+    
+    &__container{
+        display: grid;
+
+        @include px1024{
+            grid-template-areas: "title slider"
+                                 "sort slider"
+                                 "txt slider";
+            grid-template-rows: 82px auto 180px;
+            justify-content: space-between;
+        }
+
+        @include px1023{
+            grid-template-areas: "title ."
+                                 "sort ."
+                                 "slider slider"
+                                  "txt txt";  
+            grid-template-rows: auto;
+        }
+
+        @include px1400{
+            grid-template-columns: 25% 72%;
+        }
+
+        @include px1024-1399{
+            grid-template-columns: 30.5% 64.5%;
+        }
+
+        @include px768-1023{
+            grid-template-columns: 42% 1fr;
+        }
+
+        @include px767{
+            grid-template-columns: 1fr 0px;
+        }
+
     }
 
     &__title {
         @include title;
+        grid-area: title;
+
         color: $WHITE;
+
+        margin-left: -3px;
+
+        @include px768-1023{
+            margin-bottom: 16px;
+        }
+
+        @include px767{
+            margin-bottom: 12px;
+        }
     }
 
     &__sort-block{
-        margin-bottom: 100%;
+       grid-area: sort;
+
+       @include px768-1023{
+           margin-bottom: 31px;
+           z-index: 2;
+       }
+
+       @include px767{
+           margin-bottom: 38px;
+       }
     }
 
     &__sort-title{
-        @include text;
+        @include mini-title2;
         color: $WHITE;
+
+        @include px1400{
+            margin-bottom: 8px;
+        }
+
+        @include px768-1399{
+            margin-bottom: 8px;
+        }
+
+        @include px768{
+            letter-spacing: .33px;
+        }
+
+        @include px767{
+            margin-bottom: 5px;
+        }
     }
 
     &__info-text {
         @include text;
+        grid-area: txt;
+
         color: $WHITE;
 
+        margin-top: auto;
+        margin-bottom: -8px;
 
         &_link {
             color: $PURPLE;
+            outline: none;
+            border-bottom: 1px solid transparent;
+
+            transition: color .3s, border-color .3s;
+
+            &:hover{
+                color: $HOVER-COLOR;
+
+                transition: color .3s;
+            }
+
+            &:focus{
+                color: $HOVER-COLOR;
+                border-color: $HOVER-COLOR;
+
+                transition: color .3s, border-color .3s;
+            }
+
+            &:focus:not(.focus-visible) {
+                border-color: transparent;
+            }
+
+            &:active{
+                color: $ACTIV-COLOR;
+                border-color: $ACTIV-COLOR;
+
+                transition: color .3s, border-color .3s;
+            }
+        }
+
+        @include px1400{
+            max-width: 80%;
+        }
+
+        @include px768-1023{
+            margin-top: 29px;
+        }
+
+        @include px767{
+            margin-top: 19px;
         }
     }
 
     &__slider {
-        width: 80%;
+        grid-area: slider;
+
         max-width: 1150px;
-        height: 750px;
+        height: 100%;
+
+        @include px1400{
+            margin-top: 24px;
+        }
+
+        @include px1024-1399{
+            margin-top: 24px;
+        }
+
+        @include px767{
+            position: relative;
+            padding-bottom: 48px;
+        }
+
     }
 
     &__slider-container{
-        height: 100%;
         margin-left: auto;
         margin-right: auto;
-    }
-
-    &__slider-slids{
-        text-align: center;
-        height: calc((100% - 50px) / 2);
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    &__img{
-
     }
 
     &__swiper-contrlo-panel{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 15%;
+        width: 10%;
+        white-space: nowrap;
 
+        @include px1400{
+            margin-left: 3px;
+        }
+
+        @include px768-1399{
+            margin-left: -2px;
+        }
+
+        @include px768{
+            margin-bottom: 30px;
+            min-width: 140px;
+        }
+
+        @include px767{
+            min-width: 130px;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
     }
 
     &__swiper-button-prev,
     &__swiper-button-next{
-        width: 30px;
-        height: 30px;
-
+        border: 2px solid transparent;
         border-radius: 100%;
         background-color: $GRAY;
 
@@ -80,6 +225,39 @@
         cursor: pointer;
         outline: none;
 
+        transition: border-color 0.3s, transform 0.2s;
+
+        @include px768{
+            width: 30px;
+            height: 30px;
+        }
+
+        @include px767{
+            width: 28px;
+            height: 28px;
+        }
+
+        &:hover{
+            background-color: $HOVER-COLOR;
+            transition: background-color 0.3s;
+        }
+
+        &:focus:not(.focus-visible) {
+            border-color: transparent;
+        }
+
+        &:focus{
+            border-color: $ACTIV-COLOR;
+            transition: border-color 0.3s;
+        }
+
+        &:active{
+            border-color: $HOVER-COLOR;
+            background-color: $ACTIV-COLOR;
+            transform: scale(.9);
+            transition: border-color 0.3s, transform 0.3s, background-color 0.3s;
+        }
+
         &::before{
             content: '';
             display: block;
@@ -88,25 +266,27 @@
             top: 50%;
             left: 50%;
 
-            width: 45%;
-            height: 45%;
+            width: 50%;
+            height: 50%;
 
-            background-image: url('../img/svg/swiper-row.svg');
+            background-image:inline-svg("arrow", $WHITE );
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
+
+            transition: background-image 0.3s;
         }
     }
 
     &__swiper-button-prev{
         &::before{
-            transform: translate(-50%, -50%);
+            transform: translate(-60%, -50%) rotate(180deg);
         }
     }
 
     &__swiper-button-next{
         &::before{
-            transform: translate(-50%, -50%) rotate(180deg);
+            transform: translate(-40%, -50%);
         }
     }
 
@@ -115,6 +295,159 @@
         color: $WHITE;
         display: inline-block;
         width: 33%;
+        text-align: center;
+    }
+
+    &__swiper-wrapper{
+        @include px1400{
+            height: 750px;
+        }
+
+        @include px768-1399{
+            height: 594px;
+        }
+    }
+
+    &__slider-item{
+        text-align: center;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include px1400{
+            height: calc((100% - 50px) / 2);
+        }
+
+        @include px768-1399{
+            height: calc((100% - 34px) / 2);
+        }
+
+        
+    }
+
+    &__container-img{
+        outline: none;
+        cursor: pointer;
+        position: relative;
+
+        border: 3px solid transparent;
+
+        transition: border-color .3s;
+
+        &::before,
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+
+            transition: opacity .3s;
+        }
+
+        &::before{
+            width: 75%;
+            height: 75%;
+            background-color: black;
+        }
+
+        &::after{
+            background-image: url('../img/svg/gallery-hover.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            width: 30%;
+            height: 30%;
+        }
+
+        &:hover{
+            &::before{
+                opacity: 0.5;
+                transition: opacity .3s;
+            }
+
+            &::after{
+                opacity: 1;
+                transition: opacity .3s;
+            }
+        }
+
+        &:focus{
+            border-color: $ACTIV-COLOR;
+            transition: outline-color .3s;
+        }
+
+        &:focus:not(.focus-visible){
+            border-color: transparent;
+        }
+
+        &:active{
+            background-color: #D1A9F0;
+
+            &::before{
+                opacity: 0.5;
+                transition: opacity .3s;
+            }
+
+            &::after{
+                opacity: 1;
+                transition: opacity .3s;
+            }
+        }
+
+        &:active .gallery__img{
+            opacity: 0.5;
+            transition: opacity .3s;
+        }
+    }
+
+    &__img{
+        pointer-events: none;
+
+        margin-bottom: -3px;
+        padding-bottom: 0px;
+
+        transition: opacity .3s;
+
+        @include px1024-1399{
+            object-fit: contain;
+            max-width: 280px;
+            max-height: 280px;
+        }
+
+        @include px768-1023{
+            object-fit: cover;
+            max-width: 317px;
+            max-height: 280px;
+        }
+
+        @include px768{
+            width: 100%;
+        }
+
+        @include px767{
+            height: 100%;
+        }
+    }
+}
+
+.gallery .swiper-button-disabled{
+    background-color: rgb(35, 35, 35);
+
+    &:hover,
+    &:focus{
+        border-color: transparent;
+        cursor: default;
+    }
+
+    &:hover::before,
+    &:focus::before{
+        background-image:inline-svg("arrow", $WHITE );
     }
 }
 

@@ -3,9 +3,12 @@ document.addEventListener('DOMContentLoaded', function(){
           selectHeader2 = document.querySelector('#js-select-2'),
           selectHeader3 = document.querySelector('#js-select-3'),
           selectHeader4 = document.querySelector('#js-select-4'),
-          selectHeader5 = document.querySelector('#js-select-5');
+          selectHeader5 = document.querySelector('#js-select-5'),
+          selectGallery1 = document.querySelector('#js-gallery-select-1'),
+          selectGallery2 = document.querySelector('#js-gallery-select-2'),
+          selectGallery3 = document.querySelector('#js-gallery-select-3');
         
-    const setupChoicesHeader = {
+    const setupChoices = {
         searchEnabled: false,
         classNames: {
             containerOuter: 'choices',
@@ -37,10 +40,13 @@ document.addEventListener('DOMContentLoaded', function(){
           }
     };
 
-    const choicesHeader1 = new Choices(selectHeader1, setupChoicesHeader),
-          choicesHeader2 = new Choices(selectHeader2, setupChoicesHeader),
-          choicesHeader3 = new Choices(selectHeader3, setupChoicesHeader),
-          choicesHeader4 = new Choices(selectHeader4, setupChoicesHeader),
-          choicesHeader5 = new Choices(selectHeader5, setupChoicesHeader);
+    const choicesHeader1 = new Choices(selectHeader1, setupChoices),
+          choicesHeader2 = new Choices(selectHeader2, setupChoices),
+          choicesHeader3 = new Choices(selectHeader3, setupChoices),
+          choicesHeader4 = new Choices(selectHeader4, setupChoices),
+          choicesHeader5 = new Choices(selectHeader5, setupChoices),
+          choicesGallery1 = new Choices(selectGallery1, setupChoices),
+          choicesGallery2 = new Choices(selectGallery2, setupChoices),
+          choicesGallery3 = new Choices(selectGallery3, setupChoices);
 
 })

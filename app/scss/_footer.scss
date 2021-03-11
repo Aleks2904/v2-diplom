@@ -1,0 +1,148 @@
+.footer {
+    background-color: black;
+
+    @include px1400{
+        padding: 46px 0;
+    }
+
+    @include px768-1399{
+        padding: 46px 0;
+    }
+
+    @include px767{
+        padding: 20px 0;
+    }
+
+    &__container{
+        display: flex;
+
+        @include px768{
+            justify-content: space-between;
+        }
+
+        @include px767{
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+
+    &__logo {
+        display: block;
+
+        transition: opacity 0.3s;
+
+        @include px1400{
+            position: relative;
+            width: 180px;
+            height: 50px;
+
+            margin-left: -4px;
+            padding: 2px;
+        }
+
+        @include px1399{
+            position: relative;
+            width: 180px;
+            height: 50px;
+
+            margin-left: -3px;
+            padding: 2px;
+        }
+
+
+        @include px767{
+            order: 1;
+            width: 106px;
+            height: 22px;
+
+            margin-top: 17px;
+        }
+
+        &::before,
+        &::after{
+            content: '';
+            display: block;
+            
+            position: absolute;
+
+            background-repeat: no-repeat;
+        }
+
+        &::before{
+            background-image: url('../img/svg/logo/blanchard.svg');
+            background-position: top center;
+
+            width: calc(100% - 4px);
+
+            @include px480{
+                background-size: contain;
+                top: 10%;
+                height: 50%;
+            }
+
+            @include px479{
+                background-size: cover;
+                top: 0%;
+                height: 60%;
+            }
+        }
+
+        &::after{
+            background-image: url('../img/svg/logo/gallery.svg');
+            background-position: bottom center;
+            background-size: contain;
+
+            @include px480{
+                bottom: 10%;
+                height: 50%;
+                width: calc(100.5% - 4px);
+            }
+
+            @include px479{
+                bottom: 0%;
+                height: 40%;
+                width: calc(101% - 4px);
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        
+        @include px767{
+            order: -1;
+            width: 73%;
+            margin: 0 auto;
+            justify-content: space-between;
+        }
+    }
+
+    &__item {
+
+        &:nth-child(1) > a{
+            background-image:inline-svg("vk", $WHITE );
+        }
+
+        &:nth-child(2) > a{
+            background-image:inline-svg("instagram", $WHITE );
+        }
+
+        &:nth-child(3) > a{
+            background-image:inline-svg("fb", $WHITE );
+        }
+
+        &:not(:last-child){
+            margin-right: 19px;
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}

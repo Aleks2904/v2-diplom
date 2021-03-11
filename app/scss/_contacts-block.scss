@@ -1,0 +1,314 @@
+.contacts {
+
+    @include px767{
+        padding-bottom: 26px;
+    }
+
+    &__container {
+        max-width: 1920px;
+        margin: 0 auto;
+
+        display: grid;
+
+        @include px768{
+            grid-template-areas: "title ."
+                                 "subtitle card"
+                                 "contacts card";
+        }
+
+        @include px1400{
+            grid-template-columns: 35.5% 1fr;
+        }
+
+        @include px1024-1399{
+            grid-template-columns: 47.6% 1fr;
+        }
+
+        @include px768-1023{
+            grid-template-columns: 56.2% 1fr;
+        }
+
+        @include px767{
+            grid-template-areas: "title"
+                                 "subtitle"
+                                 "card"
+                                 "contacts";
+
+            grid-template-columns: 100%;
+            grid-template-rows: auto auto 328px auto;
+
+        }
+    }
+
+    &__title {
+        grid-area: title;
+        @include title;
+
+        @include px1400{
+            padding-left: $paddingXContainer1920;
+            margin-bottom: 17px;
+        }
+
+        @include px768-1399{
+            padding-left: $paddingXContainer768;
+            margin-bottom: 15px;
+        }
+
+        @include px1024-1399{
+            margin-left: -4px;
+        }
+
+        @include px768-1023{
+            margin-left: -2px;
+        }
+
+        @include px767{
+            width: 100%;
+            margin-left: -2px;
+            margin-bottom: 8px;
+        }
+    }
+
+    &__form-subtitle-container{
+        grid-area: subtitle;
+
+        @include px768{
+            border-top: 1px solid #CACACA;
+            border-right: 1px solid #CACACA;
+        }
+
+        @include px1400{
+            padding: 119px 0 0 23.4%;
+        }
+
+        @include px1024-1399{
+            padding: 123px 0 0 10.4%;
+        }
+
+        @include px768-1023{
+            padding: 122px 0 0 12%;
+        }
+
+        @include px767{
+            width: 100%;
+        }
+    }
+
+    &__form-block {
+        grid-area: contacts;
+
+        @include px768{
+            border-right: 1px solid #CACACA;
+        }
+
+        @include px1400{
+            padding: 0 0 119px 23.4%;
+        }
+
+        @include px1024-1399{
+            padding: 0 0 119px 10.4%;
+        }
+
+        @include px768-1023{
+            padding: 0 0 119px 12%;
+        }
+
+        @include px767{
+            width: 100%;
+            margin-top: 21px;
+        }
+    }
+
+    &__form-block-container{
+        @include px1024{
+            max-width: 77.1%;
+        }
+
+        @include px768-1023{
+            max-width: 88.1%;
+        }
+    }
+
+    &__form-subtitle {
+        display: grid;
+        white-space: nowrap;
+
+        @include px1400{
+            margin-bottom: 30px;
+        }
+
+        @include px768-1399{
+            margin-bottom: 27px;
+        }
+
+        @include px767{
+            margin-left: -2px;
+        }
+
+        &_title {
+            @include mini-title;
+
+            @include px768{
+                white-space: nowrap;
+            }
+
+            @include px1400{
+                margin-bottom: 4px;
+            }
+
+            @include px1024-1399{
+                margin-bottom: 2px;
+            }
+
+            @include px768-1023{
+                margin-bottom: 4px;
+            }
+        }
+
+        &_text{
+            @include text;
+
+            @include px767{
+                font-weight: 400;
+                font-size: 14px;
+
+                margin-top: -11px;
+            }
+        }
+    }
+
+    &__form {
+        display: grid;
+
+        @include px1400{
+            margin-bottom: 38px;
+        }
+
+        @include px768-1399{
+            margin-bottom: 39px;
+        }
+
+        @include px767{
+            margin-bottom: 20px;
+        }
+    }
+
+    &__form-title {
+        @include mini-title;
+        white-space: nowrap;
+
+        @include px1400{
+            margin-bottom: 14px;
+        }
+
+        @include px1399{
+            margin-bottom: 16px;
+        }
+    }
+
+    &__input {
+        @include text;
+        outline: none;
+        border: 1px solid #333333;
+        border-radius: 100px;
+
+        height: 40px;
+        padding: 0 23px;
+
+        &:not(:last-child){
+            margin-bottom: 22px;
+        }
+    }
+
+    &__btn {
+        color: $PURPLE;
+
+        font-weight: 600;
+        letter-spacing: 0.3px;
+
+        background-color: transparent;
+        outline: none;
+        border: solid 1px $PURPLE;
+        border-radius: 100px;
+
+        @include px768{
+            width: 156px;
+            padding: 18px 0;
+
+            font-size: 18px;
+        }
+
+        @include px767{
+            width: 126px;
+            padding: 11px 0;
+
+            font-size: 12px;
+        }
+    }
+
+    &__connect-title {
+        @include mini-title;
+
+        @include px1400{
+            margin-bottom: 15px;
+        }
+
+        @include px1024-1399{
+            margin-bottom: 16px;
+        }
+
+        @include px768-1023{
+            margin-bottom: 15px;
+        }
+
+        @include px767{
+            margin-bottom: 7px;
+        }
+    }
+
+    &__conntect-list {
+        display: flex;
+    }
+
+    &__conntect-item {
+        &:not(:last-child){
+            margin-right: 21px;
+        }
+
+        &:nth-child(1) > a{
+            background-image: url('../img/svg/socialNetwork/whatsapp.svg');
+        }
+
+        &:nth-child(2) > a{
+            background-image: url('../img/svg/socialNetwork/telegram.svg');
+        }
+    }
+
+    &__conntect-link {
+        display: inline-block;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @include px768{
+            width: 39px;
+            height: 39px;
+        }
+
+        @include px767{
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    &__card-block {
+        grid-area: card;
+        overflow: hidden;
+    }
+}
+
+[class*="ground-pane"]{
+    filter: grayscale(1);
+}
+

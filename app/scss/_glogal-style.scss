@@ -4,8 +4,11 @@ $GRAY: #666666;
 $WHITE: #FFFFFF;
 $LIGHT-WHITE: #ECECEC;
 $PURPLE: #9D5CD0;
+$HOVER-COLOR: #C283F3;
+$ACTIV-COLOR: #7943A4;
 
-
+$heightHeader480: 100px;
+$heightHeader479: 45px;
 $paddingXContainer1920: 160px;
 $paddingXContainer768: 50px;
 $paddingXContainer320: 15px;
@@ -27,6 +30,22 @@ $paddingXContainer320: 15px;
     }
 }
 
+@mixin hover {
+    color: $HOVER-COLOR;
+    transition: color 0.3s;
+}
+
+@mixin focus {
+    border-color: $ACTIV-COLOR;
+    transition: border-color 0.3s;
+}
+
+@mixin active {
+    color: $ACTIV-COLOR;
+    transform: scale(0.9);
+    transition: color 0.3s, transform 0.3s;
+}
+
 @mixin title {
     font-weight: 400;
     
@@ -43,8 +62,16 @@ $paddingXContainer320: 15px;
 
 @mixin mini-title {
     font-weight: 600;
-    font-size: 24px;
-    line-height: 33px;
+
+    @include px768{
+        font-size: 24px;
+        line-height: 33px;
+    }
+
+    @include px767{
+        font-size: 18px;
+        line-height: 32px;
+    }
 }
 
 @mixin mini-title2 {
@@ -56,23 +83,19 @@ $paddingXContainer320: 15px;
     }
 
     @include px767 {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 32px;
     }
 }
 
+@mixin mini-title3 {
+    
+}
+
 @mixin text {
     font-weight: 400;
-    
-    @include px768{
-        font-size: 16px;
-        line-height: 32px;
-    }
-
-    @include px767 {
-        font-size: 16px;
-        line-height: 32px;
-    }
+    font-size: 16px;
+    line-height: 32px;
 }
 
 .open-modal{
@@ -89,4 +112,10 @@ $paddingXContainer320: 15px;
         opacity: 0.4;
         z-index: 8;
     }
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }

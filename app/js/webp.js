@@ -16,5 +16,13 @@ document.addEventListener('DOMContentLoaded', function(){
         gallery.classList.add('bg-gallery-img');
     };
 
-    //block working
+    //block editions
+
+    const editions = document.querySelector('.editions');
+
+    if(result == true){
+        editions.classList.add('bg-editions-webp');
+    }else{
+        editions.classList.add('bg-editions-img');
+    };
 });

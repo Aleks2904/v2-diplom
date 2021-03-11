@@ -21,23 +21,47 @@ var gulp         = require('gulp'), // Подключаем Gulp
 
 const jsFiles = [ 
     'node_modules/jquery/dist/jquery.min.js',
-    'app/js/webp.js',
     //libs
     'node_modules/swiper/swiper-bundle.min.js',
     'node_modules/choices.js/public/assets/scripts/choices.min.js',
+    'node_modules/focus-visible/dist/focus-visible.min.js',
+    'node_modules/@popperjs/core/dist/umd/popper.js',
+    'app/js/webp.js',
+    'app/js/imgModal.js',
+
+    //width-select
+    'app/js/width-select.js',
+    
     //header
-    'app/js/header-select.js',
     'app/js/select-header.js',
     'app/js/btn-menu.js',
+    'app/js/search.js',
+    
     //hero-block
 
     //gallery
     'app/js/gallerey-img.js',
-    'app/js/gallerey-select.js',
 
     //catalog
     'app/js/catalog.js',
     'app/js/catalog-list.js',
+
+    //events
+    'app/js/events.js',
+
+    //editions
+    'app/js/editions-mobail-list.js',
+    'app/js/editions-img.js',
+
+    //partners
+    'app/js/partners-img.js',
+
+    //projects
+    'app/js/projects-tooltip.js',
+
+    //contacts
+    'app/js/contacts.js',
+    'app/js/card.js',
 
     //swiper
     'app/js/swiper.js',

@@ -16,13 +16,20 @@ document.addEventListener('DOMContentLoaded', function(){
         link.addEventListener('click', function(e){
             e.preventDefault();
 
-            linkFlags.forEach(function(ele){
-                ele.classList.remove('catalog__flags-link_is-active');
-            })
-    
-            link.classList.add('catalog__flags-link_is-active');
+            allPerson.classList.remove('catalog__person-block_is-leafing');
+            setTimeout(()=>{
+                allPerson.classList.add('catalog__person-block_is-leafing');
+            },1);
 
-            addPerson(link);
+            setTimeout(()=>{    
+                linkFlags.forEach(function(ele){
+                    ele.classList.remove('catalog__flags-link_is-active');
+                })
+        
+                link.classList.add('catalog__flags-link_is-active');
+
+                addPerson(link);
+            }, 501);
         });
 
         if(link.classList.contains('catalog__flags-link_is-active')){
@@ -40,10 +47,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
             allLinks.forEach(function(elem){
                 elem.classList.remove('catalog__data-link_is-active');
+                elem.parentElement.parentElement.parentElement.classList.remove('catalog__data-item_link-is-active');
+                elem.parentElement.parentElement.classList.remove('catalog__data-list-link_link-is-active');
             })
 
             const links = e.target;
-            const btn = links.parentElement.parentElement.querySelector('.catalog__data-btn');
+            const btn = links.parentElement.parentElement.parentElement.querySelector('.catalog__data-btn');
 
             e.preventDefault();
             addInfoPerson(links);
@@ -59,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         let flags = link.getAttribute('href');
             flags = flags.substring(1);
-        const url = `../json/${flags}.json`;
+        const url = `../json/catalog/${flags}.json`;
 
         let xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
@@ -69,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     const data = xhr.response[0];
                     flagsObg = data;
                     let key = Object.keys(data);
+                    key = key.sort();
 
                     //добавление годов и персон в лист персон
 
@@ -77,27 +87,41 @@ document.addEventListener('DOMContentLoaded', function(){
                             persons = data[year],
                             peronsKey = Object.keys(persons),
                             ariaControls = Math.random(),
-                            ariaLabelledby = Math.random();
+                            ariaLabelledby = Math.random(),
+                            re = /\s*-\s*/,
+                            yearBtnStr = year + '';
 
-                            catalogData.innerHTML += `
-                                <li class="catalog__data-item">
-                                    <button
-                                        id="al-${ariaLabelledby}" 
-                                        aria-label="показать/скрыть дату" 
-                                        aria-controls="ac-${ariaControls}" 
-                                        aria-expanded="false" 
-                                        type="button" 
-                                        class="catalog__data-btn">
-                                            ${year}
-                                    </button>
+                        yearBtnStr = yearBtnStr.split(re);
 
-                                    <div 
-                                        id="ac-${ariaControls}" 
-                                        aria-labelledby="al-${ariaLabelledby}" 
-                                        class="catalog__data-container-link">
-                                    </div>
-                                </li>
-                            `
+                        let yearBtn;
+
+                        if(yearBtnStr.length > 1){
+                            yearBtn = `С ${yearBtnStr[0]} по ${yearBtnStr[1]} гг.`;
+                        }else{
+                            yearBtn = `С ${yearBtnStr[0]} г.`;
+                        }
+                            
+                        catalogData.innerHTML += `
+                            <li class="catalog__data-item">
+                                <button
+                                    id="al-${ariaLabelledby}" 
+                                    aria-label="показать/скрыть дату" 
+                                    aria-controls="ac-${ariaControls}" 
+                                    aria-expanded="false" 
+                                    type="button" 
+                                    class="catalog__data-btn"
+                                    value="${year}">
+                                        ${yearBtn}
+                                </button>
+
+                                <ul
+                                    id="ac-${ariaControls}" 
+                                    aria-labelledby="al-${ariaLabelledby}" 
+                                    class="catalog__data-list-link"
+                                    >
+                                </ul>
+                            </li>
+                        `
 
                         for(let k = 0; k < peronsKey.length; k++){
                             let person = peronsKey[k], // имя персоны
@@ -107,14 +131,17 @@ document.addEventListener('DOMContentLoaded', function(){
                                 let item = document.querySelectorAll('.catalog__data-item');
 
                                 item.forEach(function(el){
-                                    const btn = el.querySelector('.catalog__data-btn').textContent.replace(/\s/g, ''),
-                                        linkContainer = el.querySelector('.catalog__data-container-link');
+                                    const btn = el.querySelector('.catalog__data-btn'),
+                                          valueBtn = btn.value,
+                                          linkList = el.querySelector('.catalog__data-list-link');
                                     
-                                    if(btn ==  year){
-                                        linkContainer.innerHTML += `
-                                            <a href="${flags+"/"+key[i]+"/"+peronsKey[k]}" class="catalog__data-link">
-                                                ${person}
-                                            </a>
+                                    if(valueBtn ==  year){
+                                        linkList.innerHTML += `
+                                            <li class="catalog__data-item-link">
+                                                <a href="${flags+"/"+key[i]+"/"+peronsKey[k]}" class="catalog__data-link">
+                                                    ${person}
+                                                </a>
+                                            </li>
                                         `
                                     }
                                 })
@@ -127,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     let linkActiv;
         
                     linkPerson.forEach(function(item){
-                        if(!item.classList.contains('catalog__data-link catalog__data-container-link_is-active')){
+                        if(!item.classList.contains('catalog__data-list-link_is-active')){
                             linkActiv = true;
                         }else{
                             linkActiv = false;
@@ -159,15 +186,20 @@ document.addEventListener('DOMContentLoaded', function(){
     //функция добавления описание персоны
 
     function addInfoPerson(links){
-            const btn = links.parentElement.parentElement.querySelector('.catalog__data-btn'),
-                  linkContainer = links.parentElement.parentElement.querySelector('.catalog__data-container-link');
+            const btn = links.parentElement.parentElement.parentElement.querySelector('.catalog__data-btn'),
+                  btnParent = btn.parentElement,
+                  linkList = links.parentElement.parentElement;
             let attr = links.getAttribute('href');
                 attr = attr.split('/');
             
             links.classList.add('catalog__data-link_is-active');
+            btnParent.classList.add('catalog__data-item_link-is-active');
+            btnParent.querySelector('.catalog__data-list-link').classList.add('catalog__data-list-link_link-is-active');
+            btnParent.classList.add('catalog__data-item_is-active');
 
             btn.setAttribute('aria-expanded','true');
-            linkContainer.classList.add('catalog__data-container-link_is-active');
+            btn.classList.add('catalog__data-btn_is-active');
+            linkList.classList.add('catalog__data-list-link_is-active');
 
             const year = attr[1],
                   person = attr[2],
@@ -184,25 +216,35 @@ document.addEventListener('DOMContentLoaded', function(){
                     <img src="${imgPerson}.jpg" alt="${namePerson}" class="catalog__individual-img">
                 </picture>
 
-                <h3 class="catalog__individual-btn">${namePerson}</h3>
+                <h3 class="catalog__individual-title">${namePerson}</h3>
     
                 <time class="catalog__individual-data">${dataPerson}</time>
 
-                <p class="catalog__individual-subbtn">${discPersont}</p>
+                <p class="catalog__individual-subtitle">${discPersont}</p>
             `;
     }
 
     //функция клик по кнопки каталога
 
     function btnClick(btn){
-        const catalogBtn = catalogData.querySelectorAll('.catalog__data-btn');
-        const attr = btn.getAttribute('aria-expanded');
+        const catalogBtn = catalogData.querySelectorAll('.catalog__data-btn'),
+              btnParent = btn.parentElement,
+              attr = btn.getAttribute('aria-expanded');
 
         catalogBtn.forEach(function(el){
-            const links = el.parentElement.querySelector('.catalog__data-container-link').children;
-            let noLinksActiv;
+            const links = el.parentElement.querySelector('.catalog__data-list-link').children;
+            let noLinksActiv,
+                activList;
+
             for(let i = 0; i< links.length; i++){
-                if(links[i].classList.contains('catalog__data-link_is-active')){
+                let link = links[i];
+                link = link.querySelector('.catalog__data-link');
+
+                if(el.parentElement.classList.contains('catalog__data-item_is-active')){
+                    activList = true;
+                }
+
+                if(link.classList.contains('catalog__data-link_is-active')){
                     noLinksActiv = false;
                     break;
                 }else{
@@ -210,17 +252,24 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             }
 
-            if(noLinksActiv){
-                el.parentElement.querySelector('.catalog__data-container-link').classList.remove('catalog__data-container-link_is-active');
+            if(noLinksActiv && activList){
+                el.parentElement.querySelector('.catalog__data-list-link').classList.remove('catalog__data-list-link_is-active');
+                el.parentElement.querySelector('.catalog__data-list-link').classList.add('catalog__data-list-link_is-off');
+                setTimeout(()=>{
+                    el.parentElement.querySelector('.catalog__data-list-link').classList.remove('catalog__data-list-link_is-off');
+                },500)
                 el.setAttribute('aria-expanded', 'false');
+                el.classList.remove('catalog__data-btn_is-active');
+                el.parentElement.classList.remove('catalog__data-item_is-active');
+                el.parentElement.classList.add('catalog__data-item_is-off');
             }
         })
 
-        const links = btn.parentElement.querySelector('.catalog__data-container-link').children;
-        let noLinksActiv
+        const links = btnParent.querySelector('.catalog__data-list-link').children;
+        let noLinksActiv;
 
             for(let i = 0; i< links.length; i++){
-                if(links[i].classList.contains('catalog__data-link_is-active')){
+                if(links[i].querySelector('.catalog__data-link').classList.contains('catalog__data-link_is-active')){
                     noLinksActiv = false;
                     break;
                 }else{
@@ -229,11 +278,22 @@ document.addEventListener('DOMContentLoaded', function(){
             }
 
         if(attr == 'true' && noLinksActiv){
-            btn.parentElement.querySelector('.catalog__data-container-link').classList.remove('catalog__data-container-link_is-active');
+            btnParent.querySelector('.catalog__data-list-link').classList.remove('catalog__data-list-link_is-active');
+            btnParent.querySelector('.catalog__data-list-link').classList.add('catalog__data-list-link_is-off');
+            setTimeout(()=>{
+                btnParent.querySelector('.catalog__data-list-link').classList.remove('catalog__data-list-link_is-off');
+            },500)
             btn.setAttribute('aria-expanded', 'false');
+            btn.classList.remove('catalog__data-btn_is-active');
+            btnParent.classList.remove('catalog__data-item_is-active');
+            btnParent.classList.add('catalog__data-item_is-off');
         }else{
             btn.setAttribute('aria-expanded', 'true');
-            btn.parentElement.querySelector('.catalog__data-container-link').classList.add('catalog__data-container-link_is-active');
+            btn.classList.add('catalog__data-btn_is-active');
+            btnParent.querySelector('.catalog__data-list-link').classList.add('catalog__data-list-link_is-active');
+            btnParent.querySelector('.catalog__data-list-link').classList.remove('catalog__data-list-link_is-off');
+            btnParent.classList.add('catalog__data-item_is-active');
+            btnParent.classList.remove('catalog__data-item_is-off');
         }
     }
 })

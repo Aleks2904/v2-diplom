@@ -1,0 +1,369 @@
+.projects {
+
+    @include px1400{
+        padding: 79px 0;
+    }
+
+    @include px768-1399{
+        padding:  80px 0;
+    }
+
+    @include px767{
+        padding:  50px 0 48px;
+    }
+
+    &__title {
+        @include title;
+
+        @include px768{
+            margin-bottom: 17px;
+            margin-left: -5px;
+        }
+
+        @include px767{
+            margin-bottom: 12px;
+            margin-left: -4px;
+        }
+    }
+
+    &__discription {
+        @include text;
+        overflow-y: hidden;
+
+        &_link{
+            display: inline-block;
+            padding: 0 3px;
+            outline: 2px solid transparent;
+            border-bottom: 1px solid transparent;
+            transition: color 0.3s, border-color 0.3s, outline-color 0.3s, transform 0.3s;
+            color: $ACTIV-COLOR;
+
+            &:hover{
+                color: $HOVER-COLOR;
+                border-color: $HOVER-COLOR;
+
+                transition: color 0.3s, border-color 0.3s;
+            }
+
+            &:focus{
+                outline-color: $HOVER-COLOR;
+
+                transition: outline-color 0.3s;
+            }
+
+            &:focus:not(.focus-visible) {
+                outline-color: transparent;
+            }
+
+            &:active{
+                color: $ACTIV-COLOR;
+                transform: scale(0.9);
+
+                transition: color 0.3s, transform 0.3s;
+            }
+        }
+
+        &_tooltip {
+            position: relative;
+            display: inline-flex;
+            margin-top: -0px;
+
+            &:hover > .projects__discription_tooltip-content,
+            &:focus .projects__discription_tooltip-content{
+               opacity: 1;
+               z-index: 1;
+               transition: opacity 0.3s;
+            }
+        }
+
+        &_icon{
+            display: inline-block;
+            margin: 0 auto;
+            width: 16px;
+            height: 16px;
+            margin-bottom: -2px;
+
+            background-image: url('../img/svg/tooltip.svg');
+            background-repeat: no-repeat;
+            background-size:contain;
+            background-position: center;
+
+            cursor: pointer;
+        }
+
+        &_tooltip-content {
+            @include text;
+            opacity: 0;
+            z-index: -1;
+            display: inline-block;
+            position: absolute;
+            text-align: center;
+            width: 264px;
+            padding: 5px;
+            background-color: #CACACA;
+            color: $WHITE;
+            border-radius: 10px;
+            cursor: default;
+
+            transition: opacity 0.3s;
+        }
+
+        &_tooltip-arrow{
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: inherit;
+            visibility: hidden;
+            display: block;
+
+            &::before{
+                content: '';
+                visibility: visible;
+                position: absolute; /* Абсолютное позиционирование */
+                border: 6px solid transparent; /* Прозрачные границы */
+                border-top: 12px solid #CACACA; /* Добавляем треугольник */
+                transform: translate(-50%, 35%);
+                bottom:0;
+            }
+        }
+        
+
+        @include px1400{
+            margin-bottom: 18px;
+            width: 68%;
+        }
+
+        @include px1024-1399{
+            margin-bottom: 18px;
+        }
+
+        @include px768-1023{
+            width: 97%;
+            margin-bottom: 22px;
+        }
+
+        @include px767{
+            width: 102%;
+            margin-bottom: 9px;
+        }
+    }
+
+    &__subtitle {
+        @include mini-title;
+
+        @include px1400{
+            margin-bottom: 21px;
+            margin-left: -3px;
+        }
+
+        @include px1024-1399{
+            margin-bottom: 21px;
+            margin-left: -3px;
+        }
+
+        @include px768-1023{
+            margin-bottom: 29px;
+            margin-left: -2px;
+        }
+        
+        @include px767{
+            margin-bottom: 11px;
+            margin-left: -2px;
+        }
+    }
+
+    &__slider {
+        position: relative;
+    }
+
+    &__slider-container {
+        margin: 0 auto;
+
+        @include px1400{
+            width: 91%;
+        }
+
+        @include px1024-1399{
+            width: 88%;
+        }
+
+        @include px768-1023{
+            width: 84%;
+        }
+
+        @include px767{
+            width: 67%;
+        }
+    }
+
+    &__swiper-button-prev,
+    &__swiper-button-next {
+        width: 30px;
+        height: 30px;
+
+        border: 1px solid transparent;
+        border-radius: 100%;
+        background-color: #ECECEC;
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+
+        cursor: pointer;
+        outline: none;
+
+        transition: border-color 0.3s, transform 0.2s;
+
+        &:hover::before,
+        &:focus::before{
+            background-image:inline-svg("arrow", lime );
+            transition: background-image 0.3s;
+        }
+
+        &:hover,
+        &:focus{
+            border-color: lime;
+            transition: border-color 0.3s;
+        }
+
+        &:active{
+            border-color: green;
+            transform: translateY(-50%) scale(1.1);
+            transition: border-color 0.3s, transform 0.2s;
+        }
+
+        &:active::before{
+            background-image:inline-svg("arrow",green );
+            transition: background-image 0.3s;
+        }
+
+        &::before{
+            content: '';
+            display: block;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            width: 50%;
+            height: 50%;
+
+            background-image:inline-svg("arrow", $BLACK );
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+            transition: background-image 0.3s;
+        }
+    }
+
+    &__swiper-button-prev{
+        &::before{
+            transform: translate(-60%, -50%) rotate(180deg);
+        }
+
+        left: 0;
+    }
+
+    &__swiper-button-next{
+        &::before{
+            transform: translate(-40%, -50%);
+        }
+
+        right: 0;
+    }
+
+    &__swiper-wrapper {
+    }
+
+    &__swiper-item{
+
+    }
+
+    &__swiper-link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        border: 1px solid #CACACA;
+
+        &:hover .projects__swiper-img{
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        &:hover .projects__swiper-img-active{
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        @include px1400{
+            height: 150px;
+        }
+
+        @include px1024-1399{
+            height: 128px;
+        }
+
+        @include px768-1023{
+            height: 106px;
+        }
+
+        @include px767{
+            height: 65px;
+        }
+    }
+
+    &__swiper-img{
+        display: inline-block;
+        transition: opacity 0.2s;
+        object-fit: contain;
+        width: 100%;
+
+        @include px1400{
+            max-width: 269px;
+        }
+        
+        @include px1024-1399{
+            max-width: 283px;
+        }
+
+        @include px768-1023{
+            max-width: 210px;
+        }
+
+        @include px767{
+            max-width: 104px;
+        }
+    }
+
+    &__swiper-img-active{
+        object-fit: contain;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+
+        opacity: 0;
+
+        transition: opacity 0.2s;
+
+        @include px1400{
+            max-width: 269px;
+        }
+
+        @include px1024-1399{
+            max-width: 283px;
+        }
+
+        @include px768-1023{
+            max-width: 210px;
+        }
+
+        @include px767{
+            max-width: 104px;
+        }
+    }
+}

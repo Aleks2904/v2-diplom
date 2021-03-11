@@ -1,60 +1,215 @@
 .hero-block {
     position: relative;
-    height: 700px;
     overflow: hidden;
+
+    @include px1400{
+        height: 700px;
+    }
+
+    @include px768-1399{
+        height: 668px;
+    }
+
+    @include px767{
+        height: 310px;
+    }
 
     &__img-slider {
         object-fit: cover;
         width: 100%;
+
+        @include px1400{
+            height: 700px;
+        }
+    
+        @include px480-1399{
+            height: 668px;
+        }
+
+        @include px479{
+            height: 310px;
+        }
     }
 
     &__container{
         position: absolute;
         z-index: 10;
-        top: 141px;
-        left: 49.8%;
         transform: translateX(-50%);
 
         width: 100%;
+
+        @include px1400{
+            top: 141px;
+            left: 49.8%;
+        }
+
+        @include px768-1399{
+            top: 114px;
+            left: 49.5%;
+        }
+
+        @include px767{
+            top: 34px;
+            left: 50%;
+        }
     }
 
     &__title {
-        font-weight: 700;
-        font-size: 72px;
         color: $WHITE;
+        font-weight: 700;
         letter-spacing: 1.3px;
 
-        max-width: 50%;
+        @include px768{
+            font-size: 72px;
+        }
 
-        margin-bottom: 20px;
+        @include px1400{  
+            max-width: 50%;
+            margin-bottom: 20px;
+        }
+
+        @include px768-1399{
+            max-width: 60%;
+            margin-bottom: 13px;
+        }
+
+        @include px767{
+            text-align: center;
+            font-size: 32px;
+
+            margin-bottom: 14px;
+        }
     }
 
     &__subtitle {
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 30px;
         color: $WHITE;
-        letter-spacing: 1.5px;
 
-        max-width: 35%;
+        @include px768{
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            line-height: 30px;
+            font-size: 18px;
+            margin-left: 6px;
+        }
 
-        margin-bottom: 92px;
-        margin-left: 6px;
+        @include px1400{  
+            max-width: 35%;
+            margin-bottom: 92px;
+        }
+
+        @include px768-1399{
+            margin-bottom: 133px;
+        }
+
+        @include px1024-1399{
+            max-width: 80%;
+        }
+
+        @include px768-1023{
+            max-width: 100%;
+        }
+
+        @include px767{
+            font-weight: 400;
+            line-height: 16px;
+            font-size: 12px;
+
+            text-align: center;
+
+            max-width: 90%;
+            margin: 0 auto 41px;
+        }
     }
 
     &__link {
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 25px;
+        outline: none;
+        position: relative;
+
         color: $WHITE;
+        font-weight: 700;
         letter-spacing: .3px;
 
         display: inline-block;
-        padding: 23px 36px;
 
-        background: #9D5CD0;
+        background-color: #9D5CD0;
+        border: 2px solid transparent;
         border-radius: 100px;
 
-        margin-left: 5px;
+        @include px768{
+            font-size: 18px;
+            line-height: 25px;
+            margin-left: 5px;
+        }
+
+        @include px1400{
+            padding: 23px 36px;
+        }
+
+        @include px768-1399{
+            padding: 20px 34px;
+        }
+
+        @include px767{
+            left: 50%;
+            transform: translateX(-50%);
+
+            font-size: 12px;
+            line-height: 16px;
+
+            padding: 10px 17px;
+        }
+
+        &::before{
+            content: '';
+            display: block;
+
+            position: absolute;
+            width: 105%;
+            height: 125%;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            border: 2px solid transparent;
+            border-radius: 100px;
+        }
+
+        transition: border-color 0.3s, background-color 0.3s;
+
+        &:hover{
+            border-color: $HOVER-COLOR;
+            transition: border-color 0.3s;
+        }
+
+        &:focus:not(.focus-visible)::before{
+            border-color: transparent;
+            animation: none;
+        }
+
+        &:focus::before{
+            border-color: #C283F3;
+            animation: btnFocus 0.5s normal linear 1;
+        }
+
+        &:active{
+            background-color: $ACTIV-COLOR;
+            border-color: $HOVER-COLOR;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+    }
+}
+
+
+@keyframes btnFocus{
+    0%{
+        width: 100%;
+        height: 100%;
+    }
+
+    100%{
+        width: 105%;
+        height: 125%;
     }
 }

@@ -1,142 +1,56 @@
 document.addEventListener('DOMContentLoaded', function(){
-    const img = [
-        {
-            jpg: 'img/img/gallery/gallery/img-1.jpg',
-            webp: 'img/img/gallery/gallery/img-1.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-2.jpg',
-            webp: 'img/img/gallery/gallery/img-2.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-3.jpg',
-            webp: 'img/img/gallery/gallery/img-3.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-4.jpg',
-            webp: 'img/img/gallery/gallery/img-4.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-5.jpg',
-            webp: 'img/img/gallery/gallery/img-5.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-6.jpg',
-            webp: 'img/img/gallery/gallery/img-6.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-7.jpg',
-            webp: 'img/img/gallery/gallery/img-7.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-8.jpg',
-            webp: 'img/img/gallery/gallery/img-8.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-9.jpg',
-            webp: 'img/img/gallery/gallery/img-9.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-10.jpg',
-            webp: 'img/img/gallery/gallery/img-10.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-11.jpg',
-            webp: 'img/img/gallery/gallery/img-11.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-12.jpg',
-            webp: 'img/img/gallery/gallery/img-12.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-13.jpg',
-            webp: 'img/img/gallery/gallery/img-13.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-14.jpg',
-            webp: 'img/img/gallery/gallery/img-14.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-15.jpg',
-            webp: 'img/img/gallery/gallery/img-15.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-16.jpg',
-            webp: 'img/img/gallery/gallery/img-16.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-17.jpg',
-            webp: 'img/img/gallery/gallery/img-17.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-18.jpg',
-            webp: 'img/img/gallery/gallery/img-18.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-19.jpg',
-            webp: 'img/img/gallery/gallery/img-19.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-20.jpg',
-            webp: 'img/img/gallery/gallery/img-20.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-21.jpg',
-            webp: 'img/img/gallery/gallery/img-21.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-22.jpg',
-            webp: 'img/img/gallery/gallery/img-22.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-23.jpg',
-            webp: 'img/img/gallery/gallery/img-23.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-24.jpg',
-            webp: 'img/img/gallery/gallery/img-24.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-25.jpg',
-            webp: 'img/img/gallery/gallery/img-25.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-26.jpg',
-            webp: 'img/img/gallery/gallery/img-26.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-27.jpg',
-            webp: 'img/img/gallery/gallery/img-27.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-28.jpg',
-            webp: 'img/img/gallery/gallery/img-28.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-29.jpg',
-            webp: 'img/img/gallery/gallery/img-29.webp'
-        },
-        {
-            jpg: 'img/img/gallery/gallery/img-30.jpg',
-            webp: 'img/img/gallery/gallery/img-30.webp'
-        },
-    ];
+    const url = `../json/gallery/gallery.json`,
+          imgList = document.querySelector('#js-gallery-track');
 
-    function slider(slide){
-        const returnShablon = `
-            <li class="swiper-slide gallery__slider-slids">
-                <picture>
-                    <source type="image/webp" srcset="${slide.webp}">
-                    <img src="${slide.jpg}" alt="${slide.alt}" class="gallery__img">
-                </picture>
-            </li>
-        `
+    let imgBase;
 
-        return returnShablon;
-    }
-    
-    const templates = img.map( img => slider(img));
-    const html = templates.join( ' ' );
-    
-    document.querySelector('#js-gallery-track').innerHTML = html;
+    let xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status === 200){
+                const data = xhr.response;
+                imgBase = data;
+
+                for(let i = 0; i < data.length; i++){
+
+                    imgList.innerHTML += 
+                        `<li class="swiper-slide gallery__slider-item">
+                            <div class="gallery__container-img" tabindex="0">
+                                <picture>
+                                    <source type="image/webp" media="(min-width: 768px)" srcset="${data[i].webp}">
+                                    <source type="image/webp" media="(max-width: 767px)" srcset="${data[i].webpMobail}">
+                                    <source media="(max-width: 767px)" srcset="${data[i].jpgMobail}">
+                                    <img id="gallery-img-${i}" src="${data[i].jpg}" alt="${data[i].alt}" class="gallery__img">
+                                </picture>
+                            </div>
+                        </li>`
+                }
+            }
+            if(xhr.status === 404){
+                personBlock.innerHTML= '<h3>бла бла бла</h3>'
+            }
+        }
+    xhr.send(null);
+
+
+    imgList.addEventListener('click', function(e){
+        if(e.target.tagName == 'DIV'){
+            let imgId = e.target;
+            imgId = imgId.querySelector('img');
+            imgId = imgId.getAttribute('id');
+
+            OpenModalImg(imgBase, imgId);
+        }
+    })
+
+    imgList.addEventListener('keyup', function(e){
+        if(e.target.tagName == 'DIV' && e.key == 'Enter'){
+            let imgId = e.target;
+            imgId = imgId.querySelector('img');
+            imgId = imgId.getAttribute('id');
+
+            OpenModalImg(imgBase, imgId);
+        }
+    })
 })

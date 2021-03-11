@@ -1,14 +1,41 @@
 @import "_media.scss";
 @import "_glogal-style.scss";
 @import "_body.scss";
-//@import "_sass-inline-svg.scss";
+@import "_sass-inline-svg.scss";
 
+    //modal-img
+@import "_img-modal.scss";
+
+    //header
 @import "_header.scss";
 @import "header-choices";
 
+    //main
 @import "_main";
-@import "_hero-block.scss";
-@import "_about-us.scss";
-@import "_gallery-select.scss";
-@import "_gallery.scss";
-@import "_catalog.scss";
+        //hero-block
+    @import "_hero-block.scss";
+
+        //about-us-block
+    @import "_about-us.scss";
+
+        //gallery-block
+    @import "_gallery.scss";
+    @import "_gallery-choices.scss";
+
+        //catalog
+    @import "_catalog.scss";
+
+        //events-block
+    @import "_events-block";
+
+        //editions-block
+    @import "_editions-block";
+
+        //projects-block
+    @import "_projects-block.scss";
+
+        //contacts-block
+    @import "_contacts-block.scss";
+
+    //footer
+@import "_footer.scss";

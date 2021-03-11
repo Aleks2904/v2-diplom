@@ -1,0 +1,138 @@
+#choices-gallery .choices{
+    margin-bottom: 0;
+    &:hover,
+    &:focus{
+
+    }
+
+    &:hover::after,
+    &:focus::after{
+        opacity: 1;
+        transition: opacity 0.3s;
+    }
+
+    &:hover .choices__inner,
+    &:focus .choices__inner{
+        border-color: $WHITE;
+        transition:  border-color 0.3s;
+    }
+
+    &:hover .choices__inner .choices__list--single .choices__item,
+    &:focus .choices__inner .choices__list--single .choices__item{
+        opacity: 1;
+        transform: translateX(0);
+        transition:  opacity 0.3s,  transform 0.3s;
+    }
+
+    &::after{
+        content: '';
+
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: 50%;
+        right:14px;
+        transform: translateY(-20%) rotate(90deg);
+        background-image:inline-svg("arrow", $WHITE );
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+        background-color: transparent;
+        border: none;
+
+        opacity: 0;
+
+        pointer-events: none;
+
+        transition: background-image 0.3s, opacity 0.3s;
+    }
+
+    &__inner{
+        background-color: transparent;
+        border-color: $GRAY;
+        border-radius: 6px;
+        transition:  border-color 0.3s;
+
+        padding: 0px 14px;
+        min-height: 0;
+    }
+
+    &__input{
+        
+    }
+
+    &__input--cloned{
+    }
+
+    &__list{
+        
+    }
+
+    &__list--multiple{
+
+    }
+
+    &__list--single{
+        padding: 2.5px 16px 2.5px 1px;
+    }
+
+    &__list--dropdown{
+        background: rgb(20, 20, 20);
+    }
+
+    &__item{
+        @include text;
+        color: $WHITE;
+        white-space: nowrap;
+
+        transition: color 0.3s;
+
+        &::after{
+            content: none;
+        }
+    }   
+
+    &__item--selectable{
+
+    }
+
+    &__item--disabled{
+
+    }
+
+    &__item--choice{
+
+    }
+
+    &__group{
+
+    }
+
+    &__heading{
+
+    }
+
+    &__button{
+
+    }
+}
+
+#choices-gallery .choices__inner .choices__list--single .choices__item {
+    opacity: 0.5;
+    transform: translateX(4px);
+    transition:  opacity 0.3s, transform 0.3s;
+}
+
+#choices-gallery .is-highlighted{
+    background: black;
+}
+
+#choices-gallery .is-open::after{
+    margin-top: 0;
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+#choices-gallery .is-open > .choices__list--dropdown{
+    
+}
+

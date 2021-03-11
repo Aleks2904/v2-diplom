@@ -1,13 +1,46 @@
 .about-us {
-    padding: 80px 0;
+    @include px1024{
+        padding: 80px 0 69px;
+    }
+
+    @include px768-1023{
+        padding: 80px 0 70px;
+    }
+
+    @include px767{
+        padding: 50px 0 41px;
+    }
 
     &__title {
         @include title;
-        margin-bottom: 30px;
+        
+        @include px1400{
+            margin-bottom: 17px;
+            margin-left:-3px;
+        }
+
+        @include px768-1399{
+            margin-bottom: 16px;
+            margin-left:-3px;
+        }
+
+        @include px767{
+            margin-bottom: 12px;
+            margin-left:-1px;
+        }
     }
 
     &__subtitle {
         @include text;
+
+        @include px1400{
+            max-width: 70%;
+        }
+
+        @include px767{
+            font-size: 14px;
+            line-height: 28px;
+        }
     }
 }
 

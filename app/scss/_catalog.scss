@@ -1,34 +1,105 @@
 .catalog {
     padding-top: 80px;
 
+    @include px1024{
+        padding-bottom: 80px;
+    }
+
+    @include px768-1023{
+        padding-bottom: 70px;
+    }
+
+    @include px767{
+        padding-bottom: 51px;
+    }
+
     &__main-block {
-        display: flex;
-        align-items: center;
+
+        @include px768{
+            display: flex;
+            align-items: center;
+        }
     }
 
     &__title {
         @include title;
-        margin-right: 41px;
+        margin-right: 42px;
+
+        @include px1399{
+            margin-left: -3px;
+        }
+
+        @include px767{
+            margin-bottom: 12px;
+        }
     }
 
     &__flags-list {
         display: flex;
+
+        @include px1024-1399{
+            margin-top: 18px;
+        }
+
+        @include px768-1023{
+            margin-top: 3px;
+        }
+
+        @include px767{
+            justify-content: space-between;
+            margin-bottom: 19px;
+        }
     }
 
     &__flags-item {
+        &:hover > .catalog__flags-link{
+            box-shadow: 0 0 10px $ACTIV-COLOR;
+            transition: box-shadow 0.3s;
+        }
+
         &:not(:last-child){
-            margin-right: 50px;
+            @include px1024{
+                margin-right: 50px;
+            }
+            
+            @include px768-1023{
+                margin-right: 55px;
+            }
         } 
     }
 
     &__flags-link{
-        width: 46px;
-        height: 46px;
+        outline: none;
+        border-radius: 100%;
+        
         display: block;
 
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
+
+        &:focus{
+            box-shadow: 0 0 10px $ACTIV-COLOR;
+            transition: box-shadow 0.3s;
+        }
+
+        &:active{
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+
+        @include px768{
+            width: 46px;
+            height: 46px;
+        }
+
+        @include px767{
+            width: 33px;
+            height: 33px;
+        }
+
+
+        transition: box-shadow 0.3s, transform 0.3s;
 
         &_is-active{
             position: relative;
@@ -44,6 +115,8 @@
                 top: 50%;
                 left: 50%;
 
+                animation:  flagsActive 0.3s normal linear 1;
+
                 transform: translate(-50%, -50%);
 
                 border: 2px solid #9D5CD0;
@@ -54,50 +127,377 @@
 
     &__subtitle {
         @include text;
-        margin-top: 13px;
-        margin-bottom: 50px;
+
+        @include px1400{
+            margin-top: 15px;
+            margin-bottom: 40px;
+
+            max-width: 65%;
+        }
+
+        @include px1024-1399{
+            margin-top: 16px;
+            margin-bottom: 39px;
+        }
+
+        @include px768-1023{
+            margin-top: 16px;
+            margin-bottom: 20px;
+        }
+
+        @include px767{
+            display: none;
+        }
     }
 
     &__person-block{
         display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+
+        @include px1023{
+            flex-direction: column;
+        }
+
+        &_is-leafing{
+            animation: personBlockActive 1s normal linear 1;
+        }
     }
 
     &__individual-block {
+        @include px1400{
+            width: 46.9%;
+        }
+
+        @include px1024-1399{
+            width: 47.3%;
+        }
+
+        @include px1023{
+            order: 1;
+        }
+    }
+
+    &__individual-img{
+        @include px1400{
+            max-height: 470px;
+            width: 100%;
+            object-fit: cover;
+
+            margin-bottom: 28px;
+        }
+
+        @include px768-1399{
+            margin-bottom: 27px;
+            max-height: 420px;
+            width: 100%;
+        }
+
+        @include px767{
+            margin-bottom: 17px;
+        }
     }
 
     &__individual-title {
+        @include mini-title;
+
+        @include px768{
+            margin-bottom: 6px;
+        }
+
+        @include px767{
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 33px;
+            letter-spacing: 0em;
+
+            margin-bottom: 11px;
+        }
     }
 
     &__individual-data {
+        display: inline-block;
+        font-size: 12px;
+        line-height: 16.36px;
+        font-weight: 400;
+
+        color: #999999;
+
+        @include px768{
+            margin-bottom: 6px;
+        }
+
+        @include px767{
+            margin-bottom: 6px;
+        }
     }
 
     &__individual-subtitle {
+        @include text;
     }
 
     &__data-list {
-        width: 60%;
+        @include px1400{
+            width: 50%;
+        }
+
+        @include px1024-1399{
+            width: 47.6%;
+        }
+
+        @include px768-1023{
+            margin-bottom: 51px;
+        }
+
+        @include px767{
+            margin-bottom: 49px;
+        }
+    }
+
+    &__data-item{
+        border-bottom: 1px solid #CACACA;
+
+        overflow: hidden;
+        
+        &_is-off{
+           animation: closeBtn .7s normal linear 1;
+        }
+
+        &_is-active{
+            animation: openBtn .7s normal linear 1;
+        }
+
+
+        &_link-is-active{
+            border-color: $PURPLE;
+        }
+        
+        &:first-child{
+            border-top: 1px solid #CACACA;
+        }
     }
 
     &__data-btn{
+        @include mini-title;
 
+        position: relative;
+        outline: none;
+        border: none;
+
+        text-align: left;
+        width: 100%;
+        background: transparent;
+
+        cursor: pointer;
+
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+
+            background-color: #ECECEC;
+            background-image:inline-svg("arrow", black);
+            background-size: 18px;
+            background-repeat: no-repeat;
+            background-position:58% center;
+            border-radius: 100%;
+
+            top: 50%;
+            right: 0%;
+
+            transform: translate(-0%, -50%) rotate(90deg);
+
+            @include px768{    
+                width: 50px;
+                height: 50px;
+            }
+
+            @include px767{
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        &_is-active{
+            &::after{
+                transform: translate(-0%, -50%) rotate(-90deg);
+
+                background-position:55% center;
+            }
+        }
+
+        @include px1024{
+            padding: 38px 2px 42px;
+        }
+
+        @include px768-1023{
+            padding: 38px 0px 42px;
+        }
+
+        @include px767{
+            padding: 20px 0px 21px;
+        }
     }
 
-    &__data-container-link{
+    &__data-list-link{
         display: none;
         flex-wrap: wrap;
-        width: 100%;
+
+        border-top: 1px solid #CACACA;
+
+        &_is-off{
+            display: flex;
+            justify-content: space-between;
+
+            animation: closeYearBtn .5s normal linear 1;
+        }
 
         &_is-active{
             display: flex;
+            justify-content: space-between;
+
+            animation: openYearBtn .5s normal linear 1;
+
+            @include px1400{
+                padding: 25px 1px 28px;
+                width: 92%;
+            }
+
+            @include px768-1399{
+                padding: 25px 2px 28px;
+            }
+
+            @include px767{
+                padding: 18px 0px 20px;
+            }
+        }
+
+        &_link-is-active{
+            border-color: $PURPLE;
+        }
+    }
+
+    &__data-item-link{
+        @include px1400{
+            width: 30%;
+        }
+
+        @include px1024-1399{
+            width: 45%;
+        }
+
+        @include px768-1023{
+            width: 27.8%;
+        }
+
+        @include px767{
+            width: 100%;
         }
     }
 
     &__data-link{
+        @include text;
         display: inline-block;
-        width: 30%;
+        white-space: nowrap;
 
         &_is-active{
+            font-weight: 600;
             color: $PURPLE;
         }
+    }
+}
+
+
+@keyframes flagsActive{
+    0%{
+        width: 100%;
+        height: 100%;
+    }
+
+    100%{
+        width: 125%;
+        height: 125%;
+    }
+}
+
+@keyframes personBlockActive{
+    0%{
+        max-height: 2000px;
+    }
+
+    50%{
+        max-height: 1px;
+        opacity: 0;
+    }
+
+    100%{
+        max-height: 2000px;
+    }
+}
+
+@keyframes openBtn{
+    0%{
+        @include px1400{
+            max-height: 114px;
+        }
+
+        overflow: hidden;
+    }
+ 
+    100%{
+        max-height: 1000px;
+        overflow: hidden;
+    }
+}
+
+@keyframes closeBtn{
+    0%{
+        max-height: 1000px;
+        overflow: hidden;
+    }
+ 
+    100%{
+        @include px1400{
+            max-height: 114px;
+        }
+
+        overflow: hidden;
+    }
+}
+
+@keyframes openYearBtn {
+    0%{
+       max-height: 1px;
+       overflow: hidden;
+    }
+
+    100%{
+        max-height: 1000px;
+        overflow: hidden;
+    }
+}
+
+@keyframes closeYearBtn {
+    0%{
+        padding: 25px 1px 28px;
+        max-height: 1000px;
+    }
+
+    50%{
+        padding: 25px 1px 28px;
+    }
+
+    75%{
+        opacity: 0.5;
+    }
+
+    90%{
+        opacity: 0;
+        max-height: 1px;
+        padding: 0px 0px 0px;
+    }
+
+    100%{
+        max-height: 0px;
     }
 }
