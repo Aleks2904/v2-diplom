@@ -26,3 +26,5 @@ document.addEventListener('DOMContentLoaded', function(){
         editions.classList.add('bg-editions-img');
     };
 });
+
+

@@ -50,6 +50,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "jquery-form-styler": "^2.0.2",
     "jquery-validation": "^1.19.2",
-    "jquery.maskedinput": "^1.4.1"
+    "jquery.maskedinput": "^1.4.1",
+    "simplebar": "^5.3.0"
   }
 }

@@ -1,4 +1,8 @@
 .editions {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size:cover !important;
+
     @include px1400{
         padding: 80px 0 79px;
     }
@@ -20,11 +24,11 @@
         }
 
         @include px1400{
-            grid-template-columns: 17.4% 72%; 
+            grid-template-columns: 17.4% 71.8%; 
             grid-template-rows: 81px 1fr; 
         }
         @include px1024-1399{
-            grid-template-columns: 30% 68%; 
+            grid-template-columns: 30% 68% 1%; 
             grid-template-rows: 81px 1fr;    
         }
 
@@ -615,7 +619,7 @@
         }
 
         @include px768-1023{
-            margin-left: -4%;
+            //margin-left: -4%;
         }
 
         @include px767{
@@ -642,24 +646,24 @@
 
         &:hover::before,
         &:focus::before{
-            background-image:inline-svg("arrow", lime );
+            background-image:inline-svg("arrow", $HOVER-COLOR );
             transition: background-image 0.3s;
         }
 
         &:hover,
         &:focus{
-            border-color: lime;
+            border-color: $HOVER-COLOR;
             transition: border-color 0.3s;
         }
 
         &:active{
-            border-color: green;
+            border-color: $ACTIV-COLOR;
             transform: scale(1.1);
             transition: border-color 0.3s, transform 0.2s;
         }
 
         &:active::before{
-            background-image:inline-svg("arrow",green );
+            background-image:inline-svg("arrow",$ACTIV-COLOR );
             transition: background-image 0.3s;
         }
 
@@ -722,6 +726,23 @@
             &:not(:nth-child(-n+2)){
                 margin-top: 50px;
             }
+        }
+    }
+
+    &__swiper-slid-container{
+        margin: 0 auto;
+        padding-bottom: 10px;
+
+        @include px1400{
+            max-width: 350px;
+        }
+
+        @include px768-1399{
+            max-width: 290px;
+        }
+
+        @include px767{
+            max-width: 130px;
         }
     }
 
@@ -828,6 +849,9 @@
 
     &__slide-btn{
         @include text;
+
+        position: relative;
+
         font-weight: 700;
 
         background-color: transparent;
@@ -838,6 +862,8 @@
         outline: none;
 
         cursor: pointer;
+
+        transition: border-color 0.3s, background-color 0.3s, color 0.3s, transform 0.3s;
 
         @include px768{
             padding: 2px 24px;
@@ -853,6 +879,60 @@
 
             width: 126px;
             margin-top: 12px;
+        }
+
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            width: 120%;
+            height: 140%;
+
+            border: 2px solid transparent;
+
+            border-radius: 100px;
+
+            transition: border-color 0.3s;
+        }
+
+        &:focus:not(.focus-visible) {
+            border-color: #9D5CD0;
+            background-color: transparent;
+            color: $WHITE;
+        }
+
+        &:focus:not(.focus-visible)::after {
+            border-color: transparent;
+        }
+
+        &:hover{
+            color: $HOVER-COLOR !important;
+            transition: color 0.3s;
+        }
+
+        &:active{
+            color: $ACTIV-COLOR !important;
+            transform: scale(0.9);
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        &:focus{
+            border-color: $HOVER-COLOR;
+            background-color: $HOVER-COLOR;
+            color: black;
+
+            transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+        }
+
+        &:focus::after{
+            border-color: $HOVER-COLOR;
+            animation:  btnACtive 0.3s normal linear 1;
+
+            transition: border-color 0.3s;
         }
     }
 }
@@ -873,9 +953,43 @@
 }
 
 .bg-editions-webp{
-    background: url('../img/img/editions/bg/editions-bg.webp');
+    @include px1400{
+        background: url('../img/img/editions/bg/1920.webp');
+    }
+    @include px1024-1399{
+        background: url('../img/img/editions/bg/1024.webp');
+    }
+    @include px768-1023{
+        background: url('../img/img/editions/bg/768.webp');
+    }
+    @include px767{
+        background: url('../img/img/editions/bg/320.webp');
+    }
 }
 
 .bg-editions-img{
-    background: url('../img/img/editions/bg/editions-bg.jpg');
+    @include px1400{
+        background: url('../img/img/editions/bg/1920.png');
+    }
+    @include px1024-1399{
+        background: url('../img/img/editions/bg/1024.png');
+    }
+    @include px768-1023{
+        background: url('../img/img/editions/bg/768.png');
+    }
+    @include px767{
+        background: url('../img/img/editions/bg/320.png');
+    }
+}
+
+@keyframes btnACtive{
+    0%{
+        width: 100%;
+        height: 100%;
+    }
+
+    100%{
+        width: 120%;
+        height: 140%;
+    }
 }

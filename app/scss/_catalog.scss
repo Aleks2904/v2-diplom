@@ -14,7 +14,6 @@
     }
 
     &__main-block {
-
         @include px768{
             display: flex;
             align-items: center;
@@ -48,6 +47,7 @@
         @include px767{
             justify-content: space-between;
             margin-bottom: 19px;
+            max-width: 300px;
         }
     }
 
@@ -179,21 +179,24 @@
     }
 
     &__individual-img{
+        object-fit: cover;
+        width: 100%;
+
         @include px1400{
             max-height: 470px;
-            width: 100%;
-            object-fit: cover;
 
             margin-bottom: 28px;
         }
 
         @include px768-1399{
-            margin-bottom: 27px;
             max-height: 420px;
-            width: 100%;
+
+            margin-bottom: 27px;
         }
 
         @include px767{
+            max-height: 181px;
+            
             margin-bottom: 17px;
         }
     }
@@ -237,6 +240,8 @@
     }
 
     &__data-list {
+        margin-left: -4px;
+
         @include px1400{
             width: 50%;
         }
@@ -289,6 +294,7 @@
         background: transparent;
 
         cursor: pointer;
+        transition: color 0.3s;
 
         &::after{
             content: '';
@@ -300,7 +306,11 @@
             background-size: 18px;
             background-repeat: no-repeat;
             background-position:58% center;
+
+            border: 2px solid transparent;
             border-radius: 100%;
+
+            transition: border-color 0.3s;
 
             top: 50%;
             right: 0%;
@@ -324,6 +334,24 @@
 
                 background-position:55% center;
             }
+        }
+
+        &:focus {
+            color:$HOVER-COLOR;
+            transition: color 0.3s;
+        }
+
+        &:focus::after{
+            border-color: $HOVER-COLOR;
+            transition:  border-color 0.3s;
+        }
+
+        &:focus:not(.focus-visible) {
+            color: black;
+        }
+
+        &:focus:not(.focus-visible)::after {
+            border-color: transparent;
         }
 
         @include px1024{
@@ -364,7 +392,7 @@
             }
 
             @include px768-1399{
-                padding: 25px 2px 28px;
+                padding: 25px 2px 29px;
             }
 
             @include px767{
@@ -383,7 +411,7 @@
         }
 
         @include px1024-1399{
-            width: 45%;
+            width: 42%;
         }
 
         @include px768-1023{
@@ -399,10 +427,36 @@
         @include text;
         display: inline-block;
         white-space: nowrap;
+        outline: none;
+
+        border: 2px solid transparent;
+        border-radius: 10px;
+        padding: 0 4px;
+
+        transition: color 0.3s, border-color 0.3s, transform 0.3s;
 
         &_is-active{
             font-weight: 600;
             color: $PURPLE;
+        }
+
+        &:hover{
+            color: $HOVER-COLOR;
+            transition: color 0.3s;
+        }
+
+        &:focus{
+            border-color: $HOVER-COLOR;
+            transition: border-color 0.3s;
+        }
+
+        &:active{
+            transform: scale(0.8);
+            transition: transform 0.3s;
+        }
+
+        &:focus:not(.focus-visible) {
+            border-color: transparent;
         }
     }
 }

@@ -1,14 +1,14 @@
 .about-us {
-    @include px1024{
+    @include px1400{
         padding: 80px 0 69px;
     }
 
-    @include px768-1023{
+    @include px768-1399{
         padding: 80px 0 70px;
     }
 
     @include px767{
-        padding: 50px 0 41px;
+        padding: 50px 0 40px;
     }
 
     &__title {
@@ -19,9 +19,13 @@
             margin-left:-3px;
         }
 
-        @include px768-1399{
+        @include px1024-1399{
             margin-bottom: 16px;
             margin-left:-3px;
+        }
+
+        @include px768-1023{
+            margin-bottom: 16px;
         }
 
         @include px767{
@@ -35,6 +39,10 @@
 
         @include px1400{
             max-width: 70%;
+        }
+
+        @include px768-1023{
+            margin-left: 2px;
         }
 
         @include px767{

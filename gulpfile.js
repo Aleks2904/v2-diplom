@@ -26,11 +26,18 @@ const jsFiles = [
     'node_modules/choices.js/public/assets/scripts/choices.min.js',
     'node_modules/focus-visible/dist/focus-visible.min.js',
     'node_modules/@popperjs/core/dist/umd/popper.js',
+    'node_modules/simplebar/dist/simplebar.min.js',
     'app/js/webp.js',
     'app/js/imgModal.js',
 
     //width-select
     'app/js/width-select.js',
+
+    //castom-scroll
+    'app/js/castom-scroll.js',
+
+    //плавный скролл
+    'app/js/slide-scroll.js',
     
     //header
     'app/js/select-header.js',
@@ -74,6 +81,7 @@ const cssFiles = [
     'app/css/fonts.css',
     'node_modules/choices.js/public/assets/styles/choices.min.css',
     'node_modules/swiper/swiper-bundle.min.css',
+    'node_modules/simplebar/dist/simplebar.css',
     'app/scss/main.scss'
 ]
 

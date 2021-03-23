@@ -24,8 +24,10 @@ document.addEventListener('DOMContentLoaded', function(){
                                     <img id="gallery-img-${i}" src="${data[i].jpg}" alt="${data[i].alt}" class="gallery__img">
                                 </picture>
                             </div>
-                        </li>`
+                        </li>`;
                 }
+
+                installationHeightImgContainer();
             }
             if(xhr.status === 404){
                 personBlock.innerHTML= '<h3>бла бла бла</h3>'
@@ -42,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             OpenModalImg(imgBase, imgId);
         }
-    })
+    });
 
     imgList.addEventListener('keyup', function(e){
         if(e.target.tagName == 'DIV' && e.key == 'Enter'){
@@ -52,5 +54,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
             OpenModalImg(imgBase, imgId);
         }
-    })
+    });
+
+    function installationHeightImgContainer(){
+        const itemHeight = imgList.querySelector('.gallery__slider-item').clientHeight,
+              borderHeight = 3,
+              containerHeight = itemHeight - (borderHeight * 2),
+              imgContainer = imgList.querySelectorAll('.gallery__container-img');
+
+        imgContainer.forEach((el)=>{
+            el.style.height = `${containerHeight}px`
+        })
+    }
 })

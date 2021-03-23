@@ -1,18 +1,14 @@
 .gallery {
-    @include px1400{
+    @include px1024{
         padding: 80px 0 79px;
     }
 
-    @include px1024-1399{
-        padding:  80px 0;
-    }
-
     @include px768-1023{
-        padding: 81px 0 78px;
+        padding: 81px 0 76px;
     }
 
     @include px767{
-        padding: 50px 0 41px;
+        padding: 50px 0 78px;
     }
     
     
@@ -79,13 +75,17 @@
        }
 
        @include px767{
-           margin-bottom: 38px;
+           z-index: 2;
+           margin-bottom: 41px;
        }
     }
 
     &__sort-title{
-        @include mini-title2;
         color: $WHITE;
+
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 32px;
 
         @include px1400{
             margin-bottom: 8px;
@@ -93,10 +93,6 @@
 
         @include px768-1399{
             margin-bottom: 8px;
-        }
-
-        @include px768{
-            letter-spacing: .33px;
         }
 
         @include px767{
@@ -173,8 +169,8 @@
         }
 
         @include px767{
-            position: relative;
-            padding-bottom: 48px;
+             position: relative;
+            // padding-bottom: 48px;
         }
 
     }
@@ -182,6 +178,10 @@
     &__slider-container{
         margin-left: auto;
         margin-right: auto;
+
+        @include px767{
+            padding-bottom: 51px;
+        }
     }
 
     &__swiper-contrlo-panel{
@@ -315,6 +315,10 @@
         justify-content: center;
         align-items: center;
 
+        overflow: hidden;
+
+        position: relative;
+
         @include px1400{
             height: calc((100% - 50px) / 2);
         }
@@ -323,6 +327,9 @@
             height: calc((100% - 34px) / 2);
         }
 
+        @include px767{
+            height: 367px;
+        }
         
     }
 
@@ -379,7 +386,7 @@
 
         &:focus{
             border-color: $ACTIV-COLOR;
-            transition: outline-color .3s;
+            transition: border-color .3s;
         }
 
         &:focus:not(.focus-visible){
@@ -407,6 +414,7 @@
     }
 
     &__img{
+        object-fit: cover;
         pointer-events: none;
 
         margin-bottom: -3px;
@@ -414,20 +422,21 @@
 
         transition: opacity .3s;
 
+        @include px1400{
+            height: 100%;
+        }
+
         @include px1024-1399{
-            object-fit: contain;
-            max-width: 280px;
-            max-height: 280px;
+            width: 100%;
+           // max-width: 280px;
+            //max-height: 280px;
         }
 
         @include px768-1023{
             object-fit: cover;
-            max-width: 317px;
-            max-height: 280px;
-        }
-
-        @include px768{
             width: 100%;
+           // max-width: 317px;
+            //max-height: 280px;
         }
 
         @include px767{
@@ -448,6 +457,10 @@
     &:hover::before,
     &:focus::before{
         background-image:inline-svg("arrow", $WHITE );
+    }
+
+    &:active{
+        transform: scale(1);
     }
 }
 
