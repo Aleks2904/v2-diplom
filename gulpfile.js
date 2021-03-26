@@ -197,6 +197,12 @@ gulp.task('prebuild', async function() {
     var buildPHP = gulp.src('app/php/**/*')
     .pipe(gulp.dest('dist/php'))
 
+    var buildJSON = gulp.src('app/json/**/*')
+    .pipe(gulp.dest('dist/json'));
+
+    var buildSvg = gulp.src('app/img/svg/**/*')
+    .pipe(gulp.dest('dist/img/svg'));
+
     // var buildSvg = gulp.src('app/img/symbol/sprite.svg') // Переносим img в продакшен
     // .pipe(gulp.dest('dist/img/symbol'));
 });
