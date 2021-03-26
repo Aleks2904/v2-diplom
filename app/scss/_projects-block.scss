@@ -293,9 +293,10 @@
 
         &:hover .projects__swiper-img{
             opacity: 0;
-            transition: opacity 0.2s;
+            //transition: opacity 0.2s;
         }
         &:hover .projects__swiper-img-active{
+            animation: imgActive 0.3s normal linear 1;
             opacity: 1;
             transition: opacity 0.2s;
         }
@@ -305,6 +306,7 @@
             transition: opacity 0.2s;
         }
         &:focus .projects__swiper-img-active{
+            animation: imgActive 0.3s normal linear 1;
             opacity: 1;
             transition: opacity 0.2s;
         }
@@ -376,5 +378,18 @@
         @include px767{
             max-width: 104px;
         }
+    }
+}
+
+
+@keyframes imgActive{
+    0%{
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.4;
+    }
+
+    100%{
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
     }
 }

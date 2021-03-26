@@ -318,6 +318,7 @@
     }
 
     &__all-events-btn {
+        position: relative;
         cursor: pointer;
         background: transparent;
         outline: none;
@@ -335,9 +336,71 @@
         border: 2px solid $PURPLE;
         border-radius: 100px;
 
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
         @include px767{
             display: none;
         }
+
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            width: 120%;
+            height: 140%;
+
+            border: 2px solid transparent;
+
+            border-radius: 100px;
+
+            transition: border-color 0.3s;
+        }
+
+        &:hover{
+            background-color: $HOVER-COLOR;
+            color: white;
+            border-color: transparent;
+
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+        }
+
+        &:focus:not(.focus-visible) {
+            border-color: #9D5CD0;
+            background-color: transparent;
+            color: $WHITE;
+        }
+
+        &:focus:not(.focus-visible)::after {
+            border-color: transparent;
+        }
+
+        &:focus{
+            border-color: $HOVER-COLOR;
+            background-color: $HOVER-COLOR;
+            color: white;
+
+            transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+        }
+
+        &:focus::after{
+            border-color: $HOVER-COLOR;
+            animation:  btnACtive 0.3s normal linear 1;
+
+            transition: border-color 0.3s;
+        }
+
+        &:active{
+            color: $ACTIV-COLOR !important;
+            transform: scale(0.9);
+            transition: color 0.3s, transform 0.3s;
+        }
+
+
+
     }
 }
 
@@ -350,4 +413,16 @@
 
 .events__swiper-pagination > .swiper-pagination-bullet-active{
     background-color: #666666;
+}
+
+@keyframes btnACtive{
+    0%{
+        width: 100%;
+        height: 100%;
+    }
+
+    100%{
+        width: 120%;
+        height: 140%;
+    }
 }

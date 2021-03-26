@@ -239,6 +239,8 @@
         border: solid 1px $PURPLE;
         border-radius: 100px;
 
+        cursor: pointer;
+
         transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 
         @include px768{
@@ -351,6 +353,14 @@
         &:nth-child(2) > a{
             background-image: url('../img/svg/socialNetwork/telegram.svg');
         }
+
+        &:nth-child(1) > a::after{
+            border: 2px solid rgb(0,255,64);
+         }
+ 
+         &:nth-child(2) > a::after{
+            border: 2px solid rgb(0,140,255);
+         }
     }
 
     &__conntect-link {
@@ -360,6 +370,8 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
+
+        transition: transform 0.3s;
 
         @include px768{
             width: 39px;
@@ -371,10 +383,38 @@
             height: 50px;
         }
 
-        &:hover,
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+
+            width: 130%;
+            height: 130%;
+
+            background-color: transparent;
+            border-radius: 100%;
+        }
+        
+        &:focus:not(.focus-visible) {
+            transform: scale(1);
+        }
+
+        &:hover{
+            transform: scale(1.3) !important;
+            transition: transform 0.3s;
+        }
+
         &:focus{
             transform: scale(1.3);
             transition: transform 0.3s;
+        }
+
+        &:active::after{
+            animation: linkActive 0.3s normal linear 1;
         }
     }
 
@@ -397,5 +437,37 @@
     100%{
         width: 120%;
         height: 140%;
+    }
+}
+
+@keyframes linkActive{
+    0%{
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+    }
+
+    30%{
+        width: 110%;
+        height: 110%;
+        opacity: 0.5;
+    }
+
+    60%{
+        width: 120%;
+        height: 120%;
+        opacity: 1;
+    }
+
+    80%{
+        width: 125%;
+        height: 125%;
+        opacity: 0.5;
+    }
+
+    100%{
+        width: 130%;
+        height: 130%;
+        opacity: 0.2;
     }
 }
