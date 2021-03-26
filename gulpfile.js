@@ -51,7 +51,6 @@ const jsFiles = [
 
     //catalog
     'app/js/catalog.js',
-    'app/js/catalog-list.js',
 
     //events
     'app/js/events.js',
@@ -72,8 +71,6 @@ const jsFiles = [
 
     //swiper
     'app/js/swiper.js',
-
-
 ]
 
 const cssFiles = [
@@ -126,36 +123,36 @@ function img() {
         .pipe(gulp.dest('dist/img'))
 }
 
-function svgSp() {
-    return gulp.src('app/img/svg/**/*') 
+// function svgSp() {
+//     return gulp.src('app/img/svg/**/*') 
 
-    .pipe(svgMin({
-        js2svg: {
-            pretty: true
-        }
-    }))
+//     .pipe(svgMin({
+//         js2svg: {
+//             pretty: true
+//         }
+//     }))
 
-    .pipe(cheerio({
-        run: function($) {
-           $('[fill]').removeAttr('fill'); 
-           $('[stroke]').removeAttr('stroke'); 
-           $('[style]').removeAttr('style'); 
-        },
-        parserOptions: {xmlMode: true}
-    }))
+//     .pipe(cheerio({
+//         run: function($) {
+//            $('[fill]').removeAttr('fill'); 
+//            $('[stroke]').removeAttr('stroke'); 
+//            $('[style]').removeAttr('style'); 
+//         },
+//         parserOptions: {xmlMode: true}
+//     }))
 
-    .pipe(replace('&gt;', '>'))
+//     .pipe(replace('&gt;', '>'))
    
-    .pipe(svgSprite({
-        mode:{
-            symbol: {
-                sprite: "sprite.svg"
-            }
-        }
-    }))
+//     .pipe(svgSprite({
+//         mode:{
+//             symbol: {
+//                 sprite: "sprite.svg"
+//             }
+//         }
+//     }))
 
-    .pipe(gulp.dest('app/img')) 
-}
+//     .pipe(gulp.dest('app/img')) 
+// }
 
 gulp.task('svg', function(){
     return gulp.src('app/img/svg/**/*.svg') 
@@ -200,8 +197,8 @@ gulp.task('prebuild', async function() {
     var buildPHP = gulp.src('app/php/**/*')
     .pipe(gulp.dest('dist/php'))
 
-    var buildSvg = gulp.src('app/img/symbol/sprite.svg') // Переносим img в продакшен
-    .pipe(gulp.dest('dist/img/symbol'));
+    // var buildSvg = gulp.src('app/img/symbol/sprite.svg') // Переносим img в продакшен
+    // .pipe(gulp.dest('dist/img/symbol'));
 });
 
 gulp.task('styles', styles);
@@ -209,4 +206,4 @@ gulp.task('img', img);
 gulp.task('watch', watch);
 
 gulp.task('default', gulp.series(clean, gulp.parallel(styles, scripts, 'svg'), 'watch'));
-gulp.task('build', gulp.series(clean, img, styles, scripts, svgSp, 'svg', 'prebuild'));
+gulp.task('build', gulp.series(clean, img, styles, scripts, /*svgSp,*/ 'svg', 'prebuild'));

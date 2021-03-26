@@ -28,7 +28,6 @@
 
     &__discription {
         @include text;
-        overflow-y: hidden;
 
         &_link{
             display: inline-block;
@@ -67,11 +66,12 @@
             position: relative;
             display: inline-flex;
             margin-top: -0px;
+            outline: none;
 
             &:hover > .projects__discription_tooltip-content,
-            &:focus .projects__discription_tooltip-content{
+            &:focus > .projects__discription_tooltip-content{
                opacity: 1;
-               z-index: 1;
+               z-index: 2;
                transition: opacity 0.3s;
             }
         }
@@ -217,24 +217,24 @@
 
         &:hover::before,
         &:focus::before{
-            background-image:inline-svg("arrow", lime );
+            background-image:inline-svg("arrow", $HOVER-COLOR );
             transition: background-image 0.3s;
         }
 
         &:hover,
         &:focus{
-            border-color: lime;
+            border-color: $HOVER-COLOR;
             transition: border-color 0.3s;
         }
 
         &:active{
-            border-color: green;
+            border-color: $ACTIV-COLOR;
             transform: translateY(-50%) scale(1.1);
             transition: border-color 0.3s, transform 0.2s;
         }
 
         &:active::before{
-            background-image:inline-svg("arrow",green );
+            background-image:inline-svg("arrow",$ACTIV-COLOR );
             transition: background-image 0.3s;
         }
 
@@ -287,6 +287,8 @@
         justify-content: center;
         position: relative;
 
+        outline-color: $ACTIV-COLOR;
+
         border: 1px solid #CACACA;
 
         &:hover .projects__swiper-img{
@@ -294,6 +296,15 @@
             transition: opacity 0.2s;
         }
         &:hover .projects__swiper-img-active{
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        &:focus .projects__swiper-img{
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        &:focus .projects__swiper-img-active{
             opacity: 1;
             transition: opacity 0.2s;
         }
@@ -349,11 +360,11 @@
         opacity: 0;
 
         transition: opacity 0.2s;
-
+        
         @include px1400{
             max-width: 269px;
         }
-
+        
         @include px1024-1399{
             max-width: 283px;
         }
