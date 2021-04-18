@@ -28,8 +28,12 @@
 
     &__discription {
         @include text;
+        overflow: hidden;
 
         &_link{
+            font-weight: 600;
+            margin-left: -3px;
+
             display: inline-block;
             padding: 0 3px;
             outline: 2px solid transparent;
@@ -65,8 +69,9 @@
         &_tooltip {
             position: relative;
             display: inline-flex;
-            margin-top: -0px;
             outline: none;
+            width: 16px;
+            height: 16px;
 
             &:hover > .projects__discription_tooltip-content,
             &:focus > .projects__discription_tooltip-content{
@@ -77,11 +82,13 @@
         }
 
         &_icon{
+            position: absolute;
+            top: 2px;
+            left: -2px;
             display: inline-block;
             margin: 0 auto;
             width: 16px;
             height: 16px;
-            margin-bottom: -2px;
 
             background-image: url('../img/svg/tooltip.svg');
             background-repeat: no-repeat;
@@ -130,7 +137,7 @@
 
         @include px1400{
             margin-bottom: 18px;
-            width: 68%;
+            width: 66%;
         }
 
         @include px1024-1399{

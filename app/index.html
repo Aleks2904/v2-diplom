@@ -15,7 +15,7 @@
             <div class="container header-nav-block__container">
                 <button 
                     id="js-btn-nav" 
-                    class="header-nav-block__open-nav header-nav-block__open-nav_is-open" 
+                    class="header-nav-block__open-nav" 
                     aria-label="открыть меню" 
                     aria-controls="js-nav" 
                     aria-expanded="false">
@@ -26,7 +26,17 @@
                 
                 <a id="js-header-logo" class="header-nav-block__logo"></a>
 
-                <div id="js-nav" aria-labelledby="js-btn-nav" class="header-nav-block__nav-block">
+                <div id="js-nav" aria-label="меню закрыто" class="header-nav-block__nav-block">
+                    <button 
+                        id="js-btn-nav-close" 
+                        class="header-nav-block__close-nav" 
+                        aria-label="закрыть меню" 
+                        aria-controls="js-nav" 
+                        aria-expanded="true">
+                            <span class="header-nav-block__close-nav_liner"></span>
+                            <span class="header-nav-block__close-nav_liner"></span>
+                    </button>
+
                     <nav class="header-nav-block__nav">
                         <ul class="header-nav-block__nav-list">
                             <li class="header-nav-block__nav-item">
@@ -67,7 +77,9 @@
                         </ul>
                     </nav>
 
-                    <button  class="header-nav-block__btn-login"></button>
+                    <button  class="header-nav-block__btn-login">
+                        Войти
+                    </button>
                 </div>
             </div>
         </div>
@@ -75,53 +87,73 @@
         <div class="header-search-block">
             <div class="container header-search-block__container">
                 <ul id="header-select" class="header-search-block__drop-list">
-                    <li class="header-search-block__drop-item">
+                    <li class="header-search-block__drop-item" id="js-header-choise-list-1">
                         <select id="js-select-1" class="cs-select cs-skin-rotate">
                             <option value="1">Реализм</option>
-                            <option value="2">Велоцираптор</option>
-                            <option value="3">Спинозавр</option>
-                            <option value="4">Археоптерикс</option>
-                            <option value="5">Апатозавр</option>
+                            <option value="2">Тинторетто</option>
+                            <option value="3">Фридрих</option>
+                            <option value="4">Леонардо</option>
+                            <option value="5">Верроккьо</option>
+                            <option value="6">Велоцираптор</option>
+                            <option value="7">Спинозавр</option>
+                            <option value="8">Археоптерикс</option>
+                            <option value="9">Апатозавр</option>
                         </select>
                     </li>
 
-                    <li class="header-search-block__drop-item">
+                    <li class="header-search-block__drop-item" id="js-header-choise-list-2">
                         <select id="js-select-2" class="cs-select cs-skin-rotate">
                             <option value="1">Импрессионизм</option>
-                            <option value="2">Велоцираптор</option>
-                            <option value="3">Спинозавр</option>
-                            <option value="4">Археоптерикс</option>
-                            <option value="5">Апатозавр</option>
+                            <option value="2">Моне</option>
+                            <option value="3">Сислей</option>
+                            <option value="4">Мане</option>
+                            <option value="5">Ренуар</option>
+                            <option value="6">Велоцираптор</option>
+                            <option value="7">Спинозавр</option>
+                            <option value="8">Археоптерикс</option>
+                            <option value="9">Апатозавр</option>
                         </select>
                     </li>
 
-                    <li class="header-search-block__drop-item">
+                    <li class="header-search-block__drop-item" id="js-header-choise-list-3">
                         <select id="js-select-3" class="cs-select cs-skin-rotate">
                             <option value="1">Постимпрессионизм</option>
-                            <option value="2">Велоцираптор</option>
-                            <option value="3">Спинозавр</option>
-                            <option value="4">Археоптерикс</option>
-                            <option value="5">Апатозавр</option>
+                            <option value="2">Ван Гог</option>
+                            <option value="3">Сезанн</option>
+                            <option value="4">Гоген</option>
+                            <option value="5">Сёра</option>
+                            <option value="6">Велоцираптор</option>
+                            <option value="7">Спинозавр</option>
+                            <option value="8">Археоптерикс</option>
+                            <option value="9">Апатозавр</option>
                         </select>
                     </li>
 
-                    <li class="header-search-block__drop-item">
+                    <li class="header-search-block__drop-item" id="js-header-choise-list-4">
                         <select id="js-select-4" class="cs-select cs-skin-rotate">
                             <option value="1">Авангард</option>
-                            <option value="2">Велоцираптор</option>
-                            <option value="3">Спинозавр</option>
-                            <option value="4">Археоптерикс</option>
-                            <option value="5">Апатозавр</option>
+                            <option value="2">Кандинский</option>
+                            <option value="3">Маринетти</option>
+                            <option value="4">Малевич</option>
+                            <option value="5">Пикассо</option>
+                            <option value="6">Велоцираптор</option>
+                            <option value="7">Спинозавр</option>
+                            <option value="8">Археоптерикс</option>
+                            <option value="9">Апатозавр</option>
                         </select>
                     </li>
 
-                    <li class="header-search-block__drop-item">
+                    <li class="header-search-block__drop-item" id="js-header-choise-list-5">
                         <select id="js-select-5" class="cs-select cs-skin-rotate">
                             <option value="1">Футуризм</option>
-                            <option value="2">Велоцираптор</option>
-                            <option value="3">Спинозавр</option>
-                            <option value="4">Археоптерикс</option>
-                            <option value="5">Апатозавр</option>
+                            <option value="2">Карра</option>
+                            <option value="3">Прателла</option>
+                            <option value="4">Северини</option>
+                            <option value="5">Балла</option>
+                            <option value="6">Велоцираптор</option>
+                            <option value="7">Спинозавр</option>
+                            <option value="8">Археоптерикс</option>
+                            <option value="9">Апатозавр</option>
                         </select>
                     </li>
                 </ul>
@@ -570,7 +602,7 @@
                 </div>
             </div>
         </section>
-
+ 
         <section id="contacts" class="contacts">
             <div class="contacts__container">
                 <h2 class="contacts__title">
@@ -603,7 +635,7 @@
                                 Заказать
                             </button>
                         </form>
-    
+                 
                         <h4 class="contacts__connect-title">
                             Связаться в один клик
                         </h4>
@@ -618,14 +650,20 @@
                         </ul>
                     </div>
                 </div>
-
-                <div id="js-contacts-card-block" class="contacts__card-block">
+            <div id="js-contacts-card-block" class="contacts__card-block">
                     
                 </div>
-            </div>
+           </div>
         </section>
 
-        <div id="js-modal-img" class="modal-img"></div>
+        <div id="js-modal-img" class="modal">
+            <div class="modal__container" role="dialog" aria-modal="true">
+                <button class="btn-reset modal__close" aria-label="Закрыть модальное окно"></button>
+
+                <div id="js-modal-img-content" class="modal__content modal-content">
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -647,7 +685,8 @@
     </footer>
 
     <a href="#js-header" id="js-link-top" class="link-top"></a>
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="js/all.js"></script>
 </body>
 </html>

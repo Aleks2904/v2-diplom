@@ -103,23 +103,25 @@ document.addEventListener('DOMContentLoaded', function(){
                             
                         catalogData.innerHTML += `
                             <li class="catalog__data-item">
-                                <button
-                                    id="al-${ariaLabelledby}" 
-                                    aria-label="показать/скрыть дату" 
-                                    aria-controls="ac-${ariaControls}" 
-                                    aria-expanded="false" 
-                                    type="button" 
-                                    class="catalog__data-btn"
-                                    value="${year}">
-                                        ${yearBtn}
-                                </button>
+                                <div class="catalog__data-container">
+                                    <button
+                                        id="al-${ariaLabelledby}" 
+                                        aria-label="показать/скрыть дату" 
+                                        aria-controls="ac-${ariaControls}" 
+                                        aria-expanded="false" 
+                                        type="button" 
+                                        class="catalog__data-btn"
+                                        value="${year}">
+                                            ${yearBtn}
+                                    </button>
 
-                                <ul
-                                    id="ac-${ariaControls}" 
-                                    aria-labelledby="al-${ariaLabelledby}" 
-                                    class="catalog__data-list-link"
-                                    >
-                                </ul>
+                                    <ul
+                                        id="ac-${ariaControls}" 
+                                        aria-labelledby="al-${ariaLabelledby}" 
+                                        class="catalog__data-list-link"
+                                        >
+                                    </ul>
+                                </div>
                             </li>
                         `
 

@@ -1,6 +1,6 @@
 .about-us {
     @include px1400{
-        padding: 80px 0 69px;
+        padding: 79px 0 70px;
     }
 
     @include px768-1399{
@@ -38,7 +38,7 @@
         @include text;
 
         @include px1400{
-            max-width: 70%;
+            max-width: 68%;
         }
 
         @include px768-1023{

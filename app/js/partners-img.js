@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
             resolve();
         })
     }
-
+    
     unloadingImg().then(()=>{
         setTimeout(()=>{
             const li = sliderTrack.querySelectorAll('.projects__swiper-item');
@@ -53,9 +53,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 imgActive.style.width = `${width}px`;
                 imgActive.style.height = `${height}px`;
-    
-                console.log('width: '+ width);
-                console.log('height: '+ height);
             })
         },4000)
     })

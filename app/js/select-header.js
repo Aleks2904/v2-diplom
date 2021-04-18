@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function(){
-    const selectHeader1 = document.querySelector('#js-select-1'),
-          selectHeader2 = document.querySelector('#js-select-2'),
-          selectHeader3 = document.querySelector('#js-select-3'),
-          selectHeader4 = document.querySelector('#js-select-4'),
-          selectHeader5 = document.querySelector('#js-select-5'),
-          selectGallery1 = document.querySelector('#js-gallery-select-1'),
-          selectGallery2 = document.querySelector('#js-gallery-select-2'),
-          selectGallery3 = document.querySelector('#js-gallery-select-3');
+      const selectHeader1 = document.querySelector('#js-select-1'),
+            selectHeader2 = document.querySelector('#js-select-2'),
+            selectHeader3 = document.querySelector('#js-select-3'),
+            selectHeader4 = document.querySelector('#js-select-4'),
+            selectHeader5 = document.querySelector('#js-select-5'),
+            selectGallery1 = document.querySelector('#js-gallery-select-1'),
+            selectGallery2 = document.querySelector('#js-gallery-select-2'),
+            selectGallery3 = document.querySelector('#js-gallery-select-3');
         
-    const setupChoices = {
+      const setupChoices = {
         searchEnabled: false,
         classNames: {
             containerOuter: 'choices',
@@ -38,15 +38,38 @@ document.addEventListener('DOMContentLoaded', function(){
             noResults: 'has-no-results',
             noChoices: 'has-no-choices'
           }
-    };
+      };
 
-    const choicesHeader1 = new Choices(selectHeader1, setupChoices),
-          choicesHeader2 = new Choices(selectHeader2, setupChoices),
-          choicesHeader3 = new Choices(selectHeader3, setupChoices),
-          choicesHeader4 = new Choices(selectHeader4, setupChoices),
-          choicesHeader5 = new Choices(selectHeader5, setupChoices),
-          choicesGallery1 = new Choices(selectGallery1, setupChoices),
-          choicesGallery2 = new Choices(selectGallery2, setupChoices),
-          choicesGallery3 = new Choices(selectGallery3, setupChoices);
+      let choicesHeader1,
+          choicesHeader2,
+          choicesHeader3,
+          choicesHeader4,
+          choicesHeader5,
+          choicesGallery1,
+          choicesGallery2,
+          choicesGallery3;
+
+      const Choise = new Promise((resolve, reject)=>{
+            resolve(
+                  choicesHeader1 = new Choices(selectHeader1, setupChoices),
+                  choicesHeader2 = new Choices(selectHeader2, setupChoices),
+                  choicesHeader3 = new Choices(selectHeader3, setupChoices),
+                  choicesHeader4 = new Choices(selectHeader4, setupChoices),
+                  choicesHeader5 = new Choices(selectHeader5, setupChoices),
+                  choicesGallery1 = new Choices(selectGallery1, setupChoices),
+                  choicesGallery2 = new Choices(selectGallery2, setupChoices),
+                  choicesGallery3 = new Choices(selectGallery3, setupChoices)
+            )
+      });
+
+    Choise.then(()=>{
+            const choicesLiHeader = document.querySelectorAll('.header-search-block__drop-item');
+
+            choicesLiHeader.forEach((li)=>{
+                  const el = li.querySelector('.choices__list--dropdown');
+
+                  new SimpleBar(el.querySelector('.choices__list'));
+              })
+      })
 
 })

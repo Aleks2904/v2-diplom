@@ -1,29 +1,31 @@
 .events {
-    @include px1024{
+    @include px1400{
+        padding-bottom: 80px;
+    }
+
+    @include px1024-1399{
         padding-bottom: 79px;
     }
 
     @include px768-1023{
-        padding-bottom: 85px
+        padding-bottom: 83px;
     }
 
     @include px767{
-        padding-bottom: 50px
+        padding-bottom: 50px;
     }
 
     &__title {
         @include title;
 
         @include px1400{
-            margin-bottom: 18px;
+            margin-left: -3px;
+            margin-bottom: 16px;
         }
 
         @include px768-1399{
             margin-left: -3px;
-        }
-
-        @include px768-1399{
-            margin-bottom: 15.5px;
+            margin-bottom: 17px;
         }
 
         @include px767{
@@ -103,9 +105,11 @@
         border-left: 1px solid #CACACA;
         border-right: 1px solid #CACACA;
 
+        font-size: 12px;
+
         @include px1400{
             margin-top: -3px;
-            padding: 12px 17px 5px 0;
+            padding: 14px 17px 3px 0;
         }
 
         @include px1024-1399{
@@ -115,7 +119,7 @@
 
         @include px768-1023{
             margin-top: -2px;
-            padding: 14px 17px 12px 0;
+            padding: 14px 17px 4px 0;
         }
 
         @include px767{
@@ -206,25 +210,31 @@
     &__item-subtitle{
         @include text;
 
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+        text-overflow: ellipsis;
+
         @include px1400{
             max-width: 94%;
         }
 
-        @include px1399{
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;  
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        // @include px1399{
+        //     display: -webkit-box;
+        //     -webkit-line-clamp: 1;
+        //     -webkit-box-orient: vertical;  
+        //     overflow: hidden;
+        //     text-overflow: ellipsis;
+        // }
 
-        @include px1024-1399{
-            -webkit-line-clamp: 7;
-        }
+        // @include px1024-1399{
+        //     -webkit-line-clamp: 7;
+        // }
 
-        @include px768-1023{
-            -webkit-line-clamp: 5;
-        }
+        // @include px768-1023{
+        //     -webkit-line-clamp: 5;
+        // }
     }
 
     &__item-btn{
@@ -243,6 +253,8 @@
         border-bottom: 1px solid $PURPLE;
 
         transition:  font-weight 0.3s,  color 0.3s, border-color 0.3s, transform 0.3s;
+
+        padding-top: 10px;
 
         &_disable{
             cursor: default;
@@ -325,13 +337,12 @@
 
         display: block;
         margin: 0 auto;
-        padding: 15px 35px;
+        padding: 15px 33px;
 
         font-weight: 700;
         font-size: 18px;
         line-height: 25px;
         color: $PURPLE;
-        letter-spacing: 0.3px;
 
         border: 2px solid $PURPLE;
         border-radius: 100px;
@@ -371,7 +382,7 @@
         &:focus:not(.focus-visible) {
             border-color: #9D5CD0;
             background-color: transparent;
-            color: $WHITE;
+            color: #9D5CD0;
         }
 
         &:focus:not(.focus-visible)::after {

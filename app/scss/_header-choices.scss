@@ -42,9 +42,9 @@
             width: 10px;
             height: 10px;
             position: absolute;
-            top: 50%;
-            right:10px;
-            transform: translateY(-25%) rotate(90deg);
+            top: 52%;
+            right: 12px;
+            transform: translateY(-50%) rotate(90deg);
             background-image:inline-svg("arrow", $WHITE );
             background-size:cover;
             background-position:center;
@@ -95,16 +95,24 @@
     }
 
     &__list--dropdown{
-        width: 100%;
-        background: rgba(0,0,0,.4);
-        margin-top: 9px;
+        background: rgba(0,0,0,.7);
+        margin-top: 11px;
+
+        width: 300px !important;
+        overflow: hidden;
+        padding: 40px 19px 40px 40px;
+    }
+
+    &__list--dropdown > .choices__list{
+        overflow-y: auto;
+        max-height: 220px !important;
     }
 
     &__item{
         color: $WHITE;
         white-space: nowrap;
-        @include text;
-        letter-spacing: 1.2px;
+        font-size: 18px;
+        font-weight: 400;
 
         transition: color 0.3s;
 
@@ -122,9 +130,17 @@
     }
 
     &__item--choice{
-        display: inline-table;
-        padding-right: 10px;
+        font-size: 14px;
+        display: flex;
+        padding: 0;
+        padding-left: 14px;
+        align-items: center;
         width: 100%;
+        height: 45px;
+
+        &:not(:last-child){
+            margin-bottom: 10px;
+        }
     }
 
     &__group{
@@ -147,7 +163,7 @@
 
 #header-select .is-open > .choices__inner::after{
     margin-top: 0;
-    transform: translateY(-35%) rotate(-90deg);
+    transform: translateY(-50%) rotate(-90deg);
 }
 
 #header-select .is-open > .choices__list--dropdown{
@@ -180,7 +196,7 @@
     }
 
     100%{
-        background: rgba(0,0,0,.4);
+        background: rgba(0,0,0,.7);
     }
 }
 

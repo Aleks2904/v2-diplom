@@ -1,4 +1,4 @@
-.modal-img{
+.modal{
     display: none;
     position: fixed;
     overflow: hidden;
@@ -6,15 +6,17 @@
     top: 50%;
     left: 50%;
 
-    width: 40vw;
-    height: 40vw;
+    width: 47vw;
+    height: 26vw;
 
     transform: translate(-50%,-50%);
     z-index: 15;
 
-    background-color: $BLACK;
+    background-color: $WHITE;
 
-    padding: 20px;
+    &::before{
+        content: none;
+    }
 
     &_is-open{
         display: block;
@@ -26,15 +28,26 @@
         animation: closeModalImg 0.6s 1 linear;
     }
 
-    &__close-modal{
+    &__container{
         display: block;
-        position: relative;
-        margin-left: auto;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
 
-        width: 30px;
-        height: 30px;
+    &__close{
+        display: block;
+        position: absolute;
+
+        top: 14px;
+        right: 15px;
+
+        width: 28px;
+        height: 28px;
 
         background-color: transparent;
+        background-image: none;
         outline: none;
         border: none;
 
@@ -42,8 +55,12 @@
 
         transition: transform .2s;
 
+        z-index: 10;
+
         &:hover::before,
-        &:hover::after{
+        &:hover::after,
+        &:focus::before,
+        &:focus::after{
             box-shadow: 0 0 5px 2px rgba(252, 5, 5, 0.8);
             transition: box-shadow .3s;
         }
@@ -62,9 +79,9 @@
             left: 50%;
 
             width: 80%;
-            height: 3px;
+            height: 1.5px;
 
-            background-color: red;
+            background-color: black;
 
             transition: box-shadow .3s;
         }
@@ -79,6 +96,82 @@
 
     }
 
+    &__content{
+        height: 100%;
+    }
+
+    &__figure{
+        display: grid;
+        grid-template-areas: "img ."
+                             "img figcaption"
+                             "img .";
+        grid-template-columns: 44.4% 1fr;
+        grid-template-rows: 23% 67% 10%;
+        grid-column-gap: 5.3%;
+        height: 100%;
+    }
+
+    &__picture{
+        grid-area: img;
+    }
+
+    &__img{
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__figcaption{
+        grid-area: figcaption;
+
+        display: flex;
+        align-items: center;
+        
+        padding-top: 8px;
+    }
+
+    &__figcaption-container{
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        padding-right: 10px;
+    }
+
+    &__title{
+        font-weight: 600;
+        font-size: 24;
+        line-height: 33px;
+
+        margin-left: -1px;
+    }
+
+    &__pictureName{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    &__time{
+        font-size: 12px;
+        line-height: 16px;
+        color: #969696;
+
+        margin-bottom: 33px;
+    }
+
+    &__discription{
+        font-size: 16px;
+        line-height: 32px;
+
+        max-width: 88%;
+
+        overflow: auto;
+        
+        color: #333333;
+    }
 }
 
 @keyframes openModalImg{
@@ -103,4 +196,23 @@
         max-width: 0px;
         max-height: 0px;
     }
+}
+
+.open-modal{
+    &::after{
+        content: "";
+        display: block;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background-color: black;
+        opacity: 0.7;
+    } 
 }

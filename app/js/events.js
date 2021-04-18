@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function(){
     list.addEventListener('click', function(e){
         const width = document.body.clientWidth;
 
-        if(e.target.classList.contains('events__item-btn') && width < 1400){
+        if(e.target.classList.contains('events__item-btn')){
             const btn = e.target,
                   parent = btn.parentElement,
                   textContainer = parent.querySelector('.events__item-contianer-subtitle'),
@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function(){
     })
 
     window.addEventListener("resize", (event) => {
-        //setMinStroke();
         disableBtn();
         addPerson();
 
@@ -46,16 +45,14 @@ document.addEventListener('DOMContentLoaded', function(){
         const  list = document.querySelector('.events__list'),
                item = list.querySelectorAll('.events__item');
 
-        window.onload = function () {
-            item.forEach(function(el){
-                const text = el.querySelector('.events__item-subtitle'),
-                      textContainer = el.querySelector('.events__item-contianer-subtitle'),
-                      btn = el.querySelector('.events__item-btn'),
-                      width = document.body.clientWidth;
-    
-                 welshBtn(text, textContainer, btn, width)
-            })     
-        };
+        item.forEach(function(el){
+            const text = el.querySelector('.events__item-subtitle'),
+                    textContainer = el.querySelector('.events__item-contianer-subtitle'),
+                    btn = el.querySelector('.events__item-btn'),
+                    width = document.body.clientWidth;
+
+                welshBtn(text, textContainer, btn, width)
+        })     
     }
 
     function addPerson(attr){
@@ -74,11 +71,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
                     if(attr == 'false'){
                         btn.setAttribute('aria-expanded', 'true');
-                        btn.textContent = 'скрыть все события';
+                        btn.textContent = 'Скрыть все события';
                         forLength = data.length;
                     }else{
                         btn.setAttribute('aria-expanded', 'false');
-                        btn.textContent = 'все события';
+                        btn.textContent = 'Все события';
 
                         if(width > 1023){
                             forLength = 3;
@@ -186,18 +183,18 @@ document.addEventListener('DOMContentLoaded', function(){
     };
 
     function welshBtn(text, textContainer, btn, width){
-        if(width >= 1400){
-            btn.textContent = 'Подробнее';
-            btn.setAttribute("disabled", "disabled");
-            btn.classList.add('events__item-btn_disable');
+        // if(width >= 1400){
+        //     btn.textContent = 'Подробнее';
+        //     btn.setAttribute("disabled", "disabled");
+        //     btn.classList.add('events__item-btn_disable');
 
-            btn.removeAttribute('aria-expanded');
-            btn.removeAttribute('id');
-            btn.removeAttribute('aria-controls');
+        //     btn.removeAttribute('aria-expanded');
+        //     btn.removeAttribute('id');
+        //     btn.removeAttribute('aria-controls');
 
-            text.removeAttribute('id');
-            text.removeAttribute('aria-labelledby');
-        }else{
+        //     text.removeAttribute('id');
+        //     text.removeAttribute('aria-labelledby');
+        // }else{
             text.style.webkitLineClamp = '1';
 
             let elH = textContainer.clientHeight,
@@ -213,8 +210,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
             let fullStroke = text.clientHeight;
                 fullStroke = Math.floor((fullStroke / txtH));
+
+            textContainer.setAttribute('data-simplebar', 'init');
             
-            if(stroke >= fullStroke){
+            if(clamp >= fullStroke){
                 btn.textContent = 'Подробнее';
                 btn.classList.add('events__item-btn_disable');
 
@@ -228,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 btn.setAttribute("disabled", "disabled");
             }
 
-            if(stroke < fullStroke){
+            if(clamp < fullStroke){
                 const idBtn = 'btn-'+ Math.random(),
                       idText = 'text-' + Math.random();
 
@@ -247,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 new SimpleBar(textContainer);
             }
-        }
+        // }
     }
 
     addPerson();

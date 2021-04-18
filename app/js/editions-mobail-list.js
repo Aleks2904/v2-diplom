@@ -200,6 +200,17 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     function removeCloneElem(li){
+        const text = li.querySelector('.editions__span-text').textContent.replace(/\s+/g, ' ').trim(),
+              originItem = document.querySelectorAll('.editions__item-check');
+
+        originItem.forEach((el)=>{
+            const originText = el.querySelector('.editions__span-text').textContent.replace(/\s+/g, ' ').trim();
+            if(text === originText){
+                const check = el.querySelector('.editions__inpyt-check');
+                check.checked = false;
+            }
+        })
+
         containerList.removeChild(li);
     }
 

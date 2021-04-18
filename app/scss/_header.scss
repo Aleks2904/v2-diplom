@@ -5,99 +5,71 @@
 }
 
 .header-nav-block {
-    &__container {
-        display: flex;
+    &__container{
+        display: grid;
+        justify-content: space-between;
         align-items: center;
 
-        @include px480{
-            height: $heightHeader480;
+        @include px1400{
+            grid-template-columns: 11% 1fr;  
+            grid-column-gap: 11%;
         }
 
-        @include px479{
-            height: $heightHeader479;
+        @include px1024{
+            height: $heightHeader1024;
+        }
+
+        @include px768-1023{
+            height: $heightHeader768-1023;
+        }
+
+        @include px767{
+            height: $heightHeader767;
         }
     }
 
     &__logo {
         display: block;
 
+        background-image: url('../img/svg/logo/logo.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size:contain;
+
         transition: opacity 0.3s;
 
         @include px1400{
             position: relative;
-            width: 221px;
+            width: 176px;
             height: 50px;
 
             margin-left: -2px;
-            margin-right: 11%;
 
             padding: 2px;
         }
 
-        @include px1399{
+        @include px768-1399{
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
 
-            padding: 3px;
+            padding: 5px;
         }
 
-        @include px480-1399{
+        @include px768-1399{
             width: 196px;
             height: 50px;
         }
 
-        @include px479{
-            width: 106px;
-            height: 22px;
-        }
-
-        &::before,
-        &::after{
-            content: '';
-            display: block;
-            
+        @include px767{
             position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
 
-            background-repeat: no-repeat;
-        }
-
-        &::before{
-            background-image: url('../img/svg/logo/blanchard.svg');
-            background-position: top center;
-
-            width: calc(100% - 4px);
-
-            @include px480{
-                background-size: contain;
-                top: 10%;
-                height: 50%;
-            }
-
-            @include px479{
-                background-size: cover;
-                top: 0%;
-                height: 60%;
-            }
-        }
-
-        &::after{
-            background-image: url('../img/svg/logo/gallery.svg');
-            background-position: bottom center;
-            background-size: contain;
-
-            @include px480{
-                bottom: 10%;
-                height: 50%;
-                width: calc(100.5% - 4px);
-            }
-
-            @include px479{
-                bottom: 0%;
-                height: 40%;
-                width: calc(101% - 4px);
-            }
+            width: 102px;
+            height: 22px;
         }
     }
 
@@ -107,6 +79,14 @@
         }
 
         @include px1399{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 0;
+            overflow: hidden;
+
+            margin-top: 2px;
+
             background-color: transparent;
             outline: none;
             border:none;
@@ -115,47 +95,39 @@
 
             transition: transform 0.3s;
 
-            &_liner{
+            &:hover > .header-nav-block__open-nav_liner,
+            &:focus > .header-nav-block__open-nav_liner{
+                background: $HOVER-COLOR;
+            }
+
+            &:active {
+                transform: scale(0.9);
+                transition: transform .3s;
+            }
+
+            &:active > .header-nav-block__open-nav_liner{
+                background: $ACTIV-COLOR;
                 transition: background-color 0.3s;
             }
 
-            &_is-open{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                padding: 0;
-                overflow: hidden;
-
-                &:hover > .header-nav-block__open-nav_liner,
-                &:focus > .header-nav-block__open-nav_liner{
-                    background: $HOVER-COLOR;
-                }
-
-                &:active {
-                    transform: scale(0.9);
-                    transition: transform .3s;
-                }
-
-                &:active > .header-nav-block__open-nav_liner{
-                    background: $ACTIV-COLOR;
-                    transition: background-color 0.3s;
-                }
-
-                &:hover > .header-nav-block__open-nav_liner:nth-child(1),
-                &:focus > .header-nav-block__open-nav_liner:nth-child(1){
-                    animation: btnOpenNav .5s normal linear 1;
-                }
-                &:hover > .header-nav-block__open-nav_liner:nth-child(2),
-                &:focus > .header-nav-block__open-nav_liner:nth-child(2){
-                    animation: btnOpenNav .8s normal linear 1;
-                }
-                &:hover > .header-nav-block__open-nav_liner:nth-child(3),
-                &:focus > .header-nav-block__open-nav_liner:nth-child(3){
-                    animation: btnOpenNav 1.1s normal linear 1;
-                }
+            &:hover > .header-nav-block__open-nav_liner:nth-child(1),
+            &:focus > .header-nav-block__open-nav_liner:nth-child(1){
+                animation: btnOpenNav .5s normal linear 1;
+            }
+            &:hover > .header-nav-block__open-nav_liner:nth-child(2),
+            &:focus > .header-nav-block__open-nav_liner:nth-child(2){
+                animation: btnOpenNav .8s normal linear 1;
+            }
+            &:hover > .header-nav-block__open-nav_liner:nth-child(3),
+            &:focus > .header-nav-block__open-nav_liner:nth-child(3){
+                animation: btnOpenNav 1.1s normal linear 1;
             }
 
-            &_is-open > .header-nav-block__open-nav_liner{
+            &_liner{
+                transition: background-color 0.3s;
+            }
+            
+            & > .header-nav-block__open-nav_liner{
                 display: block;
 
                 background-color: $WHITE;
@@ -169,47 +141,77 @@
                 }
 
                 &:nth-child(3){
-                    width: 60%;
+                    width: 68%;
                 }
 
-                @include px480-1399{
+                @include px768-1399{
                     height: 4px;
                 }
         
-                @include px479{
+                @include px767{
                     height: 2px;
                 }
             }
+        }
 
-            &_is-close{
-                position: relative;
-                overflow: hidden;
+        @include px768-1399{
+            width: 35px;
+            height: 35px;
+        }
 
-                &:hover > .header-nav-block__open-nav_liner,
-                &:focus > .header-nav-block__open-nav_liner{
-                    background-color: red;
-                    box-shadow: 0 0 5px 1px red;
+        @include px767{
+            margin-top: 0;
+            width: 20px;
+            height: 20px;
+        }
+    }
 
-                    transition: background-color .3s, box-shadow .3s;
-                }
+    &__close-nav{
+        @include px1400{
+            display: none;
+        }
 
-                &:active{
-                    transform: scale(0.9);
-                    transition: transform 0.3s;
-                }
+        @include px1399{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 0;
+            overflow: hidden;
 
-                &:active > .header-nav-block__open-nav_liner{
-                    background-color: #8B0000;
-                    transition: background-color .3s;
-                }
+            margin-top: 2px;
+
+            background-color: transparent;
+            outline: none;
+            border:none;
+
+            cursor: pointer;
+
+            transition: transform 0.3s;
+
+            &:hover > .header-nav-block__close-nav_liner,
+            &:focus > .header-nav-block__close-nav_liner{
+                background-color: red;
+                box-shadow: 0 0 5px 1px red;
+
+                transition: background-color .3s, box-shadow .3s;
             }
 
-            &_is-close > .header-nav-block__open-nav_liner{
+            &:active{
+                transform: scale(0.7);
+                transition: transform 0.3s;
+            }
+
+            &:active > .header-nav-block__close-nav_liner{
+                background-color: #8B0000;
+                transition: background-color .3s;
+            }     
+
+            & > .header-nav-block__close-nav_liner{
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 display: block;
-                height: 4px;
                 background-color: $WHITE;
 
                 &:nth-child(1){
@@ -225,52 +227,69 @@
                 &:nth-child(3){
                     display: none;
                 }
+
+                @include px768-1399{
+                    height: 4px;
+                }
+
+                @include px767{
+                    height: 2px;
+                }
             }
-        }
 
-        @include px480-1399{
-            width: 35px;
-            height: 35px;
-        }
+            @include px768-1399{
+                width: 35px;
+                height: 35px;
 
-        @include px479{
-            width: 20px;
-            height: 20px;
+                margin-bottom: 30px;
+            }
+        
+            @include px767{
+                width: 20px;
+                height: 20px;
+
+                margin-bottom: 20px;
+            }
         }
     }
 
     &__nav-block {
-        margin-top: -2px;
-
         @include px1400{
-            display: flex;
+            display: grid;
             justify-content: space-between;
-            width: 100%;
+            grid-template-columns: 1fr 76px;  
+            grid-column-gap: 22.5%;
         }
 
         @include px1399{
             display: none;
-            transform: translate(-50%, 150%);
+            transform: translate(-50%, -150%);
         }
 
         &_is-active{
             display: flex;
             flex-direction: column;
-            align-items: center;
             z-index: 10;
 
             position: fixed;
 
-            background: rgb(40,40,40);
             background: linear-gradient(0deg,rgba(0,0,0,1) 0%, rgba(40,40,40,1) 50%, rgba(0,0,0,1) 100%);
+            opacity: 0.9;
 
             width: 100%;
 
-            top: $heightHeader480;
+            top: 0;
             right: 0;
-            bottom: 0;
             left: 50%;
             transform: translate(-50%, 0%);
+
+            @include px768-1399 {
+                padding: 0 $paddingXContainer768;
+            }
+        
+            @include px767 {
+                padding: 0 $paddingXContainer320;
+            }
         }
 
         &_anima-open{
@@ -287,31 +306,31 @@
             width: 100%
         }
 
-        @include px1399{
-            @include h460{
-                margin-bottom: 40px;
-            }
+        @include px768-1399{
+            margin-bottom: 73px;
+        }
+
+        @include px767{
+            margin-bottom: 40px;
         }
     }
 
     &__nav-list {
         display: flex;
 
-        @include px1399{
-            @include h460{
-                flex-direction: column;
-            }
+        @include px1400{
+            padding-top: 4px;
+        }
 
-            @include h459{
-                flex-wrap: wrap;
-            }
+        @include px1399{
+            flex-direction: column;
         }
     }
 
     &__nav-item {
         @include px1400{
             &:not(:last-child){
-                margin-right: 4.7%;
+                margin-right: 7%;
             }
 
             &:hover > .header-nav-block__nav-link{
@@ -323,36 +342,55 @@
             &:hover > .header-nav-block__nav-link{
                 @include hover;
             }
-            
-            @include h459{
-                display: flex;
-                justify-content: center;
-                width: 30%;
-            }
+        }
+
+        @include px768-1399{
+            &:not(:last-child){
+                margin-bottom: 32px;
+            } 
+        }
+
+        @include px767{
+            &:not(:last-child){
+                margin-bottom: 24px;
+            } 
         }
     }
 
     &__nav-link {
+        position: relative;
         outline: none;
+        border:none;
         display: inline-block;
 
         font-weight: 600;
-        line-height: 25px;
-        letter-spacing: 1.1px;
 
         color: $WHITE;
         white-space: nowrap;
 
         transition: color .5s, transform .5s;
 
-        border: 2px solid transparent;
-        padding: 2px;
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
 
-        &:focus{
+            width: 130%;
+            height: 140%;
+
+            background: transparent;
+        
+            border: 2px solid transparent;
+        }
+
+        &:focus::after{
             @include focus;
         }
 
-        &:focus:not(.focus-visible) {
+        &:focus:not(.focus-visible)::after {
             border-color: transparent;
         }
 
@@ -361,13 +399,34 @@
         }
 
         transition: color .3s, transform .3s, border-color .3s;
+
+        @include px1400{
+            font-size: 18px;
+        }
+
+        @include px768-1399{
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        @include px767{
+            font-size: 18px;
+            line-height: 24px;
+        }
     }
 
     &__btn-login {
+        color: $WHITE;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 24.51px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         position: relative;
 
-        width: 84px;
-        height: 30px;
         padding: 2px;
 
         outline: none;
@@ -389,22 +448,31 @@
             transition: background-image .3s;
         }
 
-        &:focus {
-            @include focus;
+        @include px1400{
+            &:focus {
+                @include focus;
+            }
+    
+            &:focus:not(.focus-visible) {
+                border-color: transparent;
+            }
         }
 
-        &:focus:not(.focus-visible) {
-            border-color: transparent;
+        @include px1399{
+            &:focus::after {
+                content: '';
+                animation: btnLoginFocus 0.5s normal linear 1;
+            }
+    
+            &:focus:not(.focus-visible) {
+                content: none;
+            }
         }
 
         &:active{
-            transform: scale(.9);
-            transition: transform .3s;
-        }
-
-        &:active::after{
             color: $ACTIV-COLOR;
-            transition: color .3s;
+            transform: scale(.9);
+            transition: transform .3s, color .3s;
         }
 
         &:active::before{
@@ -415,65 +483,83 @@
         &::before{
             content: '';
             display: block;
-            position: absolute;
-            top: 50%;
             left: 0;
-
-            transform: translateY(-50%);
 
             background-image: url("data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z' fill='white'/%3E%3C/svg%3E");
             background-position: center;
             background-repeat:no-repeat;
             background-size:contain;
 
-            width: 18px;
-            margin-left: 2px;
+            width: 14px;
 
             @include px1400{
                 height: 60%; 
+               
+                position: absolute;
+
+                top: 49.5%;
+                transform: translateY(-50%);
             }
 
             @include px1399{
                 height: 20px;
+                position: relative;
+
+                margin-right: 7px;
             }
 
             transition: background-image .3s;
         }
 
         &::after{
-            content: 'Войти';
-
-            @include text;
-            color: $WHITE;
-            line-height: 24.51px;
-
+            content: none;
+            display: block;
             position: absolute;
-            top: 50%;
-            right: 0;
-            margin-right: 2px;
 
-            transform: translateY(-50%);
+            width: 120%;
+            height: 140%;
 
-            
-            transition: color .3s, transform .3s;
+            border: solid 2px $PURPLE;
+            border-radius: 100px;
+
+            background-color: transparent;
         }
 
-        @include h459{
-            margin-top: auto;
-            margin-bottom: 10%;
+        @include px1400{
+            width: 84px;
+            height: 30px;
+        }
+
+        @include px768-1399{
+            border: solid 2px $PURPLE;
+            border-radius: 100px;
+
+            width: 257px;
+            height: 60px;
+
+        }
+
+        @include px767{
+            border: solid 2px $PURPLE;
+            border-radius: 100px;
+
+            width: 200px;
+            height: 50px;
+
         }
     }
 }
 
 .header-search-block {
     position: absolute;
-    z-index: 100;
 
     @include px1400{
         background: rgba(0, 0, 0, 0.4);
         right: 0;
         left: 0;
-        padding: 7.5px 0;
+        padding: 13px 0 9px;
+
+        z-index: 100;
     }
 
     @include px1399{
@@ -485,9 +571,12 @@
 
 
     &__container {
-        display: flex;
+        display: grid;
         align-items: center;
+
         @include px1400{
+            grid-template-columns: 1fr 15.7%;  
+            grid-column-gap: 19.7%;
             justify-content: space-between;
         }
         @include px1399{
@@ -499,8 +588,9 @@
 
     &__drop-list{
         @include px1400{
+            width: 100%;
             display: flex;
-            margin-left: -13px;
+            margin-left: -15px;
         }
     
         @include px1399{
@@ -511,32 +601,20 @@
     &__drop-item{
         @include px1400{
             &:not(:last-child){
-                margin-right: 9.2%;
+                margin-right: 7%;
             }
         }
     }
 
     &__search-block {
         display: flex;
+        position: relative;
 
         @include px1400{
-            width: 15.6%;
+            padding-left: 0.5px;
         }
-
         @include px1399{
-            &:hover > .header-search-block__search-inpyt{
-                position: relative;
-                opacity: 1;
-                width: 100%;
-                transition: opacity .5s;
-            }
-
-            &:hover{
-                width: 100%;
-                animation: searchHover .5s normal ease-out 1;
-            }
-
-            animation: searchHoverOut .5s normal ease-out 1;
+            width: auto;
         }
     }
 
@@ -564,32 +642,20 @@
         @include px1400{   
             width: 24px;
             height: 24px;
-            margin-right: 6px;
+            margin-right: 10px;
         }
 
         @include px1399{
             position: relative;
-
-            &:focus ~ .header-search-block__search-block{
-                animation: searchHover 1s normal ease-out 1;
-            }
-
-            &:focus + .header-search-block__search-inpyt{
-                position: relative;
-                opacity: 1;
-                width: 100%;
-
-                transition: opacity .5s;
-            }
         }
 
-        @include px480-1399{
+        @include px768-1399{
             width: 30px;
             height: 30px;
         }
 
-        @include px479{
-            width: 18px;
+        @include px767{
+            width: 16px;
             height: 18px;
         }
     }
@@ -600,16 +666,10 @@
         outline: none;
         border: none;
         border-bottom: 1px solid $WHITE;
-        padding-bottom: 2px;
-        padding-left: 2px;
         padding-right: 3px;
+        padding-bottom: 2px;
+        padding-left: 0px;
         color: $WHITE;
-
-        &:focus{
-            border-color: $HOVER-COLOR;
-
-            transition: opacity .5s, border-color .3s;
-        }
 
         &:focus::placeholder{
             color: $HOVER-COLOR;
@@ -617,10 +677,9 @@
         }
 
         &::placeholder{
-
             color: $WHITE;
             @include px1400{
-                letter-spacing: 1.3px;
+                letter-spacing: 1px;
             }
             @include px1399{
                 letter-spacing: .3px;
@@ -629,22 +688,19 @@
 
         @include px1399{
             margin-left: 5px;
-            animation: inpytSearchNone 1s normal ease-out 1;
             
             position: absolute;
             width: 1px;
             opacity: 0;
 
-            transition: opacity .5s;
+            width: 100%;
 
             &:focus{
-                position: relative;
-                opacity: 1;
-                width: 100%;
-
                 border-color: $HOVER-COLOR;
+            }
 
-                transition: opacity .5s, border-color .3s;
+            &_is-active{
+                position: relative;
             }
         }
 
@@ -672,12 +728,12 @@
             top: 100%;
         }
 
-        @include px480-1399{
+        @include px768-1399{
             top: 150%;
             right: 2%;
         }
 
-        @include px479{
+        @include px767{
             top: 200%;
             right: 2%;
         }
@@ -856,6 +912,22 @@
         }
     
 
+}
+
+@keyframes btnLoginFocus{
+    0%{
+        opacity: 0;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    100%{
+        opacity: 1;
+
+        width: 120%;
+        height: 140%;
+    }
 }
 
 

@@ -20,7 +20,6 @@ var gulp         = require('gulp'), // Подключаем Gulp
     browserSync   = require('browser-sync').create();
 
 const jsFiles = [ 
-    'node_modules/jquery/dist/jquery.min.js',
     //libs
     'node_modules/swiper/swiper-bundle.min.js',
     'node_modules/choices.js/public/assets/scripts/choices.min.js',
@@ -29,6 +28,7 @@ const jsFiles = [
     'node_modules/simplebar/dist/simplebar.min.js',
     'app/js/webp.js',
     'app/js/imgModal.js',
+    'app/js/graph-modal.js',
 
     //width-select
     'app/js/width-select.js',
@@ -71,10 +71,14 @@ const jsFiles = [
 
     //swiper
     'app/js/swiper.js',
+
+    //bgChoise
+    'app/js/bgChoise.js'
 ]
 
 const cssFiles = [
     'app/css/libs/normalize.css',
+    'app/css/libs/graph-modal.css',
     'app/css/fonts.css',
     'node_modules/choices.js/public/assets/styles/choices.min.css',
     'node_modules/swiper/swiper-bundle.min.css',

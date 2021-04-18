@@ -13,10 +13,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 imgBase = data;
 
                 for(let i = 0; i < data.length; i++){
-
                     imgList.innerHTML += 
-                        `<li class="swiper-slide gallery__slider-item">
-                            <div class="gallery__container-img" tabindex="0">
+                        `<li class="swiper-slide gallery__slider-item" tabindex="0" data-graph-path="gallerey-${i}">
+                            <div class="gallery__container-img" data-graph-path="gallerey-${i}">
                                 <picture>
                                     <source type="image/webp" media="(min-width: 768px)" srcset="${data[i].webp}">
                                     <source type="image/webp" media="(max-width: 767px)" srcset="${data[i].webpMobail}">
@@ -26,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function(){
                             </div>
                         </li>`;
                 }
-
-                installationHeightImgContainer();
             }
             if(xhr.status === 404){
                 personBlock.innerHTML= '<h3>бла бла бла</h3>'
@@ -38,32 +35,36 @@ document.addEventListener('DOMContentLoaded', function(){
 
     imgList.addEventListener('click', function(e){
         if(e.target.tagName == 'DIV'){
+            const graphAttr = e.target.getAttribute('data-graph-path'),
+                  modalContainer = document.querySelector('#js-modal-img-content');
             let imgId = e.target;
             imgId = imgId.querySelector('img');
             imgId = imgId.getAttribute('id');
 
-            OpenModalImg(imgBase, imgId);
+            modalContainer.setAttribute('data-graph-target', `${graphAttr}`);
+
+            const open = new Promise((resolve, reject)=>{
+                    OpenModalImg(imgBase, imgId, e);
+                    
+                    resolve ();
+            });
+
+            open.then(()=>{
+                
+                    new GraphModal().open(graphAttr);
+                
+            })
         }
     });
 
     imgList.addEventListener('keyup', function(e){
-        if(e.target.tagName == 'DIV' && e.key == 'Enter'){
+        if(e.target.tagName == 'LI' && e.key == 'Enter'){
             let imgId = e.target;
             imgId = imgId.querySelector('img');
             imgId = imgId.getAttribute('id');
 
-            OpenModalImg(imgBase, imgId);
+            OpenModalImg(imgBase, imgId, e);
         }
     });
 
-    function installationHeightImgContainer(){
-        const itemHeight = imgList.querySelector('.gallery__slider-item').clientHeight,
-              borderHeight = 3,
-              containerHeight = itemHeight - (borderHeight * 2),
-              imgContainer = imgList.querySelectorAll('.gallery__container-img');
-
-        imgContainer.forEach((el)=>{
-            el.style.height = `${containerHeight}px`
-        })
-    }
 })

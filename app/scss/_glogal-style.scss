@@ -7,8 +7,9 @@ $PURPLE: #9D5CD0;
 $HOVER-COLOR: #C283F3;
 $ACTIV-COLOR: #7943A4;
 
-$heightHeader480: 100px;
-$heightHeader479: 45px;
+$heightHeader1024: 100px;
+$heightHeader768-1023: 100px;
+$heightHeader767: 45px;
 $paddingXContainer1920: 160px;
 $paddingXContainer768: 50px;
 $paddingXContainer320: 15px;
@@ -16,16 +17,16 @@ $paddingXContainer320: 15px;
 .container{
     margin: 0 auto;
 
-    @media (min-width: 1400px) {
+    @include px1400 {
         max-width: 1920px;
         padding: 0 $paddingXContainer1920;
     }
 
-    @media (min-width: 768px) and (max-width: 1600px) {
+    @include px768-1399 {
         padding: 0 $paddingXContainer768;
     }
 
-    @media (max-width: 767px) {
+    @include px767 {
         padding: 0 $paddingXContainer320;
     }
 }
