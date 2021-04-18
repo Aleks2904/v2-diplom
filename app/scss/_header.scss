@@ -438,7 +438,7 @@
         border: 2px solid transparent;
         transition: border-color .3s, transform .3s;
 
-        &:hover::after{
+        &:hover{
             @include hover;
             transition: color .3s;
         }
@@ -497,7 +497,7 @@
                
                 position: absolute;
 
-                top: 49.5%;
+                top: 50%;
                 transform: translateY(-50%);
             }
 
@@ -526,6 +526,7 @@
         }
 
         @include px1400{
+            padding-left: 19px;
             width: 84px;
             height: 30px;
         }

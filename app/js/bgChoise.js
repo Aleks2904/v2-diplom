@@ -34,6 +34,6 @@ document.addEventListener('DOMContentLoaded', function(){
     })
 
 
-//    bgChoise(headerChoise);
+    bgChoise(headerChoise);
 
 })
