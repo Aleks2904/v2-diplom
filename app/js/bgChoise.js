@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     }
 
-    headerChoise.addEventListener('click', function(e){
-        if(e.target.classList.contains('choices__item--selectable')){
-          //  el.setAttribute('data-simplebar', 'init');
-        }
-    })
+    // headerChoise.addEventListener('click', function(e){
+    //     if(e.target.classList.contains('choices__item--selectable')){
+    //         el.setAttribute('data-simplebar', 'init');
+    //     }
+    // })
 
 
     bgChoise(headerChoise);

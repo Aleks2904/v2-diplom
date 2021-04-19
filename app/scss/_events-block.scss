@@ -68,6 +68,8 @@
         display: flex;
         flex-direction: column;
 
+        overflow: hidden;
+
         @include px768{
             width: 100% !important;
         }
@@ -201,6 +203,8 @@
 
     &__item-contianer-subtitle{
         grid-area: subtitle;
+
+        height: 100%;
 
         @include px1399{
            padding-right: 10px;

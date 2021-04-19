@@ -46,12 +46,11 @@ document.addEventListener('DOMContentLoaded', function(){
                item = list.querySelectorAll('.events__item');
 
         item.forEach(function(el){
-            const text = el.querySelector('.events__item-subtitle'),
+            const   text = el.querySelector('.events__item-subtitle'),
                     textContainer = el.querySelector('.events__item-contianer-subtitle'),
-                    btn = el.querySelector('.events__item-btn'),
-                    width = document.body.clientWidth;
+                    btn = el.querySelector('.events__item-btn');
 
-                welshBtn(text, textContainer, btn, width)
+            welshBtn(text, textContainer, btn)
         })     
     }
 
@@ -182,37 +181,31 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     };
 
-    function welshBtn(text, textContainer, btn, width){
-        // if(width >= 1400){
-        //     btn.textContent = 'Подробнее';
-        //     btn.setAttribute("disabled", "disabled");
-        //     btn.classList.add('events__item-btn_disable');
+    function welshBtn(text, textContainer, btn){
+        const minStroke = new Promise((resolve, reject)=>{
+            setTimeout(() => {
+                text.style.webkitLineClamp = '1';
+                resolve();
+            }, 400);
 
-        //     btn.removeAttribute('aria-expanded');
-        //     btn.removeAttribute('id');
-        //     btn.removeAttribute('aria-controls');
-
-        //     text.removeAttribute('id');
-        //     text.removeAttribute('aria-labelledby');
-        // }else{
-            text.style.webkitLineClamp = '1';
-
+        })
+        minStroke.then(()=>{
             let elH = textContainer.clientHeight,
                 txtH = window.getComputedStyle(text).lineHeight;
+
+            text.style.webkitLineClamp = 'inherit';
 
             txtH = txtH.replace(/[a-zа-яё]/gi, '');
 
             const saveStroke = 1,
-                  stroke = Math.floor((elH / txtH)),
-                  clamp = stroke -  saveStroke;
-
-            text.style.webkitLineClamp = 'inherit';
+                stroke = Math.floor((elH / txtH)),
+                clamp = stroke - saveStroke;
 
             let fullStroke = text.clientHeight;
-                fullStroke = Math.floor((fullStroke / txtH));
+            fullStroke = Math.floor((fullStroke / txtH));
 
             textContainer.setAttribute('data-simplebar', 'init');
-            
+        
             if(clamp >= fullStroke){
                 btn.textContent = 'Подробнее';
                 btn.classList.add('events__item-btn_disable');
@@ -229,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if(clamp < fullStroke){
                 const idBtn = 'btn-'+ Math.random(),
-                      idText = 'text-' + Math.random();
+                        idText = 'text-' + Math.random();
 
                 btn.classList.remove('events__item-btn_disable');
                 btn.setAttribute('aria-expanded', 'false');
@@ -246,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 new SimpleBar(textContainer);
             }
-        // }
+        })
     }
 
     addPerson();
