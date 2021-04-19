@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=d766a7dc-d090-4dab-92ce-ac7140da1efe&lang=ru_RU" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="css/all.css">
+
+    <title>Blanchard — художественная галерея</title>
+</head>
+<body>
+    <header id="js-header" class="header">
+        <div class="header-nav-block">
+            <div class="container header-nav-block__container">
+                <button 
+                    id="js-btn-nav" 
+                    class="header-nav-block__open-nav" 
+                    aria-label="открыть меню" 
+                    aria-controls="js-nav" 
+                    aria-expanded="false">
+                        <span class="header-nav-block__open-nav_liner"></span>
+                        <span class="header-nav-block__open-nav_liner"></span>
+                        <span class="header-nav-block__open-nav_liner"></span>
+                </button>
+                
+                <a id="js-header-logo" class="header-nav-block__logo"></a>
+
+                <div id="js-nav" aria-label="меню закрыто" class="header-nav-block__nav-block">
+                    <button 
+                        id="js-btn-nav-close" 
+                        class="header-nav-block__close-nav" 
+                        aria-label="закрыть меню" 
+                        aria-controls="js-nav" 
+                        aria-expanded="true">
+                            <span class="header-nav-block__close-nav_liner"></span>
+                            <span class="header-nav-block__close-nav_liner"></span>
+                    </button>
+
+                    <nav class="header-nav-block__nav">
+                        <ul class="header-nav-block__nav-list">
+                            <li class="header-nav-block__nav-item">
+                                <a href="#about-us" class="header-nav-block__nav-link">
+                                    О нас
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#gallery" class="header-nav-block__nav-link">
+                                    Галерея
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#catalog" class="header-nav-block__nav-link">
+                                    Каталог
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#events" class="header-nav-block__nav-link">
+                                    События
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#editions" class="header-nav-block__nav-link">
+                                    Издания
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#projects" class="header-nav-block__nav-link">
+                                    Проекты
+                                </a>
+                            </li>
+                            <li class="header-nav-block__nav-item">
+                                <a href="#contacts" class="header-nav-block__nav-link">
+                                    Контакты
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <button  class="header-nav-block__btn-login">
+                        Войти
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-search-block">
+            <div class="container header-search-block__container">
+                <ul id="header-select" class="header-search-block__drop-list">
+                    <li class="header-search-block__drop-item" id="js-header-choise-list-1">
+                        <select id="js-select-1" class="cs-select cs-skin-rotate">
+                            <option value="1">Реализм</option>
+                            <option value="2">Тинторетто</option>
+                            <option value="3">Фридрих</option>
+                            <option value="4">Леонардо</option>
+                            <option value="5">Верроккьо</option>
+                            <option value="6">Велоцираптор</option>
+                            <option value="7">Спинозавр</option>
+                            <option value="8">Археоптерикс</option>
+                            <option value="9">Апатозавр</option>
+                        </select>
+                    </li>
+
+                    <li class="header-search-block__drop-item" id="js-header-choise-list-2">
+                        <select id="js-select-2" class="cs-select cs-skin-rotate">
+                            <option value="1">Импрессионизм</option>
+                            <option value="2">Моне</option>
+                            <option value="3">Сислей</option>
+                            <option value="4">Мане</option>
+                            <option value="5">Ренуар</option>
+                            <option value="6">Велоцираптор</option>
+                            <option value="7">Спинозавр</option>
+                            <option value="8">Археоптерикс</option>
+                            <option value="9">Апатозавр</option>
+                        </select>
+                    </li>
+
+                    <li class="header-search-block__drop-item" id="js-header-choise-list-3">
+                        <select id="js-select-3" class="cs-select cs-skin-rotate">
+                            <option value="1">Постимпрессионизм</option>
+                            <option value="2">Ван Гог</option>
+                            <option value="3">Сезанн</option>
+                            <option value="4">Гоген</option>
+                            <option value="5">Сёра</option>
+                            <option value="6">Велоцираптор</option>
+                            <option value="7">Спинозавр</option>
+                            <option value="8">Археоптерикс</option>
+                            <option value="9">Апатозавр</option>
+                        </select>
+                    </li>
+
+                    <li class="header-search-block__drop-item" id="js-header-choise-list-4">
+                        <select id="js-select-4" class="cs-select cs-skin-rotate">
+                            <option value="1">Авангард</option>
+                            <option value="2">Кандинский</option>
+                            <option value="3">Маринетти</option>
+                            <option value="4">Малевич</option>
+                            <option value="5">Пикассо</option>
+                            <option value="6">Велоцираптор</option>
+                            <option value="7">Спинозавр</option>
+                            <option value="8">Археоптерикс</option>
+                            <option value="9">Апатозавр</option>
+                        </select>
+                    </li>
+
+                    <li class="header-search-block__drop-item" id="js-header-choise-list-5">
+                        <select id="js-select-5" class="cs-select cs-skin-rotate">
+                            <option value="1">Футуризм</option>
+                            <option value="2">Карра</option>
+                            <option value="3">Прателла</option>
+                            <option value="4">Северини</option>
+                            <option value="5">Балла</option>
+                            <option value="6">Велоцираптор</option>
+                            <option value="7">Спинозавр</option>
+                            <option value="8">Археоптерикс</option>
+                            <option value="9">Апатозавр</option>
+                        </select>
+                    </li>
+                </ul>
+
+                <form action="#" class="header-search-block__search-block" id="js-header-search-form">
+                    <button type="submit" aria-label="search" id="js-header-search-btn" class="header-search-block__search-btn"></button>
+    
+                    <input type="text" id="js-header-search-input" class="header-search-block__search-inpyt" placeholder="Поиск по сайту">
+
+                    <span id="js-header-search-tooltip" class="header-search-block__search-tooltip">
+                        поля не может быть пустым
+                    </span>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main id="js-main" class="main">
+        <section id="hero-block" class="hero-block">
+            <div id="js-swiper-hero" class="swiper-container">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <picture>
+                            <source type="image/webp" media="(min-width: 1400px)" srcset="img/img/hero-block/1920/hero-block-1.webp">
+                            <source type="image/webp" media="(min-width: 1024px)" srcset="img/img/hero-block/1024/hero-block-1.webp">
+                            <source type="image/webp" media="(min-width: 768px)" srcset="img/img/hero-block/768/hero-block-1.webp">
+                            <source type="image/webp" media="(max-width: 767px)" srcset="img/img/hero-block/320/hero-block-1.webp">
+
+                            <source media="(min-width: 1400px)" srcset="img/img/hero-block/1920/hero-block-1.jpg">
+                            <source media="(min-width: 1024px)" srcset="img/img/hero-block/1024/hero-block-1.jpg">
+                            <source media="(min-width: 768px)" srcset="img/img/hero-block/768/hero-block-1.jpg">
+                            <source media="(max-width: 767px)" srcset="img/img/hero-block/320/hero-block-1.jpg">
+
+                            <img src="img/img/hero-block/hero-block-1.jpg" alt="картинка 1" class="hero-block__img-slider">
+                        </picture>
+                    </li>
+                    <li class="swiper-slide">
+                        <picture>
+                            <source type="image/webp" media="(min-width: 1400px)" srcset="img/img/hero-block/1920/hero-block-2.webp">
+                            <source type="image/webp" media="(min-width: 1024px)" srcset="img/img/hero-block/1024/hero-block-2.webp">
+                            <source type="image/webp" media="(min-width: 768px)" srcset="img/img/hero-block/768/hero-block-2.webp">
+                            <source type="image/webp" media="(max-width: 767px)" srcset="img/img/hero-block/320/hero-block-2.webp">
+
+                            <source media="(min-width: 1400px)" srcset="img/img/hero-block/1920/hero-block-2.jpg">
+                            <source media="(min-width: 1024px)" srcset="img/img/hero-block/1024/hero-block-2.jpg">
+                            <source media="(min-width: 768px)" srcset="img/img/hero-block/768/hero-block-2.jpg">
+                            <source media="(max-width: 767px)" srcset="img/img/hero-block/320/hero-block-2.jpg">
+
+                            <img src="img/img/hero-block/hero-block-2.jpg" alt="картинка 2" class="hero-block__img-slider">
+                        </picture>
+                    </li>
+                    <li class="swiper-slide">
+                        <picture>
+                            <source type="image/webp" media="(min-width: 1400px)" srcset="img/img/hero-block/1920/hero-block-3.webp">
+                            <source type="image/webp" media="(min-width: 1024px)" srcset="img/img/hero-block/1024/hero-block-3.webp">
+                            <source type="image/webp" media="(min-width: 768px)" srcset="img/img/hero-block/768/hero-block-3.webp">
+                            <source type="image/webp" media="(max-width: 767px)" srcset="img/img/hero-block/320/hero-block-3.webp">
+
+                            <source media="(min-width: 1400px)" srcset="img/img/hero-block/1920/hero-block-3.jpg">
+                            <source media="(min-width: 1024px)" srcset="img/img/hero-block/1024/hero-block-3.jpg">
+                            <source media="(min-width: 768px)" srcset="img/img/hero-block/768/hero-block-3.jpg">
+                            <source media="(max-width: 767px)" srcset="img/img/hero-block/320/hero-block-3.jpg">
+
+                            <img src="img/img/hero-block/hero-block-3.jpg" alt="картинка 3" class="hero-block__img-slider">
+                        </picture>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="container hero-block__container">
+                <h1 class="hero-block__title">
+                    Прикоснитесь к&nbsp;прекрасному
+                </h1>
+
+                <p class="hero-block__subtitle">
+                    Мы&nbsp;вынуждены отталкиваться от&nbsp;того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.
+                </p>
+
+                <a href="#" class="hero-block__link">
+                    Подписаться на рассылку
+                </a>
+            </div>
+        </section>
+
+        <section id="about-us" class="about-us">
+            <div class="container">
+                <h2 class="about-us__title">
+                    О нас
+                </h2>
+
+                <p class="about-us__subtitle">
+                    Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов. Не следует, однако, забывать, что высококачественный прототип будущего проекта влечет за собой процесс внедрения и модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса распределения внутренних резервов и ресурсов. В рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть разоблачены.
+                </p>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <div class="container gallery__container">
+                <h2 class="gallery__title">
+                    Галерея
+                </h2>
+
+                <div id="choices-gallery" class="gallery__sort-block">
+                    <h3 class="gallery__sort-title">
+                        Фильтровать по:
+                    </h3>
+
+                    <select id="js-gallery-select-1" class="cs-select cs-skin-elastic gallery__select">
+                        <option value="" disabled selected>Автор</option>
+                        <option value="Van Gogh" data-class="Van Gogh">Ван Гог</option>
+                        <option value="not Van Gogh 1" data-class="not Van Gogh 1">не Ван Гог 1</option>
+                        <option value="not Van Gogh 2" data-class="not Van Gogh 2">не Ван Гог 2</option>
+                        <option value="not Van Gogh 3" data-class="not Van Gogh 3">не Ван Гог 3</option>
+                    </select>
+
+                    <select id="js-gallery-select-2" class="cs-select cs-skin-elastic">
+                        <option value="" disabled selected>Направление</option>
+                        <option value="impressionism" data-class="impressionism">импрессионизм</option>
+                        <option value="not impressionism 1" data-class="not impressionism 1">не импрессионизм 1</option>
+                        <option value="not impressionism 2" data-class="not impressionism 2">не импрессионизм 2</option>
+                        <option value="not impressionism 3" data-class="not impressionism 3">не импрессионизм 3</option>
+                    </select>
+
+                    <select id="js-gallery-select-3" class="cs-select cs-skin-elastic">
+                        <option value="" disabled selected>Техника</option>
+                        <option value="ipasto" data-class="ipasto">ипасто</option>
+                        <option value="not ipasto 1" data-class="not ipasto 1">не ипасто 1</option>
+                        <option value="not ipasto 2" data-class="not ipasto 2">не ипасто 2</option>
+                        <option value="not ipasto 3" data-class="not ipasto 3">не ипасто 3</option>
+                    </select>
+                </div>
+
+                <p class="gallery__info-text">
+                    Вам предоставляется 10&nbsp;бесплатных скачиваний. Для увеличения количества скачиваний 
+                    <a href="#" class="gallery__info-text_link">
+                        авторизуйтесь,
+                    </a>
+                    либо воспользуйтесь лицензией.
+                </p>
+
+                <div class="gallery__slider">
+                    <div class="gallery__swiper-contrlo-panel">
+                        <div class="gallery__swiper-button-prev"></div>
+                        <div class="gallery__swiper-fraction"></div>
+                        <div class="gallery__swiper-button-next"></div>
+                    </div>
+
+                    <div id="js-gallery-slider" class="swiper-container gallery__slider-container">
+                        <ul id="js-gallery-track" class="swiper-wrapper gallery__swiper-wrapper"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalog" class="catalog">
+            <div class="container">
+                <div class="catalog__main-block">
+                    <h2 class="catalog__title">
+                        Каталог
+                    </h2>
+    
+                    <ul class="catalog__flags-list">
+                        <li class="catalog__flags-item">
+                            <a href="#france" class="catalog__flags-link catalog__flags-link_is-active" aria-label="Просмотреть каталог франции"></a>
+                        </li>
+                        <li class="catalog__flags-item">
+                            <a href="#germany" class="catalog__flags-link" aria-label="Просмотреть каталог германии"></a>
+                        </li>
+                        <li class="catalog__flags-item">
+                            <a href="#italy" class="catalog__flags-link" aria-label="Просмотреть каталог италии"></a>
+                        </li>
+                        <li class="catalog__flags-item">
+                            <a href="#russia" class="catalog__flags-link" aria-label="Просмотреть каталог россии"></a>
+                        </li>
+                        <li class="catalog__flags-item">
+                            <a href="#belgium" class="catalog__flags-link" aria-label="Просмотреть каталог бельгии"></a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <p class="catalog__subtitle">
+                    Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы. 
+                </p>
+                
+                <div id="js-catalog-full-info" class="catalog__person-block">
+                    <div id="js-catalog-individual-block" class="catalog__individual-block"></div>
+    
+                    <ul id="js-catalog-data-list" class="catalog__data-list"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="events">
+            <div class="container">
+                <h2 class="events__title">
+                    События
+                </h2>
+    
+                <div id="js-event-block-swiper" class="events__swiper-container swiper-container">
+                    <ul id="js-events__list" class="events__list swiper-wrapper" aria-labelledby="js-all-events-btn"></ul>
+
+                    <div class="events__swiper-pagination"></div>
+                </div>
+
+                <button type="button" 
+                        id="js-all-events-btn" 
+                        class="events__all-events-btn"
+                        aria-controls="js-events__list" 
+                        aria-expanded="false">
+                </button>
+            </div>
+        </section>
+
+        <section id="editions" class="editions">
+            <div class="editions__container container">
+                <h2 class="editions__title">
+                    Издания
+                </h2>
+
+                <div class="editions__check-block">
+                    <div class="editions__container-check">
+                        <h3 id="js-editions-title-check" class="editions__title-check">
+                            Категории
+                        </h3>
+
+                        <ul id="js-editions-list-check" class="editions__list-check">
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Бестселлеры
+                                    </span>
+                                </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Искусство
+                                    </span> 
+                                </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Архитектура
+                                    </span>
+                                </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Дизайн
+                                    </span>  
+                                </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Мода
+                                    </span> 
+                                </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Детям
+     
+                                    </span>                           </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Художественная литература
+                                    </span>
+                                </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Публицистика
+                                    </span>
+                                </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Путеводители
+                                    </span>
+                                </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Философия
+                                    </span>    
+                                </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Учебная литература
+                                    </span>
+                                </label>
+                            </li>
+
+                            <li class="editions__item-check">
+                                <label class="editions__label-check">
+                                    <input type="checkbox" class="editions__inpyt-check">
+                                    <span class="editions__span-check"></span>
+                                    <span class="editions__span-text">
+                                        Журналы и газеты
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+
+                        <ul id="js-editions-container-list-check" class="editions__container-list-check"></ul>
+                    </div>
+
+                    <form action="#" class="editions__price-form">
+                        <h3 class="editions__price-title">
+                            Цена
+                        </h3>
+
+                        <label class="editions__price-label">
+                            <span class="editions__price-text">
+                                От
+                            </span>
+
+                            <input class="editions__price-input" value="50" name="min" type="number">
+                        </label>
+
+                        <label class="editions__price-label">
+                            <span class="editions__price-text">
+                                до
+                            </span>
+
+                            <input class="editions__price-input" value="25000" name="max" type="number">
+
+                            <span class="editions__price-text">
+                                руб.
+                            </span>
+                        </label>
+                    </form>
+                </div>
+
+                <div class="editions__slider">
+                    <div id="js-editions-slider" class="swiper-container editions__slider-container">
+                        <div class="editions__swiper-contrlo-panel">
+                            <div class="editions__swiper-button-prev"></div>
+                            <div class="editions__swiper-fraction"></div>
+                            <div class="editions__swiper-button-next"></div>
+                        </div>
+    
+                        <ul id="js-editions-track" class="swiper-wrapper editions__swiper-wrapper"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="projects__title">
+                    Проекты
+                </h2>
+
+                <p class="projects__discription">
+                    Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А&nbsp;ещё независимые государства смешаны с&nbsp;не&nbsp;уникальными данными до&nbsp;степени совершенной неузнаваемости, из-за чего возрастает их&nbsp;статус бесполезности. Прежде всего, постоянное информационно-пропагандистское
+                    <span class="projects__discription_tooltip" tabindex="0">
+                        <span class="projects__discription_icon" aria-describedby="projects__discription-tooltip-1"></span>
+
+                        <span id="projects__discription-tooltip-1" class="projects__discription_tooltip-content" role="tooltip">
+                            Пример современных тенденций - современная методология разработки 
+
+                            <span class="projects__discription_tooltip-arrow" data-popper-arrow></span>
+                        </span>
+                    </span>
+                    обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И&nbsp;нет сомнений, что действия представителей оппозиции могут быть рассмотрены 
+                    <span class="projects__discription_tooltip" tabindex="0">
+                        <span class="projects__discription_icon" aria-describedby="projects__discription-tooltip-2"></span>
+
+                        <span id="projects__discription-tooltip-2" class="projects__discription_tooltip-content" role="tooltip">
+                            Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции 
+
+                            <span class="projects__discription_tooltip-arrow" data-popper-arrow></span>
+                        </span>
+                    </span>
+                    исключительно в&nbsp;разрезе маркетинговых и&nbsp;финансовых 
+                    <span class="projects__discription_tooltip" tabindex="0">
+                        <span class="projects__discription_icon" aria-describedby="projects__discription-tooltip-3"></span>
+
+                        <span id="projects__discription-tooltip-3" class="projects__discription_tooltip-content" role="tooltip">
+                            В стремлении повысить качество 
+
+                            <span class="projects__discription_tooltip-arrow" data-popper-arrow></span>
+                        </span>
+                    </span>
+                    предпосылок. Банальные, но&nbsp;неопровержимые выводы, а&nbsp;также представители современных социальных резервов призывают нас к&nbsp;новым свершениям, которые, в&nbsp;свою очередь, должны быть смешаны с&nbsp;не&nbsp;уникальными данными до&nbsp;степени совершенной неузнаваемости. Подробнее: 
+                    <a href="#" class="projects__discription_link">
+                        blanchard-art.ru/projects/about
+                    </a>
+                </p>
+
+                <h3 class="projects__subtitle">
+                    Партнёры проектов:
+                </h3>
+
+                <div class="projects__slider">
+                    <div class="projects__swiper-button-prev"></div>
+                    <div class="projects__swiper-button-next"></div>
+                    
+                    <div id="js-projects-slider" class="swiper-container projects__slider-container">
+                        <ul id="js-projects-track" class="swiper-wrapper projects__swiper-wrapper"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <section id="contacts" class="contacts">
+            <div class="contacts__container">
+                <h2 class="contacts__title">
+                    Контакты
+                </h2>
+
+                <div class="contacts__form-subtitle-container">
+                    <h3 class="contacts__form-subtitle">
+                        <span class="contacts__form-subtitle_title">
+                            Шоурум №4
+                        </span>
+                        <span class="contacts__form-subtitle_text">
+                            Леонтьевский переулок, дом 5, строение 1
+                        </span>
+                    </h3>
+                </div>
+
+                <div class="contacts__form-block">
+                    <div class="contacts__form-block-container">
+                        <form action="#" class="contacts__form">
+                            <h4 class="contacts__form-title">
+                                Заказать обратный звонок
+                            </h4>
+    
+                            <input class="contacts__input" type="text" placeholder="Имя*">
+    
+                            <input class="contacts__input" type="text" placeholder="Телефон*">
+    
+                            <button class="contacts__btn" type="submit">
+                                Заказать
+                            </button>
+                        </form>
+                 
+                        <h4 class="contacts__connect-title">
+                            Связаться в один клик
+                        </h4>
+    
+                        <ul class="contacts__conntect-list">
+                            <li class="contacts__conntect-item">
+                                <a href="#" class="contacts__conntect-link"></a>
+                            </li>
+                            <li class="contacts__conntect-item">
+                                <a href="#" class="contacts__conntect-link"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            <div id="js-contacts-card-block" class="contacts__card-block">
+                    
+                </div>
+           </div>
+        </section>
+
+        <div id="js-modal-img" class="modal">
+            <div class="modal__container" role="dialog" aria-modal="true">
+                <button class="btn-reset modal__close" aria-label="Закрыть модальное окно"></button>
+
+                <div id="js-modal-img-content" class="modal__content modal-content">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <a class="footer__logo"></a>
+
+            <ul class="footer__list">
+                <li class="footer__item">
+                    <a href="#" class="footer__link"></a>
+                </li>
+                <li class="footer__item">
+                    <a href="#" class="footer__link"></a>
+                </li>
+                <li class="footer__item">
+                    <a href="#" class="footer__link"></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <a href="#js-header" id="js-link-top" class="link-top"></a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="js/all.js"></script>
+</body>
+</html>
+
+    
