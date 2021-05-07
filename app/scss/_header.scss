@@ -558,7 +558,7 @@
         background: rgba(0, 0, 0, 0.4);
         right: 0;
         left: 0;
-        padding: 13px 0 9px;
+        padding: 22px 0;
 
         z-index: 100;
     }
@@ -569,7 +569,6 @@
 
         transform: translateY(-50%);
     }
-
 
     &__container {
         display: grid;
@@ -600,11 +599,105 @@
     }
 
     &__drop-item{
+        position: relative;
+
         @include px1400{
             &:not(:last-child){
                 margin-right: 7%;
             }
         }
+    }
+
+    //дроп лист
+
+    &__drop-active{
+        cursor: pointer;
+        margin-left: 7px;
+
+        position: relative;
+        padding-right: 22px;
+
+        background-color: transparent;
+        border: none;
+        //outline: none;
+        color: white;
+
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 400;
+
+        &::after{
+            content: '';
+            display: block;
+
+            position: absolute;
+            right: 7px;
+            top: 57%;
+
+            transform: translateY(-50%) rotate(90deg);
+
+            width: 12px;
+            height: 12px;
+
+            background-image:inline-svg("arrow", $WHITE );
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        &_active{
+            &::after{
+                transform: translateY(-50%) rotate(-90deg);
+            }
+        }
+
+    }
+
+    &__drop-item-container-list{
+        display: none;
+
+        position: absolute;
+        top: 48px;
+
+        width: 300px;
+        height: 300px;
+
+        padding: 40px;
+        padding-right: 19px;
+
+        background:rgba(0, 0, 0, 0.4);
+
+        &_active{
+            display: block;
+        }
+    }
+
+    &__drop-item-list{
+        height: 230px;
+    }
+
+    &__drop-item-item{
+        margin: 3px;
+        &:not(:last-child){
+            margin-bottom: 20px;
+        }
+
+        width: calc(100% - 21px);
+    }
+
+    &__drop-item-link{
+        color: white;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        padding: 10px 0 12px 14px;
+        &_active{
+
+        }
+
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 19px;
     }
 
     &__search-block {

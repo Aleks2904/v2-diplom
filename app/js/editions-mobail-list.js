@@ -165,8 +165,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             }
         })
-
-
     }
 
     function settingCheck(li){

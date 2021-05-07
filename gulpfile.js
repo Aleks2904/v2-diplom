@@ -30,9 +30,6 @@ const jsFiles = [
     'app/js/imgModal.js',
     'app/js/graph-modal.js',
 
-    //width-select
-    'app/js/width-select.js',
-
     //castom-scroll
     'app/js/castom-scroll.js',
 
@@ -41,12 +38,14 @@ const jsFiles = [
     
     //header
     'app/js/select-header.js',
+    'app/js/bgHeaderDropList.js',
     'app/js/btn-menu.js',
     'app/js/search.js',
     
     //hero-block
 
     //gallery
+    'app/js/select-gallerey.js',
     'app/js/gallerey-img.js',
 
     //catalog
@@ -71,9 +70,6 @@ const jsFiles = [
 
     //swiper
     'app/js/swiper.js',
-
-    //bgChoise
-    'app/js/bgChoise.js'
 ]
 
 const cssFiles = [

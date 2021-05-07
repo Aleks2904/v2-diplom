@@ -50,9 +50,7 @@ document.addEventListener('DOMContentLoaded', function(){
             });
 
             open.then(()=>{
-                
-                    new GraphModal().open(graphAttr);
-                
+                new GraphModal().open(graphAttr);
             })
         }
     });
@@ -67,4 +65,6 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+    
+ 
 })

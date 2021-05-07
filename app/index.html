@@ -87,74 +87,304 @@
         <div class="header-search-block">
             <div class="container header-search-block__container">
                 <ul id="header-select" class="header-search-block__drop-list">
-                    <li class="header-search-block__drop-item" id="js-header-choise-list-1">
-                        <select id="js-select-1" class="cs-select cs-skin-rotate">
-                            <option value="1">Реализм</option>
-                            <option value="2">Тинторетто</option>
-                            <option value="3">Фридрих</option>
-                            <option value="4">Леонардо</option>
-                            <option value="5">Верроккьо</option>
-                            <option value="6">Велоцираптор</option>
-                            <option value="7">Спинозавр</option>
-                            <option value="8">Археоптерикс</option>
-                            <option value="9">Апатозавр</option>
-                        </select>
+                    <li class="header-search-block__drop-item">
+                        <button type="button" 
+                              id="drop-active-1" 
+                              class="header-search-block__drop-active"
+                              aria-label="открыть cписок" 
+                              aria-controls="js-header-list-1" 
+                              aria-expanded="false"
+                            ></button>
+
+                        <div class="header-search-block__drop-item-container-list" id="js-header-list-1" aria-labelledby="drop-active-1">
+                            <ul class="header-search-block__drop-item-list">
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link header-search-block__drop-item-link_active">
+                                        Реализм
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Тинторетто
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Фридрих
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Леонардо
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Верроккьо
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Велоцираптор
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Спинозавр
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Археоптерикс
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Апатозавр
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
-                    <li class="header-search-block__drop-item" id="js-header-choise-list-2">
-                        <select id="js-select-2" class="cs-select cs-skin-rotate">
-                            <option value="1">Импрессионизм</option>
-                            <option value="2">Моне</option>
-                            <option value="3">Сислей</option>
-                            <option value="4">Мане</option>
-                            <option value="5">Ренуар</option>
-                            <option value="6">Велоцираптор</option>
-                            <option value="7">Спинозавр</option>
-                            <option value="8">Археоптерикс</option>
-                            <option value="9">Апатозавр</option>
-                        </select>
+                    <li class="header-search-block__drop-item">
+                        <button type="button" 
+                              id="drop-active-2" 
+                              class="header-search-block__drop-active"
+                              aria-label="открыть cписок" 
+                              aria-controls="js-header-list-2" 
+                              aria-expanded="false"
+                            ></button>
+
+                        <div class="header-search-block__drop-item-container-list" id="js-header-list-2" aria-labelledby="drop-active-2">
+                            <ul class="header-search-block__drop-item-list">
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link header-search-block__drop-item-link_active">
+                                        Импрессионизм
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Моне
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Сислей
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Мане
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Ренуар
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Велоцираптор
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Спинозавр
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Археоптерикс
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Апатозавр
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
-                    <li class="header-search-block__drop-item" id="js-header-choise-list-3">
-                        <select id="js-select-3" class="cs-select cs-skin-rotate">
-                            <option value="1">Постимпрессионизм</option>
-                            <option value="2">Ван Гог</option>
-                            <option value="3">Сезанн</option>
-                            <option value="4">Гоген</option>
-                            <option value="5">Сёра</option>
-                            <option value="6">Велоцираптор</option>
-                            <option value="7">Спинозавр</option>
-                            <option value="8">Археоптерикс</option>
-                            <option value="9">Апатозавр</option>
-                        </select>
+                    <li class="header-search-block__drop-item">
+                        <button type="button" 
+                              id="drop-active-3" 
+                              class="header-search-block__drop-active"
+                              aria-label="открыть cписок" 
+                              aria-controls="js-header-list-3" 
+                              aria-expanded="false"
+                            ></button>
+
+                        <div class="header-search-block__drop-item-container-list" id="js-header-list-3" aria-labelledby="drop-active-3">
+                            <ul class="header-search-block__drop-item-list">
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link header-search-block__drop-item-link_active">
+                                        Постимпрессионизм
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        ВанГог
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Сезанн
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Гоген
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Сёра
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Велоцираптор
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Спинозавр
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Археоптерикс
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Апатозавр
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
-                    <li class="header-search-block__drop-item" id="js-header-choise-list-4">
-                        <select id="js-select-4" class="cs-select cs-skin-rotate">
-                            <option value="1">Авангард</option>
-                            <option value="2">Кандинский</option>
-                            <option value="3">Маринетти</option>
-                            <option value="4">Малевич</option>
-                            <option value="5">Пикассо</option>
-                            <option value="6">Велоцираптор</option>
-                            <option value="7">Спинозавр</option>
-                            <option value="8">Археоптерикс</option>
-                            <option value="9">Апатозавр</option>
-                        </select>
+                    <li class="header-search-block__drop-item">
+                        <button type="button" 
+                              id="drop-active-4" 
+                              class="header-search-block__drop-active"
+                              aria-label="открыть cписок" 
+                              aria-controls="js-header-list-4" 
+                              aria-expanded="false"
+                            ></button>
+
+                        <div class="header-search-block__drop-item-container-list" id="js-header-list-4" aria-labelledby="drop-active-4">
+                            <ul class="header-search-block__drop-item-list">
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link header-search-block__drop-item-link_active">
+                                        Авангард
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Кандинский
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Маринетти
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Малевич
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Пикассо
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Велоцираптор
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Спинозавр
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Археоптерикс
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Апатозавр
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
-                    <li class="header-search-block__drop-item" id="js-header-choise-list-5">
-                        <select id="js-select-5" class="cs-select cs-skin-rotate">
-                            <option value="1">Футуризм</option>
-                            <option value="2">Карра</option>
-                            <option value="3">Прателла</option>
-                            <option value="4">Северини</option>
-                            <option value="5">Балла</option>
-                            <option value="6">Велоцираптор</option>
-                            <option value="7">Спинозавр</option>
-                            <option value="8">Археоптерикс</option>
-                            <option value="9">Апатозавр</option>
-                        </select>
+                    <li class="header-search-block__drop-item">
+                        <button type="button"  
+                              id="drop-active-5" 
+                              class="header-search-block__drop-active"
+                              aria-label="открыть cписок" 
+                              aria-controls="js-header-list-5" 
+                              aria-expanded="false"
+                            ></button>
+
+                        <div class="header-search-block__drop-item-container-list" id="js-header-list-5" aria-labelledby="drop-active-5">
+                            <ul class="header-search-block__drop-item-list">
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link header-search-block__drop-item-link_active">
+                                        Футуризм
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Карра
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Прателла
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Северини
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Балла
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Велоцираптор
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Спинозавр
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Археоптерикс
+                                    </a>
+                                </li>
+                                <li class="header-search-block__drop-item-item">
+                                    <a href="#" class="header-search-block__drop-item-link">
+                                        Апатозавр
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
 
@@ -650,9 +880,8 @@
                         </ul>
                     </div>
                 </div>
-            <div id="js-contacts-card-block" class="contacts__card-block">
-                    
-                </div>
+
+                <div id="js-contacts-card-block" class="contacts__card-block"></div>
            </div>
         </section>
 
