@@ -14,11 +14,15 @@ document.addEventListener('DOMContentLoaded', function(){
                 let xhr = new XMLHttpRequest();
                 xhr.open('GET', img, true);
                 xhr.responseType = 'text';
-                xhr.onload = function (){
+                xhr.onreadystatechange = function (){
+                    
                     if(xhr.readyState == 4 && xhr.status === 200){
                         it.style.backgroundImage = `url("${img}")`;
+                    }else{
+                        return false;
                     }
                 }
+
                 xhr.send();
             })
 

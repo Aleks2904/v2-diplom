@@ -38,7 +38,7 @@ const jsFiles = [
     
     //header
     'app/js/select-header.js',
-    'app/js/bgHeaderDropList.js',
+    'app/js/bg-header-drop-list.js',
     'app/js/btn-menu.js',
     'app/js/search.js',
     
