@@ -25,10 +25,12 @@ document.addEventListener('DOMContentLoaded', function(){
             nav.style.height = `65vh`;
         }
         
-        nav.setAttribute('aria-label', 'меню открыто');
-        nav.classList.add('header-nav-block__nav-block_is-active');
-        nav.classList.remove('header-nav-block__nav-block_anima-close');
-        nav.classList.add('header-nav-block__nav-block_anima-open');
+        if(width < 1400){
+            nav.setAttribute('aria-label', 'меню открыто');
+            nav.classList.add('header-nav-block__nav-block_is-active');
+            nav.classList.remove('header-nav-block__nav-block_anima-close');
+            nav.classList.add('header-nav-block__nav-block_anima-open');
+        }
     })
 
     btnClose.addEventListener('click', function(e){
@@ -46,10 +48,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
     body.addEventListener('click', (e)=>{
         if(!nav.contains(e.target) && !btn.contains(e.target)){
+            const width = document.documentElement.clientWidth;
+
             nav.setAttribute('aria-label', 'меню закрыто');
             nav.classList.remove('header-nav-block__nav-block_anima-close');
             nav.classList.remove('header-nav-block__nav-block_anima-open');
-            nav.classList.add('header-nav-block__nav-block_anima-close');
+
+            if(width < 1400){
+                nav.classList.add('header-nav-block__nav-block_anima-close');
+            }
     
             setTimeout(()=>{
                 nav.classList.remove('header-nav-block__nav-block_is-active');
