@@ -9,8 +9,25 @@
     max-width: 900px;
     max-height: 500px;
 
-    width: 47vw;
-    height: 26vw;
+    @include px1400{
+        width: 47vw;
+        height: 26vw;
+    }
+
+    @include px1024-1399{
+        width: 70vw;
+        height: 50vh;
+    }
+
+    @include px768-1023{
+        width: 70vw;
+        height: 50vh;
+    }
+
+    @include px767{
+        width: 95vw;
+        height: 60vh;
+    }
 
     transform: translate(-50%,-50%);
     z-index: 15;
@@ -144,11 +161,22 @@
     }
 
     &__title{
-        font-weight: 600;
-        font-size: 24;
-        line-height: 33px;
+        @include px768{
+            font-weight: 600;
+            font-size: 24;
+            line-height: 33px;
 
-        margin-left: -1px;
+            margin-left: -1px;
+        }
+        @include px767{
+            font-weight: 600;
+            font-size: 18;
+            line-height: 24px;
+
+            margin-left: -1px;
+
+            margin-bottom: 20px;
+        }
     }
 
     &__pictureName{

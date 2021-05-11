@@ -30,7 +30,7 @@ function OpenModalImg(obg, e, el){
                             ${obg[id].yearsOfLife}
                         </time>
     
-                        <p class="modal__discription">
+                        <p class="modal__discription" >
                             ${obg[id].disc}
                         </p>
                     </div>

@@ -1,5 +1,5 @@
 .header {
-    background-color: $BLACK;
+    background-color: rgba(0, 0, 0, 1);
     position: relative;
     z-index: 11;
 }
@@ -614,7 +614,7 @@
 
         background-color: transparent;
         border: none;
-        //outline: none;
+        outline: 2px solid transparent;
         color: white;
 
         font-size: 18px;
@@ -638,6 +638,8 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
+
+            transition: background-image 0.3s;
         }
 
         &_active{
@@ -645,6 +647,30 @@
                 transform: translateY(-50%) rotate(-90deg);
             }
         }
+
+        &:hover {
+            @include hover;
+        }
+
+        &:hover::after{
+            background-image:inline-svg("arrow", $PURPLE );
+            transition: background-image 0.3s;
+        }
+
+        &:focus{
+            outline-color: $PURPLE;
+        }
+
+        &:focus:not(.focus-visible) {
+            outline-color: transparent;
+        }
+
+        &:active{
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        transition: color 0.3s;
 
     }
 
@@ -681,11 +707,15 @@
     }
 
     &__drop-item-link{
+        outline:2px solid transparent;
+        border: none;
+
         color: white;
         display: block;
         background-color: rgba(0, 0, 0, 0.7);
 
         padding: 10px 0 12px 14px;
+
         &_active{
 
         }
@@ -693,6 +723,25 @@
         font-weight: 600;
         font-size: 14px;
         line-height: 19px;
+
+        &:hover{
+            @include hover;
+        }
+
+        &:focus{
+            outline-color: $PURPLE !important;
+        }
+
+        &:focus:not(.focus-visible) {
+           outline: transparent;
+        }
+
+        &:active{
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        transition: color 0.3;
     }
 
     &__search-form {

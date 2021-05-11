@@ -10,15 +10,15 @@ $ACTIV-COLOR: #7943A4;
 $heightHeader1024: 100px;
 $heightHeader768-1023: 100px;
 $heightHeader767: 45px;
-$paddingXContainer1920: 160px;
-$paddingXContainer768: 50px;
+$paddingXContainer1920: 15px;
+$paddingXContainer768: 15px;
 $paddingXContainer320: 15px;
 
 .container{
     margin: 0 auto;
 
     @include px1400 {
-        max-width: 1920px;
+        max-width: 1630px;
         padding: 0 $paddingXContainer1920;
     }
 
