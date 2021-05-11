@@ -315,7 +315,7 @@
         }
     }
 
-    &__nav-list {
+    &__list {
         display: flex;
 
         @include px1400{
@@ -327,19 +327,19 @@
         }
     }
 
-    &__nav-item {
+    &__item {
         @include px1400{
             &:not(:last-child){
                 margin-right: 7%;
             }
 
-            &:hover > .header-nav-block__nav-link{
+            &:hover > .header-nav-block__link{
                 @include hover;
             }
         }
 
         @include px1399{
-            &:hover > .header-nav-block__nav-link{
+            &:hover > .header-nav-block__link{
                 @include hover;
             }
         }
@@ -357,7 +357,7 @@
         }
     }
 
-    &__nav-link {
+    &__link {
         position: relative;
         outline: none;
         border:none;
