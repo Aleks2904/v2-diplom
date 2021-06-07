@@ -106,3 +106,9 @@ $paddingXContainer320: 15px;
     clear: both;
     display: table;
 }
+
+.disable-scroll{
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}

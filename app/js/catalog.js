@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
-    const linkFlags = document.querySelectorAll('.catalog__flags-link'),
+    const btnFlags = document.querySelectorAll('.catalog__flags-btn'),
           catalogData = document.querySelector('#js-catalog-data-list'),
           personBlock = document.querySelector('#js-catalog-individual-block'),
           allPerson = document.querySelector('#js-catalog-full-info');
@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     //добавления списка персон и описания при загрузки страницы
 
-    linkFlags.forEach(function(link){
-        let flags = link.getAttribute('href');
+    btnFlags.forEach(function(link){
+        let flags = link.getAttribute('name');
             flags = flags.substring(1);
         let bg = `img/svg/flags/${flags}.svg`;
         link.style.backgroundImage = `url('${bg}')`;
@@ -22,17 +22,17 @@ document.addEventListener('DOMContentLoaded', function(){
             },1);
 
             setTimeout(()=>{    
-                linkFlags.forEach(function(ele){
-                    ele.classList.remove('catalog__flags-link_is-active');
+                btnFlags.forEach(function(ele){
+                    ele.classList.remove('catalog__flags-btn_is-active');
                 })
         
-                link.classList.add('catalog__flags-link_is-active');
+                link.classList.add('catalog__flags-btn_is-active');
 
                 addPerson(link);
             }, 501);
         });
 
-        if(link.classList.contains('catalog__flags-link_is-active')){
+        if(link.classList.contains('catalog__flags-btn_is-active')){
             addPerson(link);
         }
     })
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
     catalogData.addEventListener('click', function(e){
         const target = e.target;
 
-        if(target.tagName === 'A'){
+        if(target.tagName === 'BUTTON'){
             const allLinks = catalogData.querySelectorAll('.catalog__data-link');
 
             allLinks.forEach(function(elem){
@@ -62,11 +62,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     //функция добавления списка персон (и персоны при загрузки страницы)
 
-    function addPerson(link){
+    function addPerson(btn){
         catalogData.innerHTML = ``;
         personBlock.innerHTML = ``;
 
-        let flags = link.getAttribute('href');
+        let flags = btn.getAttribute('name');
             flags = flags.substring(1);
         const url = `../json/catalog/${flags}.json`;
 
@@ -140,9 +140,9 @@ document.addEventListener('DOMContentLoaded', function(){
                                     if(valueBtn ==  year){
                                         linkList.innerHTML += `
                                             <li class="catalog__data-item-link">
-                                                <a href="${flags+"/"+key[i]+"/"+peronsKey[k]}" class="catalog__data-link">
+                                                <button name="${flags+"/"+key[i]+"/"+peronsKey[k]}" class="catalog__data-link">
                                                     ${person}
-                                                </a>
+                                                </button>
                                             </li>
                                         `
                                     }
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function(){
             const btn = links.parentElement.parentElement.parentElement.querySelector('.catalog__data-btn'),
                   btnParent = btn.parentElement,
                   linkList = links.parentElement.parentElement;
-            let attr = links.getAttribute('href');
+            let attr = links.getAttribute('name');
                 attr = attr.split('/');
             
             links.classList.add('catalog__data-link_is-active');

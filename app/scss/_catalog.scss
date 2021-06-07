@@ -22,6 +22,8 @@
         @include px768{
             display: flex;
             align-items: center;
+
+            margin-bottom: 16px;
         }
     }
 
@@ -30,7 +32,6 @@
         margin-right: 43px;
 
         margin-left: -3px;
-    
 
         @include px767{
             margin-bottom: 12px;
@@ -60,7 +61,7 @@
     }
 
     &__flags-item {
-        &:hover > .catalog__flags-link{
+        &:hover > .catalog__flags-btn{
             box-shadow: 0 0 10px $ACTIV-COLOR;
             transition: box-shadow 0.3s;
         }
@@ -76,8 +77,10 @@
         } 
     }
 
-    &__flags-link{
+    &__flags-btn{
         outline: none;
+        border: none;
+        cursor: pointer;
         border-radius: 100%;
         
         display: block;
@@ -85,6 +88,8 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
+
+        background-color: transparent;
 
         &:focus{
             box-shadow: 0 0 15px 5px $ACTIV-COLOR;
@@ -137,14 +142,11 @@
         @include text;
 
         @include px1400{
-            margin-top: 16px;
             margin-bottom: 38px;
-
             max-width: 68%;
         }
 
         @include px1024-1399{
-            margin-top: 16px;
             margin-bottom: 39px;
         }
 
@@ -476,6 +478,9 @@
         display: inline-block;
         white-space: nowrap;
         outline: none;
+        background-color: transparent;
+
+        cursor: pointer;
 
         border: 2px solid transparent;
         border-radius: 10px;

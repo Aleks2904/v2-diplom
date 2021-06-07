@@ -87,8 +87,6 @@ class GraphModal {
 		this.modal.classList.add('is-open');
 		this.disableScroll();
 
-		console.log(this.modalContainer)
-
 		this.modalContainer.classList.add('modal-open');
 		this.modalContainer.classList.add(this.animation);
 		
@@ -143,7 +141,7 @@ class GraphModal {
 	}
 
 	disableScroll() {
-		let pagePosition = window.scrollY;
+		let pagePosition = window.pageYOffset;
 		this.lockPadding();
 		document.body.classList.add('disable-scroll');
 		document.body.dataset.position = pagePosition;
@@ -151,8 +149,9 @@ class GraphModal {
 	}
 
 	enableScroll() {
+		let test = document.body.dataset.position;
 		let pagePosition = parseInt(document.body.dataset.position, 10);
-		this.unlockPadding();
+		//this.unlockPadding();
 		document.body.style.top = 'auto';
 		document.body.classList.remove('disable-scroll');
 		window.scroll({
@@ -160,6 +159,8 @@ class GraphModal {
 			left: 0
 		});
 		document.body.removeAttribute('data-position');
+
+		console.log(test)
 	}
 
 	lockPadding() {
