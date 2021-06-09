@@ -149,9 +149,8 @@ class GraphModal {
 	}
 
 	enableScroll() {
-		let test = document.body.dataset.position;
 		let pagePosition = parseInt(document.body.dataset.position, 10);
-		//this.unlockPadding();
+		this.unlockPadding();
 		document.body.style.top = 'auto';
 		document.body.classList.remove('disable-scroll');
 		window.scroll({
@@ -159,8 +158,6 @@ class GraphModal {
 			left: 0
 		});
 		document.body.removeAttribute('data-position');
-
-		console.log(test)
 	}
 
 	lockPadding() {
@@ -177,6 +174,4 @@ class GraphModal {
 		});
 		document.body.style.paddingRight = '0px';
 	}
-
-	
 }

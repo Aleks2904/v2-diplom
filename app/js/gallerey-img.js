@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     let imgBase;
 
+    new GraphModal();
+
     let xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'json';
@@ -49,9 +51,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     resolve ();
             });
 
-            open.then(()=>{
-                new GraphModal().open(graphAttr);
-            })
+            // open.then(()=>{
+            //     new GraphModal().open(graphAttr);
+            // })
         }
     });
 
