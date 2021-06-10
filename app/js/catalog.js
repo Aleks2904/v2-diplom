@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
     catalogData.addEventListener('click', function(e){
         const target = e.target;
 
-        if(target.tagName === 'BUTTON'){
+        if(target.classList.contains('catalog__data-link')){
             const allLinks = catalogData.querySelectorAll('.catalog__data-link');
 
             allLinks.forEach(function(elem){
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function(){
                   btnParent = btn.parentElement,
                   linkList = links.parentElement.parentElement;
             let attr = links.getAttribute('name');
-                attr = attr.split('/');
+            attr = attr.split('/');
             
             links.classList.add('catalog__data-link_is-active');
             btnParent.classList.add('catalog__data-item_link-is-active');
