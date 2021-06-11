@@ -1,53 +1,27 @@
 document.addEventListener('DOMContentLoaded', function(){
     const headerChoise = document.querySelectorAll('.header-search-block__drop-item-container-list');
         
-    async function bgHeaderDropList(list){
-        list.forEach((el)=>{
-            const idEL = el.id,
-            item = el.querySelectorAll('.header-search-block__drop-item-link');
+    for(let i = 0; i < headerChoise.length; i++){
+        let lists = headerChoise[i],
+            listsId = lists.id,
+            links = lists.querySelectorAll('.header-search-block__drop-item-link');
 
-            item.forEach((it)=>{
-                const text = it.textContent.replace(/ +/g, ' ').trim(),
-                        img = `../img/img/header-drop-list/${idEL}/${text}.png`;
+        for(let k = 0; k < links.length ;k++){
+            let key = links[k],
+                keyTest = key.textContent.replace(/ +/g, ' ').trim(),
+                img = `../img/img/header-drop-list/${listsId}/${keyTest}.png`;
 
-                let response = fetch(img,{
-                    method: 'GET'
-                });
+            test(img, key)
+            //obg[k] = `'${key}'`;
 
-                console.log(response.ok)
-                
-                if(response.ok){
-                    it.style.backgroundImage = `url("${img}")`;
-                }
-            })
-
-            // item.forEach((it)=>{
-
-            //     // const text = it.textContent.replace(/ +/g, ' ').trim(),
-            //     //         img = `../img/img/header-drop-list/${idEL}/${text}.png`;
-
-            //     // let response = fetch(img,{
-            //     //     method: 'GET'
-            //     // });
-
-            //     // console.log(response.ok)
-
-            //     // let xhr = new XMLHttpRequest();
-            //     // xhr.open('GET', img, true);
-            //     // xhr.responseType = 'text';
-            //     // xhr.onreadystatechange = function (){
-                    
-            //     //     if(xhr.readyState == 4 && xhr.status === 200){
-            //     //         it.style.backgroundImage = `url("${img}")`;
-            //     //     }else{
-            //     //         return false;
-            //     //     }
-            //     // }
-
-            //     // xhr.send();
-            // })
-        })
+        }
     }
-
-   bgHeaderDropList(headerChoise);
+    
+    async function test(img, it){
+        let response = await fetch(img);
+        
+        if(response.ok){
+            it.style.backgroundImage = `url("${img}")`;
+        }  
+    }
 })

@@ -1,6 +1,6 @@
 .events {
     @include px1400{
-        padding-bottom: 80px;
+        padding-bottom: 81px;
     }
 
     @include px1024-1399{
@@ -162,7 +162,7 @@
         border-top: none;
 
         @include px1400{
-            padding: 0px 19px 42px 50px;
+            padding: 3px 19px 42px 50px;
         }
 
         @include px1024-1399{

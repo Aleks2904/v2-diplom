@@ -14,6 +14,13 @@
         height: 310px;
     }
 
+    &__swiper-container{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+
     &__img-slider {
         object-fit: cover;
         width: 100%;
@@ -32,25 +39,21 @@
     }
 
     &__container{
-        position: absolute;
         z-index: 10;
-        transform: translateX(-50%);
 
         width: 100%;
 
         @include px1400{
-            top: 141px;
-            left: 49.8%;
+           margin-top: 141px;
+            padding-left: 10px;
         }
 
         @include px768-1399{
-            top: 113px;
-            left: 49.2%;
+            
         }
 
         @include px767{
-            top: 34px;
-            left: 50%;
+            
         }
     }
 

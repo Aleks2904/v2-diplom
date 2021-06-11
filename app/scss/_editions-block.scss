@@ -728,6 +728,8 @@
         display: inline-block;
         text-align: center;
         width: 33%;
+
+        font-size: 15px;
     }
 
     &__swiper-wrapper{
@@ -960,7 +962,7 @@
 }
 
 .editions .swiper-button-disabled{
-    background-color: rgb(35, 35, 35);
+    opacity: 0.3;
 
     &:hover,
     &:focus{

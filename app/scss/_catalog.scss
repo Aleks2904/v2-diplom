@@ -3,7 +3,7 @@
 
     @include px1400{
         padding-top: 81px;
-        padding-bottom: 80px;
+        padding-bottom: 76px;
     }
 
     @include px1024-1399{
@@ -23,7 +23,7 @@
             display: flex;
             align-items: center;
 
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
     }
 
@@ -142,7 +142,7 @@
         @include text;
 
         @include px1400{
-            margin-bottom: 38px;
+            margin-bottom: 39px;
             max-width: 68%;
         }
 
@@ -394,7 +394,7 @@
         }
 
         @include px1024{
-            padding: 37px 2px 43px;
+            padding: 38px 2px 43px;
         }
 
         @include px768-1023{
@@ -425,7 +425,7 @@
                 grid-template-columns: repeat(3, 25%);
                 grid-column-gap: 7%;
                // height: 342px;
-                padding: 25px 1px 28px;
+                padding: 27px 1px 28px;
             }
 
             @include px1024-1399{

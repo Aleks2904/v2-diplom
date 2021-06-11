@@ -392,8 +392,8 @@
         }
 
         &::before{
-            width: 75%;
-            height: 75%;
+            width: calc(100% - 50px);
+            height: calc(100% - 50px);
             background-color: black;
         }
 
@@ -472,7 +472,7 @@
 }
 
 .gallery .swiper-button-disabled{
-    background-color: rgb(35, 35, 35);
+    opacity: 0.3;
 
     &:hover,
     &:focus{

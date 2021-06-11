@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function(){
     let width = window.innerWidth;
 
     btn.addEventListener('click',function(e){
+        e.preventDefault();
+        
         const attr = e.target.getAttribute('aria-expanded');
         addPerson(attr);
 
@@ -55,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     function addPerson(attr){
+        const scroll = window.pageYOffset;
         list.innerHTML = ``;
 
         const url = `../json/events/evens-item.json`;
@@ -133,6 +136,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             }
         xhr.send(null);
+
+        window.scrollTo(0, scroll);
     };
 
     function locationReload(){
