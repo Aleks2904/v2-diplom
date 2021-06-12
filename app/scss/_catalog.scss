@@ -7,7 +7,7 @@
     }
 
     @include px1024-1399{
-        padding-bottom: 79px;
+        padding-bottom: 83px;
     }
 
     @include px768-1023{
@@ -429,7 +429,7 @@
             }
 
             @include px1024-1399{
-                grid-template-columns: repeat(2, 25%);
+                grid-template-columns: repeat(2, 45%);
                 grid-column-gap: 12%;
                 padding: 25px 2px 29px;
             }
@@ -455,21 +455,6 @@
     }
 
     &__data-item-link{
-        @include px1400{
-            //width: 30%;
-        }
-
-        @include px1024-1399{
-            width: 42%;
-        }
-
-        @include px768-1023{
-            width: 27.8%;
-        }
-
-        @include px767{
-            width: 100%;
-        }
     }
 
     &__data-link{

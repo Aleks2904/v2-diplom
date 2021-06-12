@@ -44,12 +44,13 @@
         width: 100%;
 
         @include px1400{
-           margin-top: 141px;
+            margin-top: 141px;
             padding-left: 10px;
         }
 
         @include px768-1399{
-            
+            margin-top: 112px;
+            padding-left: 41px;
         }
 
         @include px767{
