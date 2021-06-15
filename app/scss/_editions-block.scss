@@ -11,8 +11,12 @@
         padding:  80px 0;
     }
 
+    @include px768-1023{
+        padding-bottom: 70px;
+    }
+
     @include px767{
-        padding:  50px 0 41px;
+        padding:  51px 0 44px;
     }
     
     
@@ -202,7 +206,7 @@
 
         @include px768-1023{
             display: grid;
-            grid-template-columns: repeat(3, 39%);
+            grid-template-columns: repeat(3, 37%);
             grid-row-gap: 14px;
             overflow: hidden;
         }
@@ -253,7 +257,7 @@
     }
 
     &__label-check{
-        display: flex;
+        display: inline-flex;
         align-items: center;
         position: relative;
 
@@ -618,7 +622,7 @@
         }
 
         @include px768-1399{
-            padding-left: 3%;
+            padding-left: 4%;
         }
     }
 
@@ -635,13 +639,16 @@
             margin-bottom: 30px;
         }
 
-        @include px1399{
+        @include px1024-1399{
             min-width: 130px;
             margin-top: 9px;
             margin-bottom: 29px;
         }
 
         @include px768-1023{
+            min-width: 130px;
+            margin-top: 8px;
+            margin-bottom: 29px;
             margin-left: -3.5%;
         }
 
@@ -900,7 +907,7 @@
             text-align: center;
 
             width: 126px;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         &::after{

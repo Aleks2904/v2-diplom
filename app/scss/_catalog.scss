@@ -15,7 +15,7 @@
     }
 
     @include px767{
-        padding-bottom: 51px;
+        padding-bottom: 55px;
     }
 
     &__main-block {
@@ -185,7 +185,7 @@
         }
 
         @include px768-1023{
-            grid-row-gap: 49px;
+            grid-row-gap: 50px;
         }
 
         &_is-leafing{
@@ -266,7 +266,7 @@
         }
 
         @include px767{
-            margin-bottom: 49px;
+            margin-bottom: 51px;
         }
     }
 
@@ -455,6 +455,11 @@
     }
 
     &__data-item-link{
+        @include px767{
+            &:not(:last-child){
+                margin-bottom: 0.8px;
+            }
+        }
     }
 
     &__data-link{

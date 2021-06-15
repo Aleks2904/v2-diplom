@@ -1,14 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     const headerChoise = document.querySelectorAll('.header-search-block__drop-item-container-list');
 
-    async function bgSave(img, item){
-        let response = await fetch(img);
-        
-        if(response.ok){
-            item.style.backgroundImage = `url("${img}")`;
-        }  
-    }
-
     headerChoise.forEach(el=>{
         let lists = el,
             listsId = lists.id,
@@ -16,10 +8,20 @@ document.addEventListener('DOMContentLoaded', function(){
 
         links.forEach(li=>{
             let key = li,
-            keyText = key.textContent.replace(/ +/g, ' ').trim(),
-            img = `../img/img/header-drop-list/${listsId}/${keyText}.png`;
+                keyText = key.textContent.replace(/ +/g, ' ').trim(),
+                img = `../img/img/header-drop-list/${listsId}/${keyText}.png`;
 
-            bgSave(img, key)
+            let myRequest = new Request(img);
+
+            fetch(myRequest)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                if (response.ok) {
+                    key.style.backgroundImage = `url("${img}")`;
+                }
+            }) 
         })
     })
 })

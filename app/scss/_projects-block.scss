@@ -22,7 +22,6 @@
 
         @include px767{
             margin-bottom: 12px;
-            margin-left: -4px;
         }
     }
 
@@ -79,6 +78,10 @@
                z-index: 2;
                transition: opacity 0.3s;
             }
+
+            @include px767{
+                margin: 0 2px;
+            }
         }
 
         &_icon{
@@ -134,7 +137,6 @@
             }
         }
         
-
         @include px1400{
             margin-bottom: 20px;
             width: 66%;
@@ -146,12 +148,12 @@
 
         @include px768-1023{
             width: 97%;
-            margin-bottom: 22px;
+            margin-bottom: 25px;
         }
 
         @include px767{
-            width: 102%;
-            margin-bottom: 9px;
+            line-height: 31px;
+            margin-bottom: 15px;
         }
     }
 
@@ -175,7 +177,6 @@
         
         @include px767{
             margin-bottom: 11px;
-            margin-left: -2px;
         }
     }
 

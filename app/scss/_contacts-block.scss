@@ -161,8 +161,11 @@
             max-width: 77.1%;
         }
 
-        @include px768-1023{
+        @include px1024-1399{
             margin-top: 4px;
+        }
+
+        @include px768-1023{
             max-width: 88.1%;
         }
     }
