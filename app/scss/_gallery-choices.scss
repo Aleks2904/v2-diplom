@@ -5,12 +5,6 @@
 
     }
 
-    &:hover::after,
-    &:focus::after{
-        opacity: 1;
-        transition: opacity 0.3s;
-    }
-
     &:hover .choices__inner,
     &:focus .choices__inner{
         border-color: $WHITE;
@@ -30,21 +24,27 @@
         width: 15px;
         height: 15px;
         position: absolute;
-        top: 50%;
+        top: 20px;
         right:14px;
         transform: translateY(-20%) rotate(90deg);
-        background-image:inline-svg("arrow", $WHITE );
+        background-image:inline-svg("arrow", $GRAY );
         background-size:cover;
         background-position:center;
         background-repeat:no-repeat;
         background-color: transparent;
         border: none;
 
-        opacity: 0;
+        opacity: 1;
 
         pointer-events: none;
 
-        transition: background-image 0.3s, opacity 0.3s;
+        transition: background-image 0.3s;
+    }
+
+    &:hover::after,
+    &:focus::after{
+        background-image:inline-svg("arrow", $WHITE);
+        transition: background-image 0.3s;
     }
 
     &__inner{
@@ -77,7 +77,9 @@
     }
 
     &__list--dropdown{
-        background: rgb(20, 20, 20);
+        background: transparent;
+        border: 1px solid $GRAY;
+        border-radius: 6px;
     }
 
     &__item{
@@ -93,7 +95,7 @@
     }   
 
     &__item--selectable{
-
+        padding: 2.5px 16px 2.5px 14px;
     }
 
     &__item--disabled{
@@ -101,7 +103,16 @@
     }
 
     &__item--choice{
+        border: 1px solid transparent;
 
+        &:not(:last-child){
+            border-bottom: 1px solid $GRAY;
+        }
+
+        border-radius: 0;
+        color: $GRAY;
+
+        transition: all 0.3s;
     }
 
     &__group{
@@ -124,15 +135,20 @@
 }
 
 #choices-gallery .is-highlighted{
-    background: black;
+    background-color: transparent;
+    border: 1px solid white !important;
+    border-radius: 6px;
+    color: white;
+
+    transition: all 0.3s;
 }
 
 #choices-gallery .is-open::after{
     margin-top: 0;
-    transform: translateY(-50%) rotate(-90deg);
+    transform: translateY(-40%) rotate(-90deg);
 }
 
-#choices-gallery .is-open > .choices__list--dropdown{
-    
+#choices-gallery .is-active{
+    position: relative !important;
 }
 

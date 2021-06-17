@@ -261,25 +261,35 @@
             height: 28px;
         }
 
-        &:hover{
-            background-color: $HOVER-COLOR;
-            transition: background-color 0.3s;
+        &:hover::before,
+        &:focus::before{
+            background-image:inline-svg("arrow", $HOVER-COLOR );
+            transition: background-image 0.3s;
+        }
+
+        &:hover,
+        &:focus{
+            border-color: $HOVER-COLOR;
+            transition: border-color 0.3s;
         }
 
         &:focus:not(.focus-visible) {
             border-color: transparent;
         }
 
-        &:focus{
-            border-color: $ACTIV-COLOR;
-            transition: border-color 0.3s;
+        &:focus:not(.focus-visible)::before {
+             background-image:inline-svg("arrow", $WHITE );
         }
 
         &:active{
-            border-color: $HOVER-COLOR;
-            background-color: $ACTIV-COLOR;
-            transform: scale(.9);
-            transition: border-color 0.3s, transform 0.3s, background-color 0.3s;
+            border-color: $ACTIV-COLOR;
+            transform: scale(1.1);
+            transition: border-color 0.3s, transform 0.2s;
+        }
+
+        &:active::before{
+            background-image:inline-svg("arrow",$ACTIV-COLOR );
+            transition: background-image 0.3s;
         }
 
         &::before{
@@ -482,7 +492,7 @@
 
     &:hover,
     &:focus{
-        border-color: transparent;
+        border-color: transparent !important;
         cursor: default;
     }
 
