@@ -16,12 +16,13 @@ document.addEventListener('DOMContentLoaded', function(){
             fetch(myRequest)
             .then(function(response) {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    console.clear();
                 }
                 if (response.ok) {
                     key.style.backgroundImage = `url("${img}")`;
                 }
             }) 
         })
+
     })
 })
